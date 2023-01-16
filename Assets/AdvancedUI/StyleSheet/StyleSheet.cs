@@ -383,6 +383,9 @@ namespace Dhs5.AdvancedUI
         [Space, Space]
         public bool handleActive = true;
         public ImageStyleSheet handleStyleSheet;
+        [Space, Space]
+        public bool textActive = true;
+        public TextStyleSheet textStyleSheet;
     }
 
     [System.Serializable]

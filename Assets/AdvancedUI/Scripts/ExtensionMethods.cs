@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 namespace Dhs5.AdvancedUI
 {
@@ -62,6 +63,18 @@ namespace Dhs5.AdvancedUI
         {
             if (graphic is Image) (graphic as Image).TransitionImage(state, instant, styleSheet.imageStyleSheet);
             if (graphic is TextMeshProUGUI) (graphic as TextMeshProUGUI).TransitionText(state, instant, styleSheet.textStyleSheet);
+        }
+
+
+        public static void SetUpImage(this Image image, ImageStyleSheet styleSheet)
+        {
+            if (image == null) throw new NullReferenceException();
+
+            image.sprite = styleSheet.baseSprite;
+            image.color = styleSheet.baseColor;
+            image.material = styleSheet.baseMaterial;
+            image.type = styleSheet.imageType;
+            image.pixelsPerUnitMultiplier = styleSheet.pixelsPerUnit;
         }
     }
 }
