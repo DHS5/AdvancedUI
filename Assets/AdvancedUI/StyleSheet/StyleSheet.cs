@@ -158,20 +158,35 @@ namespace Dhs5.AdvancedUI
     public enum AdvancedSliderType
     {
         CUSTOM = -1,
-        BASE = 0,
+        CLASSIC = 0,
+        CLASSIC_W_TEXT = 1,
+        NO_FILL = 2,
+        NO_FILL_W_TEXT = 3,
+        NO_BACK = 4,
+        NO_BACK_W_TEXT = 5,
     }
 
     [System.Serializable]
     public class SliderStyleSheetList
     {
-        public SliderStyleSheet baseT;
+        public SliderStyleSheet classic;
+        public SliderStyleSheet classicWithText;
+        public SliderStyleSheet noFill;
+        public SliderStyleSheet noFillWithText;
+        public SliderStyleSheet noBackground;
+        public SliderStyleSheet noBackgroundWithText;
 
 
         public SliderStyleSheet GetStyleSheet(AdvancedSliderType type)
         {
             return type switch
             {
-                AdvancedSliderType.BASE => baseT,
+                AdvancedSliderType.CLASSIC => classic,
+                AdvancedSliderType.CLASSIC_W_TEXT => classicWithText,
+                AdvancedSliderType.NO_FILL => noFill,
+                AdvancedSliderType.NO_FILL_W_TEXT => noFillWithText,
+                AdvancedSliderType.NO_BACK => noBackground,
+                AdvancedSliderType.NO_BACK_W_TEXT => noBackgroundWithText,
                 _ => null,
             };
         }
@@ -384,7 +399,7 @@ namespace Dhs5.AdvancedUI
         public bool handleActive = true;
         public ImageStyleSheet handleStyleSheet;
         [Space, Space]
-        public bool textActive = true;
+        public bool textActive = false;
         public TextStyleSheet textStyleSheet;
     }
 

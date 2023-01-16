@@ -76,5 +76,13 @@ namespace Dhs5.AdvancedUI
             image.type = styleSheet.imageType;
             image.pixelsPerUnitMultiplier = styleSheet.pixelsPerUnit;
         }
+
+        public static void SetUpText(this TextMeshProUGUI text, TextStyleSheet styleSheet)
+        {
+            text.color = styleSheet.transition.normalColor;
+            text.font = styleSheet.font;
+            text.fontStyle = styleSheet.fontStyle;
+            text.alignment = styleSheet.alignment;
+        }
     }
 }

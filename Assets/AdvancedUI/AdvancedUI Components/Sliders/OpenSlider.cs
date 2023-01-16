@@ -10,16 +10,19 @@ namespace Dhs5.AdvancedUI
     {
 
         public float FillHeight { set { fillRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, value); } }
+        
 
-#if UNITY_EDITOR
-        protected override void OnValidate()
+        protected override void OnRectTransformDimensionsChange()
         {
-            handleRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (transform as RectTransform).rect.height);
-
-            base.OnValidate();
+            ForceResizeHandle();
         }
-#endif
-
+        public void ForceResizeHandle()
+        {
+            if (direction == Direction.LeftToRight || direction == Direction.RightToLeft)
+                handleRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (transform as RectTransform).rect.height);
+            else
+                handleRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (transform as RectTransform).rect.width);
+        }
 
         #region Transitions
 

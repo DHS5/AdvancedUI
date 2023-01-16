@@ -8,26 +8,21 @@ using TMPro;
 
 namespace Dhs5.AdvancedUI
 {
+    #region Slider Content
     [Serializable]
     public struct SliderContent
     {
 
         // ### Properties ###
         [Header("Slider base properties")]
-        public Slider.Direction direction;
         public int minValue;
         public int maxValue;
         public bool wholeNumbers;
-        [Range(0, 1)] public float normalizedValue;
 
-        [Header("Slider size properties")]
-        [SerializeField] private int backgroundHeight; 
-        public int BackgroundHeight { get { return backgroundHeight > 0 ? backgroundHeight : 10; } set { backgroundHeight = value; } }
-        [SerializeField] private int fillHeight;
-        public int FillHeight { get { return fillHeight > 0 ? fillHeight : 10; } set { fillHeight = value; } }
-        [SerializeField] private int handleZoneDelta;
-        public int HandleZoneDelta { get { return handleZoneDelta > 0 ? handleZoneDelta : 10; } set { handleZoneDelta = value; } }
+        [Header("Text")]
+        public string text;
     }
+    #endregion
 
     public class AdvancedSlider : AdvancedComponent
     {
@@ -38,6 +33,7 @@ namespace Dhs5.AdvancedUI
         [Header("Slider Content")]
         [SerializeField] private SliderContent sliderContent;
         public SliderContent Content { get { return sliderContent; } set { sliderContent = value; } }
+        public float SliderValue { get { return slider.value; } set { slider.value = value; } }
 
 
         [Header("Custom Style Sheet")]
@@ -55,10 +51,7 @@ namespace Dhs5.AdvancedUI
         [Space]
         [SerializeField] private Image backgroundImage;
         [Space]
-        [SerializeField] private RectTransform handleArea;
         [SerializeField] private Image handle;
-        [Space]
-        [SerializeField] private RectTransform fillArea;
         [SerializeField] private Image fill;
         [Space]
         [SerializeField] private TextMeshProUGUI sliderText;
@@ -101,7 +94,6 @@ namespace Dhs5.AdvancedUI
             {
                 backgroundImage.enabled = CurrentStyleSheet.backgroundActive;
                 backgroundImage.SetUpImage(CurrentStyleSheet.backgroundStyleSheet);
-                backgroundImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Content.BackgroundHeight);
             }
 
             // Fill
@@ -110,21 +102,20 @@ namespace Dhs5.AdvancedUI
                 fill.enabled = CurrentStyleSheet.fillActive;
                 fill.SetUpImage(CurrentStyleSheet.fillStyleSheet);
             }
-            if (fillArea)
-            {
-                fillArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Content.FillHeight);
-            }
 
             // Handle
             if (handle)
             {
                 handle.enabled = CurrentStyleSheet.handleActive;
                 handle.SetUpImage(CurrentStyleSheet.handleStyleSheet);
-                handle.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (transform as RectTransform).rect.height);
             }
-            if (handleArea)
+
+            // Text
+            if (sliderText)
             {
-                handleArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (transform as RectTransform).rect.width - 2 * Content.HandleZoneDelta);
+                sliderText.enabled = CurrentStyleSheet.textActive;
+                sliderText.text = Content.text;
+                sliderText.SetUpText(CurrentStyleSheet.textStyleSheet);
             }
         }
 
@@ -132,12 +123,9 @@ namespace Dhs5.AdvancedUI
         {
             if (slider)
             {
-                slider.SetDirection(Content.direction, true);
                 slider.minValue = Content.minValue;
                 slider.maxValue = Content.maxValue;
                 slider.wholeNumbers = Content.wholeNumbers;
-                slider.normalizedValue = Content.normalizedValue;
-                //slider.FillHeight = Content.FillHeight;
             }
         }
 
