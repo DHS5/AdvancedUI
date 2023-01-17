@@ -44,6 +44,18 @@ namespace Dhs5.AdvancedUI
 
         #endregion
 
+        #region Sliders
+
+        // ### Sliders ###
+
+        [MenuItem("GameObject/UI/AdvancedUI/Sliders/Slider")]
+        public static void CreateSimpleSlider()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/AdvancedSlider.prefab");
+        }
+
+        #endregion
+
         #region Popup
 
         // ### Popup ###

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
+using System;
 
 namespace Dhs5.AdvancedUI
 {
     public class OpenSlider : Slider
     {
-
         public float FillHeight { set { fillRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, value); } }
         
 
@@ -23,6 +24,28 @@ namespace Dhs5.AdvancedUI
             else
                 handleRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (transform as RectTransform).rect.width);
         }
+
+        #region Events
+
+        // Events
+        public event Action OnSliderDown;
+        public event Action OnSliderUp;
+
+
+        public override void OnPointerDown(PointerEventData eventData)
+        {
+            base.OnPointerDown(eventData);
+
+            OnSliderDown?.Invoke();
+        }
+        public override void OnPointerUp(PointerEventData eventData)
+        {
+            base.OnPointerUp(eventData);
+
+            OnSliderUp?.Invoke();
+        }
+
+        #endregion
 
         #region Transitions
 

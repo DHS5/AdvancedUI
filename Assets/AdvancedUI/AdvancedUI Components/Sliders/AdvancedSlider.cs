@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 using System;
 using TMPro;
 
@@ -35,6 +35,16 @@ namespace Dhs5.AdvancedUI
         public SliderContent Content { get { return sliderContent; } set { sliderContent = value; } }
         public float SliderValue { get { return slider.value; } set { slider.value = value; } }
 
+        [Header("Events")]
+        [SerializeField] private UnityEvent<float> onValueChanged;
+        [SerializeField] private UnityEvent onButtonDown;
+        [SerializeField] private UnityEvent onButtonUp;
+
+        public event Action<float> OnValueChanged;
+        public event Action OnButtonDown { add { slider.OnSliderDown += value; } remove { slider.OnSliderDown -= value; } }
+        public event Action OnButtonUp { add { slider.OnSliderUp += value; } remove { slider.OnSliderUp -= value; } }
+
+
 
         [Header("Custom Style Sheet")]
         [SerializeField] private SliderStyleSheet customStyleSheet;
@@ -46,7 +56,7 @@ namespace Dhs5.AdvancedUI
                     styleSheetContainer ? styleSheetContainer.projectStyleSheet.sliderStyleSheets.GetStyleSheet(Type) : null; } }
 
 
-            [Header("UI Components")]
+        [Header("UI Components")]
         [SerializeField] private OpenSlider slider;
         [Space]
         [SerializeField] private Image backgroundImage;
@@ -72,11 +82,29 @@ namespace Dhs5.AdvancedUI
 
         protected override void LinkEvents()
         {
-            
+            slider.onValueChanged.AddListener(ValueChanged);
+            OnButtonDown += ButtonDown;
+            OnButtonUp += ButtonUp;
         }
         protected override void UnlinkEvents()
         {
-            
+            slider.onValueChanged?.RemoveListener(ValueChanged);
+            OnButtonDown -= ButtonDown;
+            OnButtonUp -= ButtonUp;
+        }
+
+        private void ValueChanged(float value)
+        {
+            onValueChanged?.Invoke(value);
+            OnValueChanged?.Invoke(value);
+        }
+        private void ButtonDown()
+        {
+            onButtonDown?.Invoke();
+        }
+        private void ButtonUp()
+        {
+            onButtonUp?.Invoke();
         }
 
         #endregion
