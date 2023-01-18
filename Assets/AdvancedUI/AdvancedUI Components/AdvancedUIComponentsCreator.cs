@@ -56,6 +56,18 @@ namespace Dhs5.AdvancedUI
 
         #endregion
 
+        #region Scrollbars
+
+        // ### Scrollbars ###
+
+        [MenuItem("GameObject/UI/AdvancedUI/Scrollbars/Scrollbar")]
+        public static void CreateSimpleScrollbar()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/AdvancedScrollbar.prefab");
+        }
+
+        #endregion
+
         #region Popup
 
         // ### Popup ###

@@ -248,20 +248,20 @@ namespace Dhs5.AdvancedUI
     public enum AdvancedScrollbarType
     {
         CUSTOM = -1,
-        BASE = 0,
+        BASIC = 0,
     }
 
     [System.Serializable]
     public class ScrollbarStyleSheetList
     {
-        public ScrollbarStyleSheet baseT;
+        public ScrollbarStyleSheet basic;
 
 
         public ScrollbarStyleSheet GetStyleSheet(AdvancedScrollbarType type)
         {
             return type switch
             {
-                AdvancedScrollbarType.BASE => baseT,
+                AdvancedScrollbarType.BASIC => basic,
                 _ => null,
             };
         }

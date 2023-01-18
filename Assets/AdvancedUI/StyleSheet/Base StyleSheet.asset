@@ -2520,51 +2520,51 @@ MonoBehaviour:
           m_ColorMultiplier: 0
           m_FadeDuration: 0
   scrollbarStyleSheets:
-    baseT:
+    basic:
       backgroundActive: 1
       backgroundStyleSheet:
-        baseSprite: {fileID: 0}
-        baseColor: {r: 0, g: 0, b: 0, a: 0}
+        baseSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+        baseColor: {r: 1, g: 1, b: 1, a: 0.78431374}
         baseMaterial: {fileID: 0}
-        imageType: 0
+        imageType: 1
         pixelsPerUnit: 1
         transition:
-          transitionType: 0
+          transitionType: 1
           spriteState:
             m_HighlightedSprite: {fileID: 0}
             m_PressedSprite: {fileID: 0}
             m_SelectedSprite: {fileID: 0}
             m_DisabledSprite: {fileID: 0}
           colorBlock:
-            m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-            m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
-            m_ColorMultiplier: 0
-            m_FadeDuration: 0
+            m_NormalColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+            m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5882353}
+            m_PressedColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+            m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+            m_DisabledColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+            m_ColorMultiplier: 1
+            m_FadeDuration: 0.1
       handleActive: 1
       handleStyleSheet:
-        baseSprite: {fileID: 0}
-        baseColor: {r: 0, g: 0, b: 0, a: 0}
+        baseSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        baseColor: {r: 1, g: 1, b: 1, a: 1}
         baseMaterial: {fileID: 0}
-        imageType: 0
+        imageType: 1
         pixelsPerUnit: 1
         transition:
-          transitionType: 0
+          transitionType: 1
           spriteState:
             m_HighlightedSprite: {fileID: 0}
             m_PressedSprite: {fileID: 0}
             m_SelectedSprite: {fileID: 0}
             m_DisabledSprite: {fileID: 0}
           colorBlock:
-            m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-            m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
-            m_ColorMultiplier: 0
-            m_FadeDuration: 0
+            m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+            m_HighlightedColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+            m_PressedColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+            m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+            m_DisabledColor: {r: 0, g: 0, b: 0, a: 1}
+            m_ColorMultiplier: 1
+            m_FadeDuration: 0.1
   popupStyleSheets:
     info:
       popupStyleSheet:
