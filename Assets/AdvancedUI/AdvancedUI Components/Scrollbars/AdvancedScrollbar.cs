@@ -48,6 +48,8 @@ namespace Dhs5.AdvancedUI
 
         protected override void SetUpConfig()
         {
+            if (CurrentStyleSheet == null) return;
+
             // Background
             if (backgroundImage)
             {
@@ -58,7 +60,6 @@ namespace Dhs5.AdvancedUI
             // Handle
             if (handle)
             {
-                handle.enabled = CurrentStyleSheet.handleActive;
                 handle.SetUpImage(CurrentStyleSheet.handleStyleSheet);
             }
         }

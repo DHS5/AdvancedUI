@@ -67,6 +67,18 @@ namespace Dhs5.AdvancedUI
         }
 
         #endregion
+        
+        #region InputFields
+
+        // ### InputFields ###
+
+        [MenuItem("GameObject/UI/AdvancedUI/InputFields/InputField")]
+        public static void CreateSimpleInutField()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/AdvancedInputField.prefab");
+        }
+
+        #endregion
 
         #region Popup
 

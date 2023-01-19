@@ -223,20 +223,20 @@ namespace Dhs5.AdvancedUI
     public enum AdvancedInputfieldType
     {
         CUSTOM = -1,
-        BASE = 0,
+        BASIC = 0,
     }
 
     [System.Serializable]
     public class InputfieldStyleSheetList
     {
-        public InputfieldStyleSheet baseT;
+        public InputfieldStyleSheet basic;
 
 
         public InputfieldStyleSheet GetStyleSheet(AdvancedInputfieldType type)
         {
             return type switch
             {
-                AdvancedInputfieldType.BASE => baseT,
+                AdvancedInputfieldType.BASIC => basic,
                 _ => null,
             };
         }
@@ -434,7 +434,8 @@ namespace Dhs5.AdvancedUI
         public bool hintTextActive = true;
         public TextStyleSheet hintTextStyleSheet;
         [Space, Space]
-        public TextStyleSheet textStyleSheet;
+        public TextStyleSheet inputTextStyleSheet;
+        public Color selectionColor;
     }
     
     [System.Serializable]
@@ -443,7 +444,6 @@ namespace Dhs5.AdvancedUI
         public bool backgroundActive = true;
         public ImageStyleSheet backgroundStyleSheet;
         [Space, Space]
-        public bool handleActive = true;
         public ImageStyleSheet handleStyleSheet;
     }
 
