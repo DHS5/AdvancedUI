@@ -118,8 +118,8 @@ namespace Dhs5.AdvancedUI
 
         public void ActuState()
         {
-            CurrentCheckmark.enabled = State;
-            CurrentUncheckmark.enabled = !State;
+            if (CurrentCheckmark) CurrentCheckmark.enabled = State;
+            if (CurrentUncheckmark) CurrentUncheckmark.enabled = !State;
 
             toggle.ForceInstantTransition();
         }

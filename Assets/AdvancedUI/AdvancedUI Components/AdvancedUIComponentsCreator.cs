@@ -41,6 +41,11 @@ namespace Dhs5.AdvancedUI
         {
             CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/AdvancedToggle.prefab");
         }
+        [MenuItem("GameObject/UI/AdvancedUI/Toggles/DropdownItem")]
+        public static void CreateDropdownItemToggle()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/DropdownItemToggle.prefab");
+        }
 
         #endregion
 
@@ -76,6 +81,28 @@ namespace Dhs5.AdvancedUI
         public static void CreateSimpleInutField()
         {
             CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/AdvancedInputField.prefab");
+        }
+
+        #endregion
+
+        #region ScrollViews
+
+        // ### ScrollViews ###
+
+        [MenuItem("GameObject/UI/AdvancedUI/ScrollViews/ScrollView")]
+        public static void CreateSimpleScrollView()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/AdvancedScrollView.prefab");
+        }
+        [MenuItem("GameObject/UI/AdvancedUI/ScrollViews/Vertical ScrollView")]
+        public static void CreateVerticalScrollView()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/AdvancedVerticalScrollView.prefab");
+        }
+        [MenuItem("GameObject/UI/AdvancedUI/ScrollViews/Horizontal ScrollView")]
+        public static void CreateHorizontalScrollView()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/AdvancedHorizontalScrollView.prefab");
         }
 
         #endregion

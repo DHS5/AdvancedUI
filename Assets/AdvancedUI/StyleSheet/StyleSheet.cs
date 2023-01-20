@@ -17,6 +17,7 @@ namespace Dhs5.AdvancedUI
         [Space, Space]
         [Header("Toggle")]
         public ToggleStyleSheetList toggleStyleSheets;
+        public DropdownItemToggleStyleSheetList dropdownItemToggleStyleSheets;
         [Space, Space]
         [Header("Slider")]
         public SliderStyleSheetList sliderStyleSheets;
@@ -32,6 +33,9 @@ namespace Dhs5.AdvancedUI
         [Space, Space]
         [Header("Popup")]
         public PopupStyleSheetList popupStyleSheets;
+        [Space, Space]
+        [Header("ScrollView")]
+        public ScrollViewStyleSheetList scrollViewStyleSheets;
 
         // ... ScrollView
     }
@@ -147,6 +151,39 @@ namespace Dhs5.AdvancedUI
                 AdvancedToggleType.FULL_TEXTS_NO_BACK => fullTextsNoBackground,
                 AdvancedToggleType.CHECKS_NO_BACK => checksNoBackground,
                 AdvancedToggleType.CHECKS_NO_BACK_W_TEXT => checksNoBackgroundWithText,
+                _ => null,
+            };
+        }
+    }
+
+
+    [System.Serializable]
+    public class DropdownItemToggleStyleSheet
+    {
+        public bool backgroundActive = true;
+        public ImageStyleSheet backgroundStyleSheet;
+        [Space, Space]
+        public ImageStyleSheet checkmarkStyleSheet;
+        [Space, Space]
+        public TextStyleSheet textStyleSheet;
+    }
+    public enum DropdownItemToggleType
+    {
+        CUSTOM = -1,
+        BASIC = 0,
+    }
+
+    [System.Serializable]
+    public class DropdownItemToggleStyleSheetList
+    {
+        public DropdownItemToggleStyleSheet basic;
+
+
+        public DropdownItemToggleStyleSheet GetStyleSheet(DropdownItemToggleType type)
+        {
+            return type switch
+            {
+                DropdownItemToggleType.BASIC => basic,
                 _ => null,
             };
         }
@@ -303,6 +340,31 @@ namespace Dhs5.AdvancedUI
     }
     #endregion
 
+    #region ScrollView
+    // # ScrollView #
+    public enum AdvancedScrollViewType
+    {
+        CUSTOM = -1,
+        BASIC = 0,
+    }
+
+    [System.Serializable]
+    public class ScrollViewStyleSheetList
+    {
+        public ScrollViewStyleSheet basic;
+
+
+        public ScrollViewStyleSheet GetStyleSheet(AdvancedScrollViewType type)
+        {
+            return type switch
+            {
+                AdvancedScrollViewType.BASIC => basic,
+                _ => null,
+            };
+        }
+    }
+    #endregion
+
     #endregion
 
     #region Composite Style Sheets
@@ -415,14 +477,9 @@ namespace Dhs5.AdvancedUI
         public bool textActive = true;
         public TextStyleSheet textStyleSheet;
         [Space, Space]
-        public bool itemsBackgroundActive = true;
-        public ImageStyleSheet itemsBackgroundStyleSheet;
+        public AdvancedScrollViewType templateScrollviewType;
         [Space, Space]
-        public bool itemsArrowActive = true;
-        public ImageStyleSheet itemsArrowStyleSheet;
-        [Space, Space]
-        public bool itemsTextActive = true;
-        public TextStyleSheet itemsTextStyleSheet;
+        public DropdownItemToggleType itemToggleType;
     }
 
     [System.Serializable]
@@ -464,6 +521,19 @@ namespace Dhs5.AdvancedUI
         public AdvancedButtonType cancelButtonType;
         public bool quitButtonActive = true;
         public AdvancedButtonType quitButtonType;
+    }
+
+    [System.Serializable]
+    public class ScrollViewStyleSheet
+    {
+        public bool backgroundActive = true;
+        public GraphicStyleSheet backgroundStyleSheet;
+        [Space]
+        public bool verticalScrollbarActive = true;
+        public AdvancedScrollbarType verticalScrollbarType;
+        [Space]
+        public bool horizontalScrollbarActive = false;
+        public AdvancedScrollbarType horizontalScrollbarType;
     }
 
     #endregion

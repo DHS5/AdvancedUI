@@ -15,6 +15,8 @@ namespace Dhs5.AdvancedUI
 
         protected override void OnRectTransformDimensionsChange()
         {
+            base.OnRectTransformDimensionsChange();
+
             ForceResizeHandle();
         }
         public void ForceResizeHandle()
