@@ -1892,8 +1892,8 @@ MonoBehaviour:
           colorBlock:
             m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
             m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
-            m_PressedColor: {r: 1, g: 0.94154495, b: 0, a: 1}
-            m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+            m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
+            m_SelectedColor: {r: 1, g: 0.6462381, b: 0.56037736, a: 1}
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
@@ -1911,13 +1911,13 @@ MonoBehaviour:
             m_SelectedSprite: {fileID: 0}
             m_DisabledSprite: {fileID: 0}
           colorBlock:
-            m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-            m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
-            m_ColorMultiplier: 0
-            m_FadeDuration: 0
+            m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+            m_HighlightedColor: {r: 1, g: 0.7322452, b: 0, a: 1}
+            m_PressedColor: {r: 0.08620572, g: 1, b: 0, a: 1}
+            m_SelectedColor: {r: 1, g: 0, b: 0.009220123, a: 1}
+            m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
+            m_ColorMultiplier: 1
+            m_FadeDuration: 0.1
       textStyleSheet:
         font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
         fontStyle: 0
@@ -2412,53 +2412,31 @@ MonoBehaviour:
           m_ColorMultiplier: 0
           m_FadeDuration: 0
   dropdownStyleSheets:
-    baseT:
+    basic:
       backgroundActive: 1
       backgroundStyleSheet:
-        baseSprite: {fileID: 0}
-        baseColor: {r: 0, g: 0, b: 0, a: 0}
+        baseSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+        baseColor: {r: 1, g: 1, b: 1, a: 1}
         baseMaterial: {fileID: 0}
-        imageType: 0
+        imageType: 1
         pixelsPerUnit: 1
         transition:
-          transitionType: 0
+          transitionType: 1
           spriteState:
             m_HighlightedSprite: {fileID: 0}
             m_PressedSprite: {fileID: 0}
             m_SelectedSprite: {fileID: 0}
             m_DisabledSprite: {fileID: 0}
           colorBlock:
-            m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-            m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
-            m_ColorMultiplier: 0
-            m_FadeDuration: 0
-      arrowActive: 1
-      arrowStyleSheet:
-        baseSprite: {fileID: 0}
-        baseColor: {r: 0, g: 0, b: 0, a: 0}
-        baseMaterial: {fileID: 0}
-        imageType: 0
-        pixelsPerUnit: 1
-        transition:
-          transitionType: 0
-          spriteState:
-            m_HighlightedSprite: {fileID: 0}
-            m_PressedSprite: {fileID: 0}
-            m_SelectedSprite: {fileID: 0}
-            m_DisabledSprite: {fileID: 0}
-          colorBlock:
-            m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-            m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-            m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
-            m_ColorMultiplier: 0
-            m_FadeDuration: 0
-      textActive: 1
-      textStyleSheet:
+            m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+            m_HighlightedColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
+            m_PressedColor: {r: 1, g: 0.7490566, b: 0.7490566, a: 1}
+            m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+            m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
+            m_ColorMultiplier: 1
+            m_FadeDuration: 0.1
+      titleActive: 0
+      titleStyleSheet:
         font: {fileID: 0}
         fontStyle: 0
         alignment: 0
@@ -2470,6 +2448,40 @@ MonoBehaviour:
           m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
           m_ColorMultiplier: 0
           m_FadeDuration: 0
+      arrowActive: 1
+      arrowStyleSheet:
+        baseSprite: {fileID: 21300000, guid: 7f737251b9da1024789b54d1e56a2ea0, type: 3}
+        baseColor: {r: 0, g: 0, b: 0, a: 1}
+        baseMaterial: {fileID: 0}
+        imageType: 0
+        pixelsPerUnit: 1
+        transition:
+          transitionType: 0
+          spriteState:
+            m_HighlightedSprite: {fileID: 0}
+            m_PressedSprite: {fileID: 0}
+            m_SelectedSprite: {fileID: 0}
+            m_DisabledSprite: {fileID: 0}
+          colorBlock:
+            m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+            m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+            m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+            m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+            m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+            m_ColorMultiplier: 0
+            m_FadeDuration: 0
+      textStyleSheet:
+        font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+        fontStyle: 0
+        alignment: 513
+        transition:
+          m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+          m_HighlightedColor: {r: 0, g: 0, b: 0, a: 1}
+          m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
+          m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
+          m_DisabledColor: {r: 0, g: 0, b: 0, a: 1}
+          m_ColorMultiplier: 1
+          m_FadeDuration: 0.1
       templateScrollviewType: 0
       itemToggleType: 0
   inputfieldStyleSheets:

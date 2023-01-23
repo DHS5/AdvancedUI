@@ -13,6 +13,13 @@ namespace Dhs5.AdvancedUI
         [System.Serializable]
         public enum ScrollViewDirection { VERTICAL, HORIZONTAL, BOTH };
 
+        public ScrollViewContent(ScrollViewDirection _direction, float _height = 0, float _width = 0)
+        {
+            direction = _direction;
+            contentHeight = _height;
+            contentWidth = _width;
+        }
+
         // ### Properties ###
         public ScrollViewDirection direction;
         [Space]
@@ -24,7 +31,6 @@ namespace Dhs5.AdvancedUI
 
     #endregion
 
-
     public class AdvancedScrollView : AdvancedComponent
     {
         [Header("ScrollView Type")]
@@ -33,8 +39,7 @@ namespace Dhs5.AdvancedUI
 
         [Header("ScrollView Content")]
         [SerializeField] private ScrollViewContent scrollViewContent;
-        public ScrollViewContent Content { get { return scrollViewContent; } set { scrollViewContent = value; } }
-
+        public ScrollViewContent Content { get { return scrollViewContent; } set { scrollViewContent = value; SetUpConfig(); } }
 
         [Header("Custom Style Sheet")]
         [SerializeField] private ScrollViewStyleSheet customStyleSheet;

@@ -235,20 +235,20 @@ namespace Dhs5.AdvancedUI
     public enum AdvancedDropdownType
     {
         CUSTOM = -1,
-        BASE = 0,
+        BASIC = 0,
     }
 
     [System.Serializable]
     public class DropdownStyleSheetList
     {
-        public DropdownStyleSheet baseT;
+        public DropdownStyleSheet basic;
 
 
         public DropdownStyleSheet GetStyleSheet(AdvancedDropdownType type)
         {
             return type switch
             {
-                AdvancedDropdownType.BASE => baseT,
+                AdvancedDropdownType.BASIC => basic,
                 _ => null,
             };
         }
@@ -471,10 +471,12 @@ namespace Dhs5.AdvancedUI
         public bool backgroundActive = true;
         public ImageStyleSheet backgroundStyleSheet;
         [Space, Space]
+        public bool titleActive = true;
+        public TextStyleSheet titleStyleSheet;
+        [Space, Space]
         public bool arrowActive = true;
         public ImageStyleSheet arrowStyleSheet;
         [Space, Space]
-        public bool textActive = true;
         public TextStyleSheet textStyleSheet;
         [Space, Space]
         public AdvancedScrollViewType templateScrollviewType;

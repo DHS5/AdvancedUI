@@ -114,6 +114,13 @@ namespace Dhs5.AdvancedUI
             ActuState();
         }
 
+        private void OnTransformParentChanged()
+        {
+            if (checkmarkImage)
+                checkmarkImage.rectTransform.SetSizeWithCurrentAnchors
+                (RectTransform.Axis.Horizontal, (toggle.transform as RectTransform).rect.height);
+        }
+
         #endregion
     }
 }

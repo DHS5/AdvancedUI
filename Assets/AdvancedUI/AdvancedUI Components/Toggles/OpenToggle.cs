@@ -84,10 +84,14 @@ namespace Dhs5.AdvancedUI
         private TextMeshProUGUI toggleText;
         private TextStyleSheet textStyleSheet;
 
+        private bool gotGraphics = false;
+
         public void GetGraphics(Image background, ImageStyleSheet _backgroundStyleSheet,
             Graphic checkmark, GraphicStyleSheet _checkmarkStyleSheet, Graphic uncheckmark, GraphicStyleSheet _uncheckmarkStyleSheet, 
             TextMeshProUGUI text, TextStyleSheet _textStyleSheet)
         {
+            gotGraphics = true;
+
             backgroundImage = background;
             backgroundStyleSheet = _backgroundStyleSheet;
             checkmarkGraphic = checkmark;
@@ -103,6 +107,8 @@ namespace Dhs5.AdvancedUI
             Image checkmark, ImageStyleSheet _checkmarkStyleSheet, 
             TextMeshProUGUI text, TextStyleSheet _textStyleSheet)
         {
+            gotGraphics = true;
+
             backgroundImage = background;
             backgroundStyleSheet = _backgroundStyleSheet;
             checkmarkImage = checkmark;
@@ -115,6 +121,12 @@ namespace Dhs5.AdvancedUI
 
         protected override void DoStateTransition(SelectionState state, bool instant)
         {
+            if (!gotGraphics)
+            {
+                base.DoStateTransition(state, instant);
+                return;
+            }
+
             if (backgroundImage && backgroundImage.enabled) backgroundImage.TransitionImage((int)state, instant, backgroundStyleSheet);
             if (uncheckmarkGraphic && uncheckmarkGraphic.enabled) uncheckmarkGraphic.TransitionGraphic((int)state, instant, uncheckmarkStyleSheet);
             if (toggleText && toggleText.enabled) toggleText.TransitionText((int)state, instant, textStyleSheet);

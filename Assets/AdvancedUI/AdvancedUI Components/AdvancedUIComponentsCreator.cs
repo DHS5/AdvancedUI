@@ -61,6 +61,18 @@ namespace Dhs5.AdvancedUI
 
         #endregion
 
+        #region Dropdowns
+
+        // ### Dropdowns ###
+
+        [MenuItem("GameObject/UI/AdvancedUI/Dropdowns/Dropdown")]
+        public static void CreateSimpleDropdown()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/AdvancedDropdown.prefab");
+        }
+
+        #endregion
+
         #region Scrollbars
 
         // ### Scrollbars ###
