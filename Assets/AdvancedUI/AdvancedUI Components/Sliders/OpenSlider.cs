@@ -53,12 +53,18 @@ namespace Dhs5.AdvancedUI
 
         private Image backgroundImage;
         private ImageStyleSheet backgroundStyleSheet;
+        private Image foregroundImage;
+        private ImageStyleSheet foregroundStyleSheet;
         private Image fillImage;
         private ImageStyleSheet fillStyleSheet;
         private Image handleImage;
         private ImageStyleSheet handleStyleSheet;
         private TextMeshProUGUI sliderText;
         private TextStyleSheet textStyleSheet;
+        private TextMeshProUGUI leftText;
+        private TextStyleSheet leftTextStyleSheet;
+        private TextMeshProUGUI rightText;
+        private TextStyleSheet rightTextStyleSheet;
 
         public void GetGraphics(Image background, ImageStyleSheet _backgroundStyleSheet,
             Image fill, ImageStyleSheet _fillStyleSheet, Image handle, ImageStyleSheet _handleStyleSheet,
@@ -76,12 +82,35 @@ namespace Dhs5.AdvancedUI
             ForceInstantTransition();
         }
 
+        public void GetGraphics(Image background, ImageStyleSheet _backgroundStyleSheet,
+            Image foreground, ImageStyleSheet _foregroundStyleSheet,
+            Image handle, ImageStyleSheet _handleStyleSheet,
+            TextMeshProUGUI _leftText, TextStyleSheet _leftTextStyleSheet, 
+            TextMeshProUGUI _rightText, TextStyleSheet _rightTextStyleSheet)
+        {
+            backgroundImage = background;
+            backgroundStyleSheet = _backgroundStyleSheet;
+            foregroundImage = foreground;
+            foregroundStyleSheet = _foregroundStyleSheet;
+            handleImage = handle;
+            handleStyleSheet = _handleStyleSheet;
+            leftText = _leftText;
+            leftTextStyleSheet = _leftTextStyleSheet;
+            rightText = _rightText;
+            rightTextStyleSheet = _rightTextStyleSheet;
+
+            ForceInstantTransition();
+        }
+
         protected override void DoStateTransition(SelectionState state, bool instant)
         {
             if (backgroundImage && backgroundImage.enabled) backgroundImage.TransitionImage((int)state, instant, backgroundStyleSheet);
+            if (foregroundImage && foregroundImage.enabled) foregroundImage.TransitionImage((int)state, instant, foregroundStyleSheet);
             if (fillImage && fillImage.enabled) fillImage.TransitionImage((int)state, instant, fillStyleSheet);
             if (handleImage && handleImage.enabled) handleImage.TransitionImage((int)state, instant, handleStyleSheet);
             if (sliderText && sliderText.enabled) sliderText.TransitionText((int)state, instant, textStyleSheet);
+            if (leftText && leftText.enabled) leftText.TransitionText((int)state, instant, leftTextStyleSheet);
+            if (rightText && rightText.enabled) rightText.TransitionText((int)state, instant, rightTextStyleSheet);
         }
 
         public void ForceInstantTransition()

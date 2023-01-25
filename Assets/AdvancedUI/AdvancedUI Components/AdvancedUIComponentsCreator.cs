@@ -46,6 +46,11 @@ namespace Dhs5.AdvancedUI
         {
             CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/DropdownItemToggle.prefab");
         }
+        [MenuItem("GameObject/UI/AdvancedUI/Toggles/Switch")]
+        public static void CreateSwitchToggle()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/SwitchToggle.prefab");
+        }
 
         #endregion
 

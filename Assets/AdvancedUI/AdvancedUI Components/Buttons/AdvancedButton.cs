@@ -41,6 +41,8 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private ButtonContent buttonContent;
         public ButtonContent Content { get { return buttonContent; } set { buttonContent = value; SetUpConfig(); } }
 
+        public override bool Interactable { get => button.interactable; set => button.interactable = value; }
+
         [Header("Events")]
         [SerializeField] private UnityEvent onClick;
         [SerializeField] private UnityEvent onButtonDown;

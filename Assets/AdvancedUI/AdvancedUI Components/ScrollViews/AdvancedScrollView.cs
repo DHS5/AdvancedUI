@@ -41,19 +41,17 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private ScrollViewContent scrollViewContent;
         public ScrollViewContent Content { get { return scrollViewContent; } set { scrollViewContent = value; SetUpConfig(); } }
 
+        public override bool Interactable { get => scrollView.enabled; set => scrollView.enabled = value; }
+
+
         [Header("Custom Style Sheet")]
         [SerializeField] private ScrollViewStyleSheet customStyleSheet;
 
         [Header("Style Sheet Container")]
         [SerializeField] private StyleSheetContainer styleSheetContainer;
         private ScrollViewStyleSheet CurrentStyleSheet
-        {
-            get
-            {
-                return Type == AdvancedScrollViewType.CUSTOM ? customStyleSheet :
-                    styleSheetContainer ? styleSheetContainer.projectStyleSheet.scrollViewStyleSheets.GetStyleSheet(Type) : null;
-            }
-        }
+        { get { return Type == AdvancedScrollViewType.CUSTOM ? customStyleSheet :
+                    styleSheetContainer ? styleSheetContainer.projectStyleSheet.scrollViewStyleSheets.GetStyleSheet(Type) : null; } }
 
 
         [Header("UI Components")]

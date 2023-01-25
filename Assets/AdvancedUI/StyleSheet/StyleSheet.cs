@@ -18,6 +18,7 @@ namespace Dhs5.AdvancedUI
         [Header("Toggle")]
         public ToggleStyleSheetList toggleStyleSheets;
         public DropdownItemToggleStyleSheetList dropdownItemToggleStyleSheets;
+        public SwitchToggleStyleSheetList switchToggleStyleSheets;
         [Space, Space]
         [Header("Slider")]
         public SliderStyleSheetList sliderStyleSheets;
@@ -156,7 +157,8 @@ namespace Dhs5.AdvancedUI
         }
     }
 
-
+    #region Dropdown Item Toggle
+    // Dropdown Item Toggle
     [System.Serializable]
     public class DropdownItemToggleStyleSheet
     {
@@ -188,6 +190,46 @@ namespace Dhs5.AdvancedUI
             };
         }
     }
+    #endregion
+
+    #region Switch Toggle
+    // Switch Toggle
+    [System.Serializable]
+    public class SwitchToggleStyleSheet
+    {
+        public ImageStyleSheet backgroundStyleSheet;
+        public ImageStyleSheet foregroundStyleSheet;
+        [Space, Space]
+        public ImageStyleSheet handleStyleSheet;
+        [Space, Space]
+        public bool leftTextActive;
+        public TextStyleSheet leftTextStyleSheet;
+        public bool rightTextActive;
+        public TextStyleSheet rightTextStyleSheet;
+    }
+    public enum SwitchToggleType
+    {
+        CUSTOM = -1,
+        BASIC = 0,
+    }
+
+    [System.Serializable]
+    public class SwitchToggleStyleSheetList
+    {
+        public SwitchToggleStyleSheet basic;
+
+
+        public SwitchToggleStyleSheet GetStyleSheet(SwitchToggleType type)
+        {
+            return type switch
+            {
+                SwitchToggleType.BASIC => basic,
+                _ => null,
+            };
+        }
+    }
+    #endregion
+
     #endregion
 
     #region Slider

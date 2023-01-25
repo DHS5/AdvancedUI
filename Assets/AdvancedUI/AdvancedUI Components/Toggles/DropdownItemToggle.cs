@@ -19,6 +19,8 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private bool overrideText = false;
         [SerializeField] private string text;
 
+        public override bool Interactable { get => toggle.interactable; set => toggle.interactable = value; }
+
 
         [Header("Custom Style Sheet")]
         [SerializeField] private DropdownItemToggleStyleSheet customStyleSheet;

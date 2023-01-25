@@ -23,8 +23,10 @@ namespace Dhs5.AdvancedUI
 
         [Header("InputField Content")]
         [SerializeField] private InputFieldContent inputfieldContent;
-        public InputFieldContent Content { get { return inputfieldContent; } set { inputfieldContent = value; } }
+        public InputFieldContent Content { get { return inputfieldContent; } set { inputfieldContent = value; SetUpConfig(); } }
         public string Text { get { return inputText.text; } set { inputText.text = value; } }
+
+        public override bool Interactable { get => inputField.interactable; set => inputField.interactable = value; }
 
 
         [Header("Custom Style Sheet")]

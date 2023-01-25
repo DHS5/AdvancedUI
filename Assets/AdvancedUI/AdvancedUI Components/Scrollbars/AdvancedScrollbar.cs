@@ -11,6 +11,7 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private AdvancedScrollbarType scrollbarType;
         public AdvancedScrollbarType Type { get { return scrollbarType; } set { scrollbarType = value; SetUpConfig(); } }
 
+        public override bool Interactable { get => scrollbar.interactable; set => scrollbar.interactable = value; }
 
 
         [Header("Custom Style Sheet")]

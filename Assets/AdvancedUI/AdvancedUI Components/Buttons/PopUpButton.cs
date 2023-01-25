@@ -17,6 +17,9 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private PopupType popupType;
         [SerializeField] private PopupContent popupContent;
 
+        public override bool Interactable { get => button.Interactable; set => button.Interactable = value; }
+
+
         [Header("Events")]
         [SerializeField] private UnityEvent onConfirm;
         [SerializeField] private UnityEvent onCancel;

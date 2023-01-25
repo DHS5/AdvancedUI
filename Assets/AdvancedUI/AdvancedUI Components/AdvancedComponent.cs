@@ -29,5 +29,8 @@ namespace Dhs5.AdvancedUI
         protected abstract void UnlinkEvents();
 
         protected abstract void SetUpConfig();
+
+
+        public abstract bool Interactable { get; set; }
     }
 }

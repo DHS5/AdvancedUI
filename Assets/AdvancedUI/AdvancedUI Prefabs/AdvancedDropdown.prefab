@@ -549,6 +549,12 @@ MonoBehaviour:
     - Option D
     templateHeight: 300
     itemHeight: 50
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
   customStyleSheet:
     backgroundActive: 1
     backgroundStyleSheet:

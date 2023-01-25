@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
+using System;
 
 namespace Dhs5.AdvancedUI
 {
@@ -39,6 +41,17 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private DropdownContent dropdownContent;
         public DropdownContent Content { get { return dropdownContent; } set { dropdownContent = value; SetUpConfig(); } }
 
+        public override bool Interactable { get => dropdown.interactable; set => dropdown.interactable = value; }
+
+
+        [Header("Events")]
+        [SerializeField] private UnityEvent<int> onValueChanged;
+        [SerializeField] private UnityEvent onClick;
+
+        public event Action<int> OnValueChanged;
+        public event Action OnClick { add { dropdown.OnClick += value; } remove { dropdown.OnClick -= value; } }
+
+
 
         [Header("Custom Style Sheet")]
         [SerializeField] private DropdownStyleSheet customStyleSheet;
@@ -64,15 +77,39 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private DropdownItemToggle itemToggle;
 
 
+
+        protected override void Awake()
+        {
+            dropdown.GetGraphics(dropdownBackground, CurrentStyleSheet.backgroundStyleSheet,
+                titleText, CurrentStyleSheet.titleStyleSheet,
+                arrowImage, CurrentStyleSheet.arrowStyleSheet,
+                dropdownText, CurrentStyleSheet.textStyleSheet);
+
+            base.Awake();
+        }
+
         #region Events
         protected override void LinkEvents()
         {
-            
+            dropdown.onValueChanged.AddListener(ValueChanged);
+            OnClick += Click;
         }
         protected override void UnlinkEvents()
         {
-
+            dropdown.onValueChanged?.RemoveListener(ValueChanged);
+            OnClick -= Click;
         }
+
+        private void ValueChanged(int index)
+        {
+            onValueChanged?.Invoke(index);
+            OnValueChanged?.Invoke(index);
+        }
+        private void Click()
+        {
+            onClick?.Invoke();
+        }
+
         #endregion
 
         #region Configs

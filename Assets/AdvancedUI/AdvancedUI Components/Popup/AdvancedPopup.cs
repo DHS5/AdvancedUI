@@ -45,7 +45,9 @@ namespace Dhs5.AdvancedUI
 
         [Header("Content")]
         [SerializeField] private PopupContent popupContent;
-        public PopupContent Content { get { return popupContent; } set { popupContent = value; } }
+        public PopupContent Content { get { return popupContent; } set { popupContent = value; SetUpConfig(); } }
+
+        public override bool Interactable { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
 
 
         [Header("Events")]

@@ -58,7 +58,9 @@ namespace Dhs5.AdvancedUI
         [Header("Toggle Content")]
         [SerializeField] private bool isOn = true;
         [SerializeField] private ToggleContent toggleContent;
-        public ToggleContent Content { get { return toggleContent; } set { toggleContent = value; } }
+        public ToggleContent Content { get { return toggleContent; } set { toggleContent = value; SetUpConfig(); } }
+
+        public override bool Interactable { get => toggle.interactable; set => toggle.interactable = value; }
 
 
         [Header("Events")]

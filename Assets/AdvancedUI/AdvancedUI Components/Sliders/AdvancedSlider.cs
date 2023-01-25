@@ -32,8 +32,11 @@ namespace Dhs5.AdvancedUI
 
         [Header("Slider Content")]
         [SerializeField] private SliderContent sliderContent;
-        public SliderContent Content { get { return sliderContent; } set { sliderContent = value; } }
+        public SliderContent Content { get { return sliderContent; } set { sliderContent = value; SetUpConfig(); } }
         public float SliderValue { get { return slider.value; } set { slider.value = value; } }
+
+        public override bool Interactable { get => slider.interactable; set => slider.interactable = value; }
+
 
         [Header("Events")]
         [SerializeField] private UnityEvent<float> onValueChanged;
