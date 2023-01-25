@@ -81,6 +81,17 @@ namespace Dhs5.AdvancedUI
 
             ForceInstantTransition();
         }
+        
+        public void GetGraphics(Image handle, ImageStyleSheet _handleStyleSheet,
+            TextMeshProUGUI text, TextStyleSheet _textStyleSheet)
+        {
+            handleImage = handle;
+            handleStyleSheet = _handleStyleSheet;
+            sliderText = text;
+            textStyleSheet = _textStyleSheet;
+
+            ForceInstantTransition();
+        }
 
         public void GetGraphics(Image background, ImageStyleSheet _backgroundStyleSheet,
             Image foreground, ImageStyleSheet _foregroundStyleSheet,

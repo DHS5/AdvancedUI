@@ -80,6 +80,21 @@ namespace Dhs5.AdvancedUI
             base.Awake();
         }
 
+        #region Private Functions
+        private void SetGradient()
+        {
+            if (!CurrentStyleSheet.isGradient) return;
+
+            if (fill && fill.enabled)
+            {
+                fill.color = CurrentStyleSheet.sliderGradient.Evaluate(slider.normalizedValue);
+            }
+            else if (backgroundImage && backgroundImage.enabled)
+            {
+                backgroundImage.color = CurrentStyleSheet.sliderGradient.Evaluate(slider.normalizedValue);
+            }
+        }
+        #endregion
 
         #region Events
 
@@ -100,6 +115,8 @@ namespace Dhs5.AdvancedUI
         {
             onValueChanged?.Invoke(value);
             OnValueChanged?.Invoke(value);
+
+            SetGradient();
         }
         private void ButtonDown()
         {
@@ -148,6 +165,8 @@ namespace Dhs5.AdvancedUI
                 sliderText.text = Content.text;
                 sliderText.SetUpText(CurrentStyleSheet.textStyleSheet);
             }
+
+            SetGradient();
         }
 
         private void SetSliderInfo()

@@ -243,6 +243,8 @@ namespace Dhs5.AdvancedUI
         NO_FILL_W_TEXT = 3,
         NO_BACK = 4,
         NO_BACK_W_TEXT = 5,
+
+        BASIC_GRADIENT = 6,
     }
 
     [System.Serializable]
@@ -254,6 +256,8 @@ namespace Dhs5.AdvancedUI
         public SliderStyleSheet noFillWithText;
         public SliderStyleSheet noBackground;
         public SliderStyleSheet noBackgroundWithText;
+        [Space]
+        public SliderStyleSheet basicGradient;
 
 
         public SliderStyleSheet GetStyleSheet(AdvancedSliderType type)
@@ -266,10 +270,13 @@ namespace Dhs5.AdvancedUI
                 AdvancedSliderType.NO_FILL_W_TEXT => noFillWithText,
                 AdvancedSliderType.NO_BACK => noBackground,
                 AdvancedSliderType.NO_BACK_W_TEXT => noBackgroundWithText,
+
+                AdvancedSliderType.BASIC_GRADIENT => basicGradient,
                 _ => null,
             };
         }
     }
+
     #endregion
 
     #region Dropdown
@@ -505,6 +512,9 @@ namespace Dhs5.AdvancedUI
         [Space, Space]
         public bool textActive = false;
         public TextStyleSheet textStyleSheet;
+        [Space, Space]
+        public bool isGradient = false;
+        public Gradient sliderGradient;
     }
 
     [System.Serializable]

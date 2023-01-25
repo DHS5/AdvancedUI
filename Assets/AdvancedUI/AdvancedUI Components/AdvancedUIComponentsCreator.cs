@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+#if UNITY_EDITOR
 using UnityEditor;
 
 namespace Dhs5.AdvancedUI
@@ -137,3 +139,4 @@ namespace Dhs5.AdvancedUI
         #endregion
     }
 }
+#endif
