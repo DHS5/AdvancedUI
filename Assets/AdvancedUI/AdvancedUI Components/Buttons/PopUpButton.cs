@@ -13,9 +13,14 @@ namespace Dhs5.AdvancedUI
         [Header("Button")]
         [SerializeField] private AdvancedButtonType buttonType;
         [SerializeField] private ButtonContent buttonContent;
+        public AdvancedButtonType ButtonType { get { return buttonType; } set { buttonType = value; } }
+        public ButtonContent ButtonContent { get { return buttonContent; } set { buttonContent = value; } }
+
         [Header("Popup")]
         [SerializeField] private PopupType popupType;
         [SerializeField] private PopupContent popupContent;
+        public PopupType PopupType { get { return popupType; } set { popupType = value; } }
+        public PopupContent PopupContent { get { return popupContent; } set { popupContent = value; } }
 
         public override bool Interactable { get => button.Interactable; set => button.Interactable = value; }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 namespace Dhs5.AdvancedUI
 {
@@ -24,7 +25,7 @@ namespace Dhs5.AdvancedUI
         [Header("InputField Content")]
         [SerializeField] private InputFieldContent inputfieldContent;
         public InputFieldContent Content { get { return inputfieldContent; } set { inputfieldContent = value; SetUpConfig(); } }
-        public string Text { get { return inputText.text; } set { inputText.text = value; } }
+        public string Text { get { return inputField.text; } set { inputField.text = value; } }
 
         public override bool Interactable { get => inputField.interactable; set => inputField.interactable = value; }
 
@@ -37,6 +38,11 @@ namespace Dhs5.AdvancedUI
         private InputfieldStyleSheet CurrentStyleSheet
         { get { return Type == AdvancedInputfieldType.CUSTOM ? customStyleSheet :
                     styleSheetContainer ? styleSheetContainer.projectStyleSheet.inputfieldStyleSheets.GetStyleSheet(Type) : null; } }
+
+
+        public event Action<string> OnValueChanged;
+        public event Action<string> OnSubmit;
+        public event Action<string> OnEndEdit;
 
 
         [Header("UI Components")]
@@ -58,8 +64,31 @@ namespace Dhs5.AdvancedUI
         }
 
         #region Events
-        protected override void LinkEvents() { }
-        protected override void UnlinkEvents() { }
+        protected override void LinkEvents() 
+        {
+            inputField.onValueChanged.AddListener(ValueChanged);
+            inputField.onSubmit.AddListener(Submit);
+            inputField.onEndEdit.AddListener(EndEdit);
+        }
+        protected override void UnlinkEvents() 
+        {
+            inputField.onValueChanged?.RemoveListener(ValueChanged);
+            inputField.onSubmit?.RemoveListener(Submit);
+            inputField.onEndEdit?.RemoveListener(EndEdit);
+        }
+
+        private void ValueChanged(string s)
+        {
+            OnValueChanged?.Invoke(s);
+        }
+        private void Submit(string s)
+        {
+            OnSubmit?.Invoke(s);
+        }
+        private void EndEdit(string s)
+        {
+            OnEndEdit?.Invoke(s);
+        }
         #endregion
 
         #region Configs
