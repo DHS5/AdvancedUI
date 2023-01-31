@@ -32,10 +32,14 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private UnityEvent<float> onValueChanged;
         [SerializeField] private UnityEvent onHandleDown;
         [SerializeField] private UnityEvent onHandleUp;
+        [SerializeField] private UnityEvent<float> onSubmit;
+        [SerializeField] private UnityEvent<float> onEndEdit;
 
         public event Action<float> OnValueChanged;
         public event Action OnHandleDown { add { slider.OnButtonDown += value; } remove { slider.OnButtonDown -= value; } }
         public event Action OnHandleUp { add { slider.OnButtonUp += value; } remove { slider.OnButtonUp -= value; } }
+        public event Action<float> OnSubmit;
+        public event Action<float> OnEndEdit;
 
 
         [Header("UI components")]
@@ -55,13 +59,19 @@ namespace Dhs5.AdvancedUI
         protected override void LinkEvents()
         {
             slider.OnValueChanged += ValueChanged;
+            slider.OnButtonDown += HandleDown;
+            slider.OnButtonUp += HandleUp;
             inputField.OnValueChanged += ValueChanged;
+            inputField.OnSubmit += Submit;
             inputField.OnEndEdit += EndEdit;
         }
         protected override void UnlinkEvents()
         {
             slider.OnValueChanged -= ValueChanged;
+            slider.OnButtonDown -= HandleDown;
+            slider.OnButtonUp -= HandleUp;
             inputField.OnValueChanged -= ValueChanged;
+            inputField.OnSubmit -= Submit;
             inputField.OnEndEdit -= EndEdit;
         }
 
@@ -85,7 +95,17 @@ namespace Dhs5.AdvancedUI
             value = Mathf.Clamp(value, slider.Content.minValue, slider.Content.maxValue);
             
             inputField.Text = value.ToString("0.00");
+            OnEndEdit?.Invoke(value);
         }
+        private void Submit(string str)
+        {
+            if (!float.TryParse(str, out float value)) value = slider.Content.minValue;
+            value = Mathf.Clamp(value, slider.Content.minValue, slider.Content.maxValue);
+
+            OnSubmit?.Invoke(value);
+        }
+        private void HandleDown() { onHandleDown?.Invoke(); }
+        private void HandleUp() { onHandleUp?.Invoke(); }
         #endregion
 
         #region Configs

@@ -65,6 +65,11 @@ namespace Dhs5.AdvancedUI
         {
             CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/AdvancedSlider.prefab");
         }
+        [MenuItem("GameObject/UI/AdvancedUI/Sliders/InputSlider")]
+        public static void CreateInputSlider()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/InputSlider.prefab");
+        }
 
         #endregion
 
