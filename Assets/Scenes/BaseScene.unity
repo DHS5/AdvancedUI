@@ -516,6 +516,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7fdf5a09efda249bb99632320b31c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1153863410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1153863412}
+  - component: {fileID: 1153863411}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1153863411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153863410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86d04ad63fc6804d81cb502b122af25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test:
+    isActive: 1
+    backgroundIndex: -1
+  isActive: 1
+  backgroundIndex: -1
+--- !u!4 &1153863412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153863410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1044.1317, y: 543.7898, z: 0.34623837}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1257046837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,6 +2464,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8865421431575908743, guid: bcd1ebea0ad7c5b44b5c1474986d2850, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865421431575908743, guid: bcd1ebea0ad7c5b44b5c1474986d2850, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
       value: 1
       objectReference: {fileID: 0}
@@ -2441,6 +2494,10 @@ PrefabInstance:
     - target: {fileID: 8865421431639519595, guid: bcd1ebea0ad7c5b44b5c1474986d2850, type: 3}
       propertyPath: m_Color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865421431639519595, guid: bcd1ebea0ad7c5b44b5c1474986d2850, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8865421431639519595, guid: bcd1ebea0ad7c5b44b5c1474986d2850, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
