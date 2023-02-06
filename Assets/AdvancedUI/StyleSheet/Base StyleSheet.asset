@@ -36,6 +36,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 0
       iconScale: 1
       iconStyleSheet:
@@ -59,6 +65,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 1
       textStyleSheet:
         font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -95,6 +107,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 0
       iconScale: 1
       iconStyleSheet:
@@ -118,6 +136,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 1
       textStyleSheet:
         font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -154,6 +178,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 1
       iconScale: 1
       iconStyleSheet:
@@ -177,6 +207,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 0
       textStyleSheet:
         font: {fileID: 0}
@@ -213,6 +249,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 0
       iconScale: 1
       iconStyleSheet:
@@ -236,6 +278,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 0
       textStyleSheet:
         font: {fileID: 0}
@@ -272,6 +320,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 1
       iconScale: 0.7
       iconStyleSheet:
@@ -295,6 +349,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 0
       textStyleSheet:
         font: {fileID: 0}
@@ -331,6 +391,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 1
       iconScale: 1
       iconStyleSheet:
@@ -354,6 +420,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 1}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 0
       textStyleSheet:
         font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -390,6 +462,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 1
       iconScale: 1
       iconStyleSheet:
@@ -413,6 +491,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 0
       textStyleSheet:
         font: {fileID: 0}
@@ -449,6 +533,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 1
       iconScale: 1
       iconStyleSheet:
@@ -472,6 +562,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 0
       textStyleSheet:
         font: {fileID: 0}
@@ -508,6 +604,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 1
       iconScale: 1
       iconStyleSheet:
@@ -531,6 +633,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 0
       textStyleSheet:
         font: {fileID: 0}
@@ -567,6 +675,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 1
       iconScale: 1
       iconStyleSheet:
@@ -590,6 +704,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 0
       textStyleSheet:
         font: {fileID: 0}
@@ -626,6 +746,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       iconActive: 0
       iconScale: 1
       iconStyleSheet:
@@ -649,6 +775,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 1
       textStyleSheet:
         font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -686,6 +818,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 0.8
       checkmarkStyleSheet:
@@ -711,6 +849,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -748,6 +892,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -796,6 +946,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 0.8
       checkmarkStyleSheet:
@@ -821,6 +977,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -858,6 +1020,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -906,6 +1074,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 1
       checkmarkStyleSheet:
@@ -931,6 +1105,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -968,6 +1148,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1016,6 +1202,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 1
       checkmarkStyleSheet:
@@ -1041,6 +1233,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1078,6 +1276,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1126,6 +1330,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 1
       checkmarkStyleSheet:
@@ -1151,6 +1361,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1188,6 +1404,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1236,6 +1458,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 1
       checkmarkStyleSheet:
@@ -1261,6 +1489,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
           fontStyle: 0
@@ -1298,6 +1532,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
           fontStyle: 0
@@ -1346,6 +1586,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 1
       checkmarkStyleSheet:
@@ -1371,6 +1617,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1408,6 +1660,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1456,6 +1714,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 1
       checkmarkStyleSheet:
@@ -1481,6 +1745,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1518,6 +1788,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1566,6 +1842,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 1
       checkmarkStyleSheet:
@@ -1591,6 +1873,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1628,6 +1916,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1676,6 +1970,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 1
       checkmarkStyleSheet:
@@ -1701,6 +2001,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1738,6 +2044,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1786,6 +2098,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkActive: 1
       checkmarkScale: 1
       checkmarkStyleSheet:
@@ -1811,6 +2129,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1848,6 +2172,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 0
               m_FadeDuration: 0
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0
@@ -1897,6 +2227,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       checkmarkStyleSheet:
         baseSprite: {fileID: 21300000, guid: c7db2da6f00d3c948badceb73b3ef1fa, type: 3}
         baseColor: {r: 0, g: 0, b: 0, a: 1}
@@ -1918,6 +2254,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textStyleSheet:
         font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
         fontStyle: 0
@@ -1953,6 +2295,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       foregroundStyleSheet:
         baseSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
         baseColor: {r: 1, g: 0, b: 0, a: 1}
@@ -1974,6 +2322,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       handleStyleSheet:
         baseSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
         baseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1995,6 +2349,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       leftTextActive: 1
       leftTextStyleSheet:
         font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2045,6 +2405,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       fillActive: 1
       fillStyleSheet:
         baseSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
@@ -2067,6 +2433,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       handleActive: 1
       handleStyleSheet:
         baseSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
@@ -2089,6 +2461,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 0
       textStyleSheet:
         font: {fileID: 0}
@@ -2155,6 +2533,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       fillActive: 1
       fillStyleSheet:
         baseSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
@@ -2177,6 +2561,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       handleActive: 1
       handleStyleSheet:
         baseSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
@@ -2199,6 +2589,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 1
       textStyleSheet:
         font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2265,6 +2661,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       fillActive: 1
       fillStyleSheet:
         baseSprite: {fileID: 0}
@@ -2287,6 +2689,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       handleActive: 1
       handleStyleSheet:
         baseSprite: {fileID: 0}
@@ -2309,6 +2717,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 1
       textStyleSheet:
         font: {fileID: 0}
@@ -2375,6 +2789,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       fillActive: 1
       fillStyleSheet:
         baseSprite: {fileID: 0}
@@ -2397,6 +2817,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       handleActive: 1
       handleStyleSheet:
         baseSprite: {fileID: 0}
@@ -2419,6 +2845,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 1
       textStyleSheet:
         font: {fileID: 0}
@@ -2485,6 +2917,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       fillActive: 1
       fillStyleSheet:
         baseSprite: {fileID: 0}
@@ -2507,6 +2945,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       handleActive: 1
       handleStyleSheet:
         baseSprite: {fileID: 0}
@@ -2529,6 +2973,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 1
       textStyleSheet:
         font: {fileID: 0}
@@ -2595,6 +3045,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       fillActive: 1
       fillStyleSheet:
         baseSprite: {fileID: 0}
@@ -2617,6 +3073,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       handleActive: 1
       handleStyleSheet:
         baseSprite: {fileID: 0}
@@ -2639,6 +3101,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 1
       textStyleSheet:
         font: {fileID: 0}
@@ -2705,6 +3173,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       fillActive: 0
       fillStyleSheet:
         baseSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
@@ -2727,6 +3201,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       handleActive: 1
       handleStyleSheet:
         baseSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
@@ -2749,6 +3229,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 1, g: 1, b: 1, a: 0}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textActive: 0
       textStyleSheet:
         font: {fileID: 0}
@@ -2816,6 +3302,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5882353}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       titleActive: 0
       titleStyleSheet:
         font: {fileID: 0}
@@ -2851,6 +3343,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textStyleSheet:
         font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
         fontStyle: 0
@@ -2889,6 +3387,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       hintTextActive: 1
       hintTextStyleSheet:
         font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2925,7 +3429,7 @@ MonoBehaviour:
         imageType: 1
         pixelsPerUnit: 1
         transition:
-          transitionType: 1
+          transitionType: 0
           spriteState:
             m_HighlightedSprite: {fileID: 0}
             m_PressedSprite: {fileID: 0}
@@ -2939,6 +3443,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       handleStyleSheet:
         baseSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
         baseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2960,6 +3470,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 1}
             m_ColorMultiplier: 1
             m_FadeDuration: 0.1
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
   popupStyleSheets:
     info:
       popupStyleSheet:
@@ -2983,6 +3499,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       filterActive: 1
       filterColor: {r: 1, g: 1, b: 1, a: 0.09803922}
       textActive: 1
@@ -3026,6 +3548,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       filterActive: 1
       filterColor: {r: 0, g: 0, b: 0, a: 0}
       textActive: 1
@@ -3069,6 +3597,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       filterActive: 1
       filterColor: {r: 0, g: 0, b: 0, a: 0}
       textActive: 1
@@ -3112,6 +3646,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       filterActive: 1
       filterColor: {r: 1, g: 0, b: 0, a: 0.19607843}
       textActive: 1
@@ -3159,6 +3699,12 @@ MonoBehaviour:
               m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
               m_ColorMultiplier: 1
               m_FadeDuration: 0.1
+            animationTriggers:
+              m_NormalTrigger: Normal
+              m_HighlightedTrigger: Highlighted
+              m_PressedTrigger: Pressed
+              m_SelectedTrigger: Selected
+              m_DisabledTrigger: Disabled
         textStyleSheet:
           font: {fileID: 0}
           fontStyle: 0

@@ -54,6 +54,9 @@ namespace Dhs5.AdvancedUI
 
         [Header("Color Transition")]
         public ColorBlock colorBlock;
+
+        [Header("Animation Transition")]
+        public AnimationTriggers animationTriggers = new();
     }
 
     [System.Serializable]

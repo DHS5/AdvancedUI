@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 namespace Dhs5.AdvancedUI
 {
+    [SelectionBase]
+    [DisallowMultipleComponent]
     public abstract class AdvancedComponent : MonoBehaviour
     {
         protected virtual void Awake()

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEditor;
 
-namespace Coffee.UISoftMask
+namespace Dhs5.AdvancedUI
 {
     public static class ImportSampleMenu
     {

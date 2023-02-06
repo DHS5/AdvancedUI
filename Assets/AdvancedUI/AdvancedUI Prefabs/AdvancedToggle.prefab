@@ -310,6 +310,12 @@ MonoBehaviour:
           m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
           m_ColorMultiplier: 0
           m_FadeDuration: 0
+        animationTriggers:
+          m_NormalTrigger: Normal
+          m_HighlightedTrigger: Highlighted
+          m_PressedTrigger: Pressed
+          m_SelectedTrigger: Selected
+          m_DisabledTrigger: Disabled
     checkmarkActive: 1
     checkmarkScale: 1
     checkmarkStyleSheet:
@@ -335,6 +341,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textStyleSheet:
         font: {fileID: 0}
         fontStyle: 0
@@ -372,6 +384,12 @@ MonoBehaviour:
             m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
             m_ColorMultiplier: 0
             m_FadeDuration: 0
+          animationTriggers:
+            m_NormalTrigger: Normal
+            m_HighlightedTrigger: Highlighted
+            m_PressedTrigger: Pressed
+            m_SelectedTrigger: Selected
+            m_DisabledTrigger: Disabled
       textStyleSheet:
         font: {fileID: 0}
         fontStyle: 0

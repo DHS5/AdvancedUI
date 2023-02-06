@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace Coffee.UISoftMask
+namespace Dhs5.AdvancedUI
 {
     internal static class EditorUtils
     {

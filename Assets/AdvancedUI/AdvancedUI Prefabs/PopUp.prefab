@@ -436,6 +436,12 @@ MonoBehaviour:
           m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
           m_ColorMultiplier: 0
           m_FadeDuration: 0
+        animationTriggers:
+          m_NormalTrigger: Normal
+          m_HighlightedTrigger: Highlighted
+          m_PressedTrigger: Pressed
+          m_SelectedTrigger: Selected
+          m_DisabledTrigger: Disabled
     filterActive: 1
     filterColor: {r: 0, g: 0, b: 0, a: 0}
     textActive: 1

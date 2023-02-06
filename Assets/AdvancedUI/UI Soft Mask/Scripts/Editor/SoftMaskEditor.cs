@@ -5,7 +5,7 @@ using UnityEditor;
 using System.Linq;
 
 
-namespace Coffee.UISoftMask
+namespace Dhs5.AdvancedUI
 {
     /// <summary>
     /// SoftMask editor.

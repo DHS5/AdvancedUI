@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Coffee.UISoftMask
+namespace Dhs5.AdvancedUI
 {
     internal class MaterialEntry
     {

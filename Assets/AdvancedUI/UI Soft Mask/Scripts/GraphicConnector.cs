@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Coffee.UISoftMask
+namespace Dhs5.AdvancedUI
 {
     internal static class GraphicConnectorExtension
     {

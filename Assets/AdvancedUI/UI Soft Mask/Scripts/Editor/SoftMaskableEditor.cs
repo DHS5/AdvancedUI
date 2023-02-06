@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using MaskIntr = UnityEngine.SpriteMaskInteraction;
 
-namespace Coffee.UISoftMask
+namespace Dhs5.AdvancedUI
 {
     internal enum MaskInteraction : int
     {

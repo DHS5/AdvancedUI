@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-namespace Coffee.UISoftMask
+namespace Dhs5.AdvancedUI
 {
     /// <summary>
     /// Soft mask.
