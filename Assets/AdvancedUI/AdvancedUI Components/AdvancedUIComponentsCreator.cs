@@ -142,6 +142,18 @@ namespace Dhs5.AdvancedUI
         }
 
         #endregion
+        
+        #region Mask
+
+        // ### Mask ###
+
+        [MenuItem("GameObject/UI/AdvancedUI/Masks/Mask")]
+        public static void CreateSimpleMask()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/UIMask.prefab");
+        }
+
+        #endregion
     }
 }
 #endif

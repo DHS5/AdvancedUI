@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using NaughtyAttributes;
 
 namespace Dhs5.AdvancedUI
 {
@@ -37,8 +38,6 @@ namespace Dhs5.AdvancedUI
         [Space, Space]
         [Header("ScrollView")]
         public ScrollViewStyleSheetList scrollViewStyleSheets;
-
-        // ... ScrollView
     }
 
     #region Composite Style Sheets

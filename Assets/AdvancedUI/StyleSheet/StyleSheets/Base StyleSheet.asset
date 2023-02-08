@@ -3179,7 +3179,7 @@ MonoBehaviour:
             m_PressedTrigger: Pressed
             m_SelectedTrigger: Selected
             m_DisabledTrigger: Disabled
-      fillActive: 0
+      fillActive: 1
       fillStyleSheet:
         baseSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
         baseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3207,7 +3207,7 @@ MonoBehaviour:
             m_PressedTrigger: Pressed
             m_SelectedTrigger: Selected
             m_DisabledTrigger: Disabled
-      handleActive: 1
+      handleActive: 0
       handleStyleSheet:
         baseSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
         baseColor: {r: 1, g: 1, b: 1, a: 1}
