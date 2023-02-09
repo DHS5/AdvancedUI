@@ -14,8 +14,15 @@ namespace Dhs5.AdvancedUI
         [ShowIf(nameof(dragObject))][BoxGroup("Drag Options")] public bool dragAlongX = true;
         [ShowIf(nameof(dragObject))][BoxGroup("Drag Options")] public bool dragAlongY = true;
 
+
+        private Vector2 startDragPos;
+        private Vector2 endDragPos;
+
+
         public virtual void OnBeginDrag(PointerEventData eventData)
         {
+            startDragPos = eventData.position;
+
             BeginDrag?.Invoke(eventData);
         }
 
@@ -32,7 +39,10 @@ namespace Dhs5.AdvancedUI
 
         public virtual void OnEndDrag(PointerEventData eventData)
         {
+            endDragPos = eventData.position;
+
             EndDrag?.Invoke(eventData);
+            DragDelta?.Invoke(endDragPos - startDragPos);
         }
 
 
@@ -41,6 +51,7 @@ namespace Dhs5.AdvancedUI
         public event Action<PointerEventData> BeginDrag;
         public event Action<PointerEventData> Drag;
         public event Action<PointerEventData> EndDrag;
+        public event Action<Vector2> DragDelta;
 
         #endregion
     }

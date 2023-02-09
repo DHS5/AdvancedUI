@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+using System.Reflection;
+#endif
+
 namespace Dhs5.Utility
 {
     public static class ExtensionMethods
@@ -85,6 +90,62 @@ namespace Dhs5.Utility
         {
             transform.localScale = new Vector3(x, y, z);
         }
+
+        #endregion
+
+        #region List
+        public static int ValidIndex<T>(this List<T> list, int index)
+        {
+            while (index < 0) index += list.Count;
+
+            return index % list.Count;
+        }
+        public static T Get<T>(this List<T> list, int index)
+        {
+            return list[list.ValidIndex(index)];
+        }
+        #endregion
+
+        #region Editor
+
+#if UNITY_EDITOR
+        // Gets value from SerializedProperty - even if value is nested
+        public static object GetParent(this SerializedProperty property)
+        {
+            object obj = property.serializedObject.targetObject;
+
+            FieldInfo field = null;
+
+            string[] paths = property.propertyPath.Split('.');
+            for (int i = 0; i < paths.Length - 1; i++)
+            {
+                var type = obj.GetType();
+                field = type.GetField(paths[i]);
+                obj = field.GetValue(obj);
+            }
+            return obj;
+        }
+        
+        public static object GetParentField(this SerializedProperty property, string fieldName)
+        {
+            object obj = property.serializedObject.targetObject;
+
+            FieldInfo field = null;
+
+            string[] paths = property.propertyPath.Split('.');
+            for (int i = 0; i < paths.Length - 1; i++)
+            {
+                var type = obj.GetType();
+                field = type.GetField(paths[i]);
+                obj = field.GetValue(obj);
+            }
+            var type2 = obj.GetType();
+            field = type2.GetField(fieldName);
+            if (field == null) return null;
+            obj = field.GetValue(obj);
+            return obj;
+        }
+#endif
 
         #endregion
     }
