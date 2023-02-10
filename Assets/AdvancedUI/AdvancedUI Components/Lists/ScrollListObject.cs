@@ -18,6 +18,8 @@ namespace Dhs5.AdvancedUI
 
         protected abstract void SetUp<T>(T objectToSetUpFrom);
 
+        public abstract string GetName<T>(T objectToGetNameFrom);
+
         public void Move(float delta, bool xAxis)
         {
             transform.Translate(new Vector3(xAxis ? delta : 0, xAxis ? 0 : delta, 0));

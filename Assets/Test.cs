@@ -7,15 +7,10 @@ public class Test : MonoBehaviour
 {
     public List<string> list = new();
 
-    public HorizontalScrollList horizontalScrollList;
+    public ScrollListComponent scrollList;
 
     private void Start()
     {
-        horizontalScrollList.CreateList(list);
-    }
-
-    private void Update()
-    {
-        Debug.Log(horizontalScrollList.CurrentSelectionIndex);
+        scrollList.CreateList(list);
     }
 }

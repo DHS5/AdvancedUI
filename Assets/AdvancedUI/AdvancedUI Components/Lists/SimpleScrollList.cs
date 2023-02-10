@@ -7,14 +7,14 @@ using System;
 
 namespace Dhs5.AdvancedUI
 {
-    public class ScrollList<T> : IScrollList
+    public class SimpleScrollList<T> : IScrollList
     {
         private enum SwipeDirection { LEFT = -1, RIGHT = 1, UP = -1, DOWN = 1 }
 
         readonly private ScrollListComponent scrollListComponent;
         readonly private List<T> list;
         readonly private List<ScrollListSocket> sockets;
-        readonly private List<ScrollListSocket> socketsInOrder;
+        readonly private GameObject objectContainer;
         readonly private DragableUI dragableObject;
         readonly private GameObject prefab;
         
@@ -29,15 +29,15 @@ namespace Dhs5.AdvancedUI
         readonly private float animLerp;
         readonly private float animDelay;
 
-        public ScrollList(ScrollListComponent _scrollListComponent, List<T> _list, List<ScrollListSocket> _sockets, List<ScrollListSocket> _socketsInOrder,
-            DragableUI _dragableObject, GameObject _prefab,
+        public SimpleScrollList(ScrollListComponent _scrollListComponent, List<T> _list, List<ScrollListSocket> _sockets,
+            GameObject _objectContainer, DragableUI _dragableObject, GameObject _prefab,
             bool _isHorizontal, bool _useScroll, float _scrollSensitivity, float _socketWidth, float _spaceBetweenSockets,
             bool _useAnim, float _animLerp, float _animDelay)
         {
             scrollListComponent = _scrollListComponent;
             list = _list;
             sockets = _sockets;
-            socketsInOrder = _socketsInOrder;
+            objectContainer = _objectContainer;
             dragableObject = _dragableObject;
             prefab = _prefab;
 
@@ -57,11 +57,18 @@ namespace Dhs5.AdvancedUI
 
         private List<ScrollListObject> scrollListObjects = new();
 
+        private ScrollListSocket currentSocket;
+        private ScrollListSocket CurrentSocket
+        {
+            get { return currentSocket; }
+            set { currentSocket = value; objectContainer.transform.SetParent(currentSocket.transform, true); }
+        }
+
         private int TotalObjectNumber => sockets.Count;
         private int RightSocketsNumber => TotalObjectNumber / 2 + 1;
-        private ScrollListSocket MaxSocket => socketsInOrder.Get(-1);
+        private ScrollListSocket MaxSocket => sockets.Get(-1);
         private int LeftSocketsNumber => RightSocketsNumber - 1;
-        private ScrollListSocket MinSocket => socketsInOrder[0];
+        private ScrollListSocket MinSocket => sockets[0];
 
         public int CurrentSelectionIndex()
         {
@@ -78,28 +85,22 @@ namespace Dhs5.AdvancedUI
 
         #region List Management
 
-        private void AddToScrollListObjects(object obj, int objectIndex, int socketIndex)
+        private void AddToScrollListObjects(object obj, int index)
         {
-            ScrollListObject scrollListObject = GameObject.Instantiate(prefab, sockets[socketIndex].transform)
+            ScrollListObject scrollListObject = GameObject.Instantiate(prefab, objectContainer.transform)
                 .GetComponent<ScrollListObject>();
-            scrollListObject.Set(obj, objectIndex);
+            scrollListObject.Set(obj, index);
 
-            sockets[socketIndex].ScrollListObject = scrollListObject;
             scrollListObjects.Add(scrollListObject);
         }
 
         public void CreateList()
         {
-            // Right sockets
-            for (int i = 0; i < RightSocketsNumber; i++)
-            {
-                AddToScrollListObjects(list.Get(i), list.ValidIndex(i), i * 2);
-            }
+            CurrentSocket = sockets[0];
 
-            // Left sockets
-            for (int i = 0; i < LeftSocketsNumber; i++)
+            for (int i = 0; i < list.Count; i++)
             {
-                AddToScrollListObjects(list.Get(-i - 1), list.ValidIndex(-i - 1), i * 2 + 1);
+                AddToScrollListObjects(list[i], i);
             }
         }
 
@@ -169,32 +170,23 @@ namespace Dhs5.AdvancedUI
         }
         private void Swipe(SwipeDirection direction, int units)
         {
-            int extremeObjectIndex;
-            ScrollListObject extremeObject;
+            int currentIndex = currentSocket.Index;
 
             for (int u = 0; u < units; u++)
             {
                 if (direction == SwipeDirection.RIGHT || direction == SwipeDirection.DOWN)
                 {
-                    extremeObject = MinSocket.ScrollListObject;
-                    for (int i = 0; i < TotalObjectNumber - 1; i++)
+                    if (currentIndex + 1 < sockets.Count)
                     {
-                        socketsInOrder[i].ScrollListObject = socketsInOrder.Get(i + 1).ScrollListObject;
+                        CurrentSocket = sockets[currentIndex + 1];
                     }
-                    extremeObjectIndex = list.ValidIndex(socketsInOrder[TotalObjectNumber - 1].ScrollListObject.Index + 1);
-                    socketsInOrder[TotalObjectNumber - 1].ScrollListObject = extremeObject;
-                    socketsInOrder[TotalObjectNumber - 1].ScrollListObject.Set(list[extremeObjectIndex], extremeObjectIndex);
                 }
                 else
                 {
-                    extremeObject = MaxSocket.ScrollListObject;
-                    for (int i = TotalObjectNumber - 1; i > 0; i--)
+                    if (currentIndex > 0)
                     {
-                        socketsInOrder[i].ScrollListObject = socketsInOrder.Get(i - 1).ScrollListObject;
+                        CurrentSocket = sockets[0];
                     }
-                    extremeObjectIndex = list.ValidIndex(socketsInOrder[0].ScrollListObject.Index - 1);
-                    socketsInOrder[0].ScrollListObject = extremeObject;
-                    socketsInOrder[0].ScrollListObject.Set(list[extremeObjectIndex], extremeObjectIndex);
                 }
             }
 
@@ -231,9 +223,6 @@ namespace Dhs5.AdvancedUI
         private IEnumerator RepositionAllCR(float lerp, float delay)
         {
             canMove = false;
-
-            socketsInOrder[0].ScrollListObject.transform.LocalReset();
-            socketsInOrder[TotalObjectNumber - 1].ScrollListObject.transform.LocalReset();
 
             float currentLerp = lerp;
             while (currentLerp < 0.99f)

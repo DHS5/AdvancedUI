@@ -20,9 +20,11 @@ namespace Dhs5.AdvancedUI
             set { scrollListObject = value; ParentScrollListObject(); }
         }
 
+        public int Index;
+
         private void ParentScrollListObject()
         {
-            ScrollListObject.transform.SetParent(rectTransform, false);
+            ScrollListObject.transform.SetParent(rectTransform, true);
         }
     }
 }
