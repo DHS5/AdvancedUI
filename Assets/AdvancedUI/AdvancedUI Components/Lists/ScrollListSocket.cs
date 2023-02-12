@@ -8,8 +8,16 @@ namespace Dhs5.AdvancedUI
     {
         [SerializeField] private RectTransform rectTransform;
 
-        public float Width { set { rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, value); } }
-        public float Height { set { rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, value); } }
+        public float Width 
+        { 
+            get { return rectTransform.rect.width; }
+            set { rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, value); } 
+        }
+        public float Height 
+        {
+            get { return rectTransform.rect.height; }
+            set { rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, value); } 
+        }
 
 
         private ScrollListObject scrollListObject;
