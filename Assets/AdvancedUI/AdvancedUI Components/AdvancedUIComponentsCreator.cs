@@ -131,6 +131,18 @@ namespace Dhs5.AdvancedUI
 
         #endregion
 
+        #region ScrollList
+
+        // ### ScrollLists ###
+
+        [MenuItem("GameObject/UI/AdvancedUI/ScrollLists/ScrollList")]
+        public static void CreateSimpleScrollList()
+        {
+            CreateAdvancedUIObject("Assets/AdvancedUI/AdvancedUI Prefabs/ScrollList.prefab");
+        }
+
+        #endregion
+
         #region Popup
 
         // ### Popup ###

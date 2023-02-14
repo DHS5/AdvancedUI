@@ -12,10 +12,13 @@ namespace Dhs5.AdvancedUI
         public int CurrentSelectionIndex();
         public void Enable();
         public void Disable();
+        public void Destroy();
         public void AutoScroll(int units);
 
         public event Action<int, string> OnSelectionChange;
         public void InvokeSelectionChange();
+
+        public object GetCurrentlySelectedObject();
     }
 
     public abstract class ScrollList<T> : IScrollList
@@ -27,14 +30,14 @@ namespace Dhs5.AdvancedUI
         protected List<ScrollListSocket> sockets;
         protected DragableUI dragableObject;
         protected GameObject prefab;
-        
+
         // Parameters
         protected bool isHorizontal;
         protected bool useScroll;
         protected float scrollSensitivity;
         protected float socketSize;
         protected float spaceBetweenSockets;
-        
+
         protected bool useAnim;
         protected float animLerp;
         protected float animDelay;
@@ -67,6 +70,10 @@ namespace Dhs5.AdvancedUI
         protected int LeftSocketsNumber => RightSocketsNumber - 1;
 
         public abstract int CurrentSelectionIndex();
+        public object GetCurrentlySelectedObject()
+        {
+            return list[CurrentSelectionIndex()];
+        }
 
         public event Action<int, string> OnSelectionChange;
         protected void FireSelectionChange(int index, string name) { OnSelectionChange?.Invoke(index, name); }
@@ -74,6 +81,18 @@ namespace Dhs5.AdvancedUI
         public abstract void InvokeSelectionChange();
 
         #region List Management
+
+        public void Destroy()
+        {
+            StopRepositioningCR();
+
+            Disable();
+
+            foreach (var item in scrollListObjects)
+            {
+                item.Destroy();
+            }
+        }
 
         public abstract void CreateList();
 
@@ -126,7 +145,7 @@ namespace Dhs5.AdvancedUI
 
         protected abstract void MoveScrollListObjects(float delta);
 
-        protected virtual void Swipe(float delta, int units) 
+        protected virtual void Swipe(float delta, int units)
         {
             if (isHorizontal)
             {
@@ -151,7 +170,23 @@ namespace Dhs5.AdvancedUI
 
         protected abstract void RepositionAll();
 
+        #region Coroutine Management
+
+        protected Coroutine repositioningCoroutine;
+
+        protected void StartRepositioningCR()
+        {
+            repositioningCoroutine = scrollListComponent.StartCoroutine(RepositionAllCR(animLerp, animDelay));
+        }
+        protected void StopRepositioningCR()
+        {
+            if (repositioningCoroutine != null)
+                scrollListComponent.StopCoroutine(repositioningCoroutine);
+        }
+        #endregion
+
         protected abstract IEnumerator RepositionAllCR(float lerp, float delay);
+
         #endregion
     }
 }

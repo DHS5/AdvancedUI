@@ -32,5 +32,10 @@ namespace Dhs5.AdvancedUI
             transform.LocalReset();
             ImmediateReposition = false;
         }
+
+        public virtual void Destroy()
+        {
+            Destroy(gameObject);
+        }
     }
 }

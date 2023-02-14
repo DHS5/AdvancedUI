@@ -34,11 +34,13 @@ namespace Dhs5.AdvancedUI
 
     public class ScrollListComponent : AdvancedComponent
     {
+        #region Enums
         [System.Serializable]
         private enum ScrollDirection { Horizontal, Vertical }
         
         [System.Serializable]
         private enum ListFormat { Infinite, Simple }
+        #endregion
 
         [Header("Parameters")]
         [OnValueChanged(nameof(InverseDimension))]
@@ -50,6 +52,10 @@ namespace Dhs5.AdvancedUI
         private bool IsInfinite => format == ListFormat.Infinite;
         private bool IsSimple => format == ListFormat.Simple;
         [Space]
+        [SerializeField] private ScrollListType scrollListType;
+        public ScrollListType Type { get { return scrollListType; } set { scrollListType = value; SetUpConfig(); } }
+
+        [Space]
         [SerializeField] private ScrollListContent scrollListContent;
         public ScrollListContent Content { get { return scrollListContent; } set { scrollListContent = value; SetUpConfig(); } }
 
@@ -59,16 +65,27 @@ namespace Dhs5.AdvancedUI
         public event Action<int> onSelectionChange;
 
 
-        [SerializeField] private Sprite horizontalMaskSprite;
-        [SerializeField] private Sprite verticalMaskSprite;
+        [Header("Custom Style Sheet")]
+        [SerializeField] private ScrollListStyleSheet customStyleSheet;
+
+
+        [Header("Style Sheet Container")]
+        [SerializeField] private StyleSheetContainer styleSheetContainer;
+        private ScrollListStyleSheet CurrentStyleSheet
+        { get { return scrollListType == ScrollListType.CUSTOM ? customStyleSheet :
+                    styleSheetContainer ? styleSheetContainer.projectStyleSheet.scrollListStyleSheets.GetStyleSheet(scrollListType) : null; } }
+
         
 
         [Space, Space]
         #region UI Components
         [Header("UI Components")]
         [SerializeField] private DragableUI dragableObject;
+        [SerializeField] private Image frame;
+        [SerializeField] private Image frameMask;
+        [SerializeField] private Image background;
         [SerializeField] private Image mask;
-
+        [Space]
         // Infinite
         [ShowIf(EConditionOperator.And, nameof(IsHorizontal), nameof(IsInfinite))][SerializeField] 
         private RectTransform socketHorizontalContainer;
@@ -185,6 +202,12 @@ namespace Dhs5.AdvancedUI
             {
                 ZDebug.LogE("List is null or empty");
                 return;
+            }
+
+            if (scrollList != null)
+            {
+                UnlinkEvents();
+                scrollList.Destroy();
             }
 
             // Infinite List
@@ -364,7 +387,8 @@ namespace Dhs5.AdvancedUI
 
         private void SetMask()
         {
-            mask.sprite = IsHorizontal ? horizontalMaskSprite : verticalMaskSprite;
+            if (CurrentStyleSheet == null) return;
+            mask.SetUpImage(IsHorizontal ? CurrentStyleSheet.horizontalMaskStyleSheet : CurrentStyleSheet.verticalMaskStyleSheet);
         }
         private void SetDisplay()
         {
@@ -372,6 +396,10 @@ namespace Dhs5.AdvancedUI
             {
                 displayContainer.gameObject.SetActive(Content.useDisplay);
                 displayContainer.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Content.displayHeight);
+
+                if (CurrentStyleSheet == null) return;
+
+                displayText.SetUpText(CurrentStyleSheet.textStyleSheet);
             }
         }
         private void SetButtons()
@@ -380,9 +408,28 @@ namespace Dhs5.AdvancedUI
             {
                 buttonsContainer.gameObject.SetActive(Content.useButtons);
                 buttonsContainer.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Content.buttonsHeight);
+
+                if (CurrentStyleSheet == null) return;
+
+                if (lessButton)
+                {
+                    lessButton.Type = CurrentStyleSheet.leftButtonType;
+                }
+                if (plusButton)
+                {
+                    plusButton.Type = CurrentStyleSheet.rightButtonType;
+                }
             }
         }
 
+        private void SetUpStyle()
+        {
+            if (CurrentStyleSheet == null) return;
+
+            if (frame) frame.SetUpImage(CurrentStyleSheet.frameStyleSheet);
+            if (frameMask) frameMask.SetUpImage(CurrentStyleSheet.frameMaskStyleSheet);
+            if (background) background.SetUpImage(CurrentStyleSheet.backgroundStyleSheet);
+        }
         
         protected override void SetUpConfig()
         {
@@ -397,6 +444,8 @@ namespace Dhs5.AdvancedUI
             SetDisplay();
 
             SetMask();
+
+            SetUpStyle();
         }
         #endregion
     }

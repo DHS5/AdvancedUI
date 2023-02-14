@@ -118,7 +118,7 @@ namespace Dhs5.AdvancedUI
         {
             if (useAnim)
             {
-                scrollListComponent.StartCoroutine(RepositionAllCR(animLerp, animDelay));
+                StartRepositioningCR();
                 return;
             }
             objectContainer.transform.LocalReset();
