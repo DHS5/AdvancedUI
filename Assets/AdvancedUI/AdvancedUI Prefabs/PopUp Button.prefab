@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7fdf5a09efda249bb99632320b31c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  styleSheetContainer: {fileID: 0}
   buttonType: 6
   buttonContent:
     backgroundSprite: {fileID: 0}
@@ -99,9 +100,33 @@ PrefabInstance:
       propertyPath: m_text
       value: Yes
       objectReference: {fileID: 0}
+    - target: {fileID: 757563846572356724, guid: fd2ec7c958d31274aa3cdadd63a067d4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 757563847042798744, guid: fd2ec7c958d31274aa3cdadd63a067d4, type: 3}
       propertyPath: m_text
       value: No
+      objectReference: {fileID: 0}
+    - target: {fileID: 757563847042798744, guid: fd2ec7c958d31274aa3cdadd63a067d4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 757563847320666100, guid: fd2ec7c958d31274aa3cdadd63a067d4, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 757563847320666100, guid: fd2ec7c958d31274aa3cdadd63a067d4, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 757563847384784664, guid: fd2ec7c958d31274aa3cdadd63a067d4, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 757563847384784664, guid: fd2ec7c958d31274aa3cdadd63a067d4, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 757563848417621226, guid: fd2ec7c958d31274aa3cdadd63a067d4, type: 3}
       propertyPath: buttonContent.text

@@ -130,7 +130,6 @@ namespace Dhs5.Utility
         {
             transform.localScale = Vector3.one;
         }
-
         #endregion
 
         #region RectTransform

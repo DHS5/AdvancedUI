@@ -13,4 +13,9 @@ public class Test : MonoBehaviour
     {
         scrollList.CreateList(list);
     }
+
+    public void TestFunc()
+    {
+        Debug.Log("test");
+    }
 }
