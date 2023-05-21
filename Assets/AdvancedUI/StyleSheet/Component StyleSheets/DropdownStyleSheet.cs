@@ -6,7 +6,7 @@ using NaughtyAttributes;
 namespace Dhs5.AdvancedUI
 {
     [System.Serializable]
-    public class DropdownStyleSheet
+    public class DropdownStyleSheet : BaseStyleSheet
     {
         public bool backgroundActive = true;
         [ShowIf(nameof(backgroundActive))]

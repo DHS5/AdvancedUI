@@ -8,10 +8,10 @@ namespace Dhs5.AdvancedUI
     public class AdvancedText : AdvancedComponent
     {
         [Header("Text Type")]
-        [SerializeField] private TextType textType;
-        public TextType Type { get { return textType; } set { textType = value; } }
+        public StylePicker stylePicker;
 
-        [Header("Style Sheet")]
+        [Header("Custom Style Sheet")]
+        [SerializeField] private bool custom;
         [SerializeField] private TextStyleSheet customStyleSheet;
 
         [Header("UI Components")]
@@ -26,8 +26,11 @@ namespace Dhs5.AdvancedUI
         {
             if (styleSheetContainer == null) return;
 
-            if (text)
-                text.SetUpText(Type == TextType.CUSTOM ? customStyleSheet : GetTextStyleSheet(Type));
+            stylePicker.SetUp(styleSheetContainer, StyleSheetType.TEXT);
+            TextStyleSheet textStyleSheet = custom ? customStyleSheet : stylePicker.StyleSheet as TextStyleSheet;
+
+            if (text && textStyleSheet != null)
+                text.SetUpText(textStyleSheet);
         }
     }
 }

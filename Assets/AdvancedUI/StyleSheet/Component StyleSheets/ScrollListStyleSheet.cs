@@ -6,7 +6,7 @@ using NaughtyAttributes;
 namespace Dhs5.AdvancedUI
 {
     [System.Serializable]
-    public class ScrollListStyleSheet
+    public class ScrollListStyleSheet : BaseStyleSheet
     {
         public bool frameActive = false;
         [ShowIf(nameof(frameActive))][AllowNesting] public ImageStyleSheet frameStyleSheet;

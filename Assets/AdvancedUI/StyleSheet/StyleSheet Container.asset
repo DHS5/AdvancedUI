@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: StyleSheet Container
   m_EditorClassIdentifier: 
   projectStyleSheet: {fileID: 11400000, guid: 908f454560396bb449e4e28a932a2f84, type: 2}
+  Texts: []
+  Backgrounds: []
+  Icons: []

@@ -6,7 +6,7 @@ using NaughtyAttributes;
 namespace Dhs5.AdvancedUI
 {
     [System.Serializable]
-    public class SwitchToggleStyleSheet
+    public class SwitchToggleStyleSheet : BaseStyleSheet
     {
         public ImageStyleSheet backgroundStyleSheet;
         public ImageStyleSheet foregroundStyleSheet;

@@ -6,7 +6,7 @@ using NaughtyAttributes;
 namespace Dhs5.AdvancedUI
 {
     [System.Serializable]
-    public class ButtonStyleSheet
+    public class ButtonStyleSheet : BaseStyleSheet
     {
         public bool backgroundActive = true;
         [ShowIf(nameof(backgroundActive))]

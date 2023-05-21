@@ -378,7 +378,8 @@ namespace Dhs5.AdvancedUI
         {
             foreach (var socket in socketsInOrder)
             {
-                socket.transform.SetParent(SocketContainer);
+                if (socket != mainSocket)
+                    socket.transform.SetParent(SocketContainer);
             }
         }
 

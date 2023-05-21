@@ -4,15 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using NaughtyAttributes;
+using System.Linq;
 
 namespace Dhs5.AdvancedUI
 {
+    [System.Serializable]
+    public enum StyleSheetType
+    {
+        TEXT,
+        BUTTON,
+        TOGGLE,
+        DROPDOWN_ITEM_TOGGLE,
+        SWITCH_TOGGLE,
+        SLIDER,
+        DROPDOWN,
+        INPUT_FIELD,
+        SCROLLBAR,
+        POPUP,
+        SCROLL_VIEW,
+        SCROLL_LIST,
+        BACKGROUND_IMAGE,
+        ICON_IMAGE,
+    }
+
     /// <summary>
     /// StyleSheet Scriptable Object containing the style options for every AdvancedUI components
     /// </summary>
     [CreateAssetMenu(fileName = "StyleSheet", menuName = "AdvancedUI/StyleSheet/StyleSheet", order = 1)]
     public class StyleSheet : ScriptableObject
     {
+        [SerializeField] private StyleSheetContainer container;
+        public StyleSheetContainer Container => container;
+
         [Header("Texts")]
         public TextStyleSheetList textStyleSheets;
         [Space, Space]
@@ -44,6 +67,125 @@ namespace Dhs5.AdvancedUI
         [Space, Space]
         [Header("ScrollList")]
         public ScrollListStyleSheetList scrollListStyleSheets;
+
+
+        [SerializeField] private List<TextStyleSheet> TextStyleSheets;
+        [SerializeField] private List<ImageStyleSheet> BackgroundImageStyleSheets;
+        [SerializeField] private List<ImageStyleSheet> IconImageStyleSheets;
+        private List<ButtonStyleSheet> ButtonStyleSheets;
+        private List<ToggleStyleSheet> ToggleStyleSheets;
+        private List<DropdownItemToggleStyleSheet> DropdownItemToggleStyleSheets;
+        private List<SwitchToggleStyleSheet> SwitchToggleStyleSheets;
+        private List<SliderStyleSheet> SliderStyleSheets;
+        private List<DropdownStyleSheet> DropdownStyleSheets;
+        private List<InputfieldStyleSheet> InputfieldStyleSheets;
+        private List<ScrollbarStyleSheet> ScrollbarStyleSheets;
+        private List<ScrollViewStyleSheet> ScrollViewStyleSheets;
+        private List<ScrollListStyleSheet> ScrollListStyleSheets;
+        private List<PopupStyleSheet> PopupStyleSheets;
+
+        #region UID management
+        private void OnValidate()
+        {
+            SetUIDs(TextStyleSheets);
+            SetUIDs(BackgroundImageStyleSheets);
+            SetUIDs(IconImageStyleSheets);
+            SetUIDs(ButtonStyleSheets);
+            SetUIDs(ToggleStyleSheets);
+            SetUIDs(DropdownItemToggleStyleSheets);
+            SetUIDs(SwitchToggleStyleSheets);
+            SetUIDs(SliderStyleSheets);
+            SetUIDs(DropdownStyleSheets);
+            SetUIDs(InputfieldStyleSheets);
+            SetUIDs(ScrollbarStyleSheets);
+            SetUIDs(ScrollViewStyleSheets);
+            SetUIDs(ScrollListStyleSheets);
+            SetUIDs(PopupStyleSheets);
+        }
+
+        private void SetUIDs<T>(List<T> list) where T : BaseStyleSheet
+        {
+            if (list == null || list.Count < 1) return;
+
+            List<int> uids = new();
+            foreach (T t in list)
+            {
+                if (uids.Contains(t.UID) || t.UID == 0)
+                {
+                    t.SetUID(GenerateUID(uids));
+                }
+                uids.Add(t.UID);
+            }
+        }
+        private int GenerateUID(List<int> uids)
+        {
+            int uid;
+            do
+            {
+                uid = Random.Range(1, 10000);
+            } while(uids.Contains(uid));
+            return uid;
+        }
+        #endregion
+
+        #region Getters
+        public BaseStyleSheet GetStyleSheet(int uid, StyleSheetType type)
+        {
+            return type switch
+            {
+                StyleSheetType.TEXT => TextStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.BACKGROUND_IMAGE => BackgroundImageStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.ICON_IMAGE => IconImageStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.BUTTON => ButtonStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.TOGGLE => ToggleStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.DROPDOWN_ITEM_TOGGLE => DropdownItemToggleStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.SWITCH_TOGGLE => SwitchToggleStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.SLIDER => SliderStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.DROPDOWN => DropdownStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.INPUT_FIELD => InputfieldStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.SCROLLBAR => ScrollbarStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.SCROLL_VIEW => ScrollViewStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.SCROLL_LIST => ScrollListStyleSheets.Find(s => s.UID == uid),
+                StyleSheetType.POPUP => PopupStyleSheets.Find(s => s.UID == uid),
+                _ => null
+            };
+        }
+
+        public List<BaseStyleSheet> GetStyleSheetByType(StyleSheetType type)
+        {
+            return type switch
+            {
+                StyleSheetType.TEXT => TextStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.BACKGROUND_IMAGE => BackgroundImageStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.ICON_IMAGE => IconImageStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.BUTTON => ButtonStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.TOGGLE => ToggleStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.DROPDOWN_ITEM_TOGGLE => DropdownItemToggleStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.SWITCH_TOGGLE => SwitchToggleStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.SLIDER => SliderStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.DROPDOWN => DropdownStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.INPUT_FIELD => InputfieldStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.SCROLLBAR => ScrollbarStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.SCROLL_VIEW => ScrollViewStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.SCROLL_LIST => ScrollListStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                StyleSheetType.POPUP => PopupStyleSheets.Cast<BaseStyleSheet>().ToList(),
+                _ => null
+            };
+        }
+
+        public List<string> StyleSheetStrings(List<BaseStyleSheet> styleSheets)
+        {
+            List<string> list = new();
+            foreach (var var in styleSheets)
+            {
+                if (var.UID != 0)
+                    list.Add(var.Name);
+                else
+                    list.Add("No unique ID");
+            }
+            return list;
+        }
+        #endregion
     }
 
     #region Composite Style Sheets
@@ -65,7 +207,7 @@ namespace Dhs5.AdvancedUI
     }
 
     [System.Serializable]
-    public class ImageStyleSheet
+    public class ImageStyleSheet : BaseStyleSheet
     {
         public Sprite baseSprite;
         public Color baseColor = Color.white;
@@ -75,6 +217,7 @@ namespace Dhs5.AdvancedUI
         [Range(0, 10)] public float pixelsPerUnit = 1;
         [Header("Transition")]
         public bool isStatic = true;
+        //[HideIf(nameof(isStatic))][AllowNesting]
         public TransitionStyleSheet transition;
     }
 
@@ -89,7 +232,7 @@ namespace Dhs5.AdvancedUI
     }
 
     [System.Serializable]
-    public class TextStyleSheet
+    public class TextStyleSheet : BaseStyleSheet
     {
         public TMP_FontAsset font;
         public FontStyles fontStyle;

@@ -6,7 +6,7 @@ using NaughtyAttributes;
 namespace Dhs5.AdvancedUI
 {
     [System.Serializable]
-    public class PopupStyleSheet
+    public class PopupStyleSheet : BaseStyleSheet
     {
         public ImageStyleSheet popupStyleSheet;
         [Space]

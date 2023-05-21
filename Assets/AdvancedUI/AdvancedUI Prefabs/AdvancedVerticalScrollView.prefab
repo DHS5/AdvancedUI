@@ -197,10 +197,14 @@ MonoBehaviour:
     contentWidth: 0
     contentHeight: 600
   customStyleSheet:
+    uniqueID: 0
+    name: 
     backgroundActive: 1
     backgroundStyleSheet:
       isImage: 0
       imageStyleSheet:
+        uniqueID: 0
+        name: 
         baseSprite: {fileID: 0}
         baseColor: {r: 0, g: 0, b: 0, a: 0}
         baseMaterial: {fileID: 0}
@@ -229,6 +233,8 @@ MonoBehaviour:
             m_SelectedTrigger: Selected
             m_DisabledTrigger: Disabled
       textStyleSheet:
+        uniqueID: 0
+        name: 
         font: {fileID: 0}
         fontStyle: 0
         overrideAlignment: 0
