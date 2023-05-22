@@ -68,7 +68,14 @@ namespace Dhs5.AdvancedUI
         [Header("ScrollList")]
         public ScrollListStyleSheetList scrollListStyleSheets;
 
+        [System.Serializable]
+        public class Tabz
+        {
+            public int blabla;
+            public List<string> tabs;
+        }
 
+        public List<Tabz> tabs = new List<Tabz>();
         [SerializeField] private List<TextStyleSheet> TextStyleSheets;
         [SerializeField] private List<ImageStyleSheet> BackgroundImageStyleSheets;
         [SerializeField] private List<ImageStyleSheet> IconImageStyleSheets;

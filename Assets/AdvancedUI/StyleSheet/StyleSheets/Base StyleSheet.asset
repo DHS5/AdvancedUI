@@ -4790,9 +4790,19 @@ MonoBehaviour:
       textType: 0
       leftButtonType: 2
       rightButtonType: 2
+  tabs:
+  - blabla: 3
+    tabs:
+    - jtr
+    - gh
+  - blabla: 0
+    tabs: []
+  - blabla: 7
+    tabs:
+    - 87yjk
   TextStyleSheets:
   - uniqueID: 6645
-    name: Basic Black
+    name: Basic Blac
     font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     fontStyle: 0
     overrideAlignment: 0
