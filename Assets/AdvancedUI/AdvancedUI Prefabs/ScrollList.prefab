@@ -1078,12 +1078,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   customStyleSheet:
-    uniqueID: 0
-    name: 
     frameActive: 0
     frameStyleSheet:
-      uniqueID: 0
-      name: 
       baseSprite: {fileID: 0}
       baseColor: {r: 1, g: 1, b: 1, a: 1}
       baseMaterial: {fileID: 0}
@@ -1112,8 +1108,6 @@ MonoBehaviour:
           m_SelectedTrigger: Selected
           m_DisabledTrigger: Disabled
     frameMaskStyleSheet:
-      uniqueID: 0
-      name: 
       baseSprite: {fileID: 0}
       baseColor: {r: 1, g: 1, b: 1, a: 1}
       baseMaterial: {fileID: 0}
@@ -1142,8 +1136,6 @@ MonoBehaviour:
           m_SelectedTrigger: Selected
           m_DisabledTrigger: Disabled
     backgroundStyleSheet:
-      uniqueID: 0
-      name: 
       baseSprite: {fileID: 0}
       baseColor: {r: 1, g: 1, b: 1, a: 1}
       baseMaterial: {fileID: 0}
@@ -1172,8 +1164,6 @@ MonoBehaviour:
           m_SelectedTrigger: Selected
           m_DisabledTrigger: Disabled
     horizontalMaskStyleSheet:
-      uniqueID: 0
-      name: 
       baseSprite: {fileID: 0}
       baseColor: {r: 1, g: 1, b: 1, a: 1}
       baseMaterial: {fileID: 0}
@@ -1202,8 +1192,6 @@ MonoBehaviour:
           m_SelectedTrigger: Selected
           m_DisabledTrigger: Disabled
     verticalMaskStyleSheet:
-      uniqueID: 0
-      name: 
       baseSprite: {fileID: 0}
       baseColor: {r: 1, g: 1, b: 1, a: 1}
       baseMaterial: {fileID: 0}

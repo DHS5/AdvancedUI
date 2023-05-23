@@ -8,15 +8,16 @@ namespace Dhs5.AdvancedUI
     [System.Serializable]
     public class BaseStyleSheet
     {
-        [SerializeField, ReadOnly, AllowNesting] private int uniqueID;
+        private int uniqueID;
         public int UID => uniqueID;
 
-        [SerializeField] private string name;
+        private string name;
         public string Name => name;
 
-        public void SetUID(int uid)
+        public void SetInfos(int uid, string name)
         {
             uniqueID = uid;
+            this.name = name;
         }
     }
 }

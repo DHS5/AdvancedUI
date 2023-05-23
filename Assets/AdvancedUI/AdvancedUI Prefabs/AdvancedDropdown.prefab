@@ -557,12 +557,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   customStyleSheet:
-    uniqueID: 0
-    name: 
     backgroundActive: 1
     backgroundStyleSheet:
-      uniqueID: 0
-      name: 
       baseSprite: {fileID: 0}
       baseColor: {r: 0, g: 0, b: 0, a: 0}
       baseMaterial: {fileID: 0}
@@ -594,8 +590,6 @@ MonoBehaviour:
     titleType: 0
     arrowActive: 1
     arrowStyleSheet:
-      uniqueID: 0
-      name: 
       baseSprite: {fileID: 0}
       baseColor: {r: 0, g: 0, b: 0, a: 0}
       baseMaterial: {fileID: 0}

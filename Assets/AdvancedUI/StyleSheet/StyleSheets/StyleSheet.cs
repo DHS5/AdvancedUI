@@ -68,30 +68,24 @@ namespace Dhs5.AdvancedUI
         [Header("ScrollList")]
         public ScrollListStyleSheetList scrollListStyleSheets;
 
-        [System.Serializable]
-        public class Tabz
-        {
-            public int blabla;
-            public List<string> tabs;
-        }
-
-        public List<Tabz> tabs = new List<Tabz>();
         [SerializeField] private List<TextStyleSheet> TextStyleSheets;
         [SerializeField] private List<ImageStyleSheet> BackgroundImageStyleSheets;
         [SerializeField] private List<ImageStyleSheet> IconImageStyleSheets;
-        private List<ButtonStyleSheet> ButtonStyleSheets;
-        private List<ToggleStyleSheet> ToggleStyleSheets;
-        private List<DropdownItemToggleStyleSheet> DropdownItemToggleStyleSheets;
-        private List<SwitchToggleStyleSheet> SwitchToggleStyleSheets;
-        private List<SliderStyleSheet> SliderStyleSheets;
-        private List<DropdownStyleSheet> DropdownStyleSheets;
-        private List<InputfieldStyleSheet> InputfieldStyleSheets;
-        private List<ScrollbarStyleSheet> ScrollbarStyleSheets;
-        private List<ScrollViewStyleSheet> ScrollViewStyleSheets;
-        private List<ScrollListStyleSheet> ScrollListStyleSheets;
-        private List<PopupStyleSheet> PopupStyleSheets;
+        [SerializeField] private List<ButtonStyleSheet> ButtonStyleSheets;
+        [SerializeField] private List<ToggleStyleSheet> ToggleStyleSheets;
+        [SerializeField] private List<DropdownItemToggleStyleSheet> DropdownItemToggleStyleSheets;
+        [SerializeField] private List<SwitchToggleStyleSheet> SwitchToggleStyleSheets;
+        [SerializeField] private List<SliderStyleSheet> SliderStyleSheets;
+        [SerializeField] private List<DropdownStyleSheet> DropdownStyleSheets;
+        [SerializeField] private List<InputfieldStyleSheet> InputfieldStyleSheets;
+        [SerializeField] private List<ScrollbarStyleSheet> ScrollbarStyleSheets;
+        [SerializeField] private List<ScrollViewStyleSheet> ScrollViewStyleSheets;
+        [SerializeField] private List<ScrollListStyleSheet> ScrollListStyleSheets;
+        [SerializeField] private List<PopupStyleSheet> PopupStyleSheets;
 
+        
         #region UID management
+        /*
         private void OnValidate()
         {
             SetUIDs(TextStyleSheets);
@@ -133,6 +127,7 @@ namespace Dhs5.AdvancedUI
             } while(uids.Contains(uid));
             return uid;
         }
+        */
         #endregion
 
         #region Getters
@@ -191,6 +186,50 @@ namespace Dhs5.AdvancedUI
                     list.Add("No unique ID");
             }
             return list;
+        }
+        #endregion
+
+        #region List template management
+        public void ApplyTemplate()
+        {
+            TextStyleSheets = ApplyTemplate(TextStyleSheets, container.Texts);
+            BackgroundImageStyleSheets = ApplyTemplate(BackgroundImageStyleSheets, container.Backgrounds);
+            IconImageStyleSheets = ApplyTemplate(IconImageStyleSheets, container.Icons);
+            ButtonStyleSheets = ApplyTemplate(ButtonStyleSheets, container.Buttons);
+            ToggleStyleSheets = ApplyTemplate(ToggleStyleSheets, container.Toggles);
+            DropdownItemToggleStyleSheets = ApplyTemplate(DropdownItemToggleStyleSheets, container.DropdownItems);
+            SwitchToggleStyleSheets = ApplyTemplate(SwitchToggleStyleSheets, container.Switchs);
+            SliderStyleSheets = ApplyTemplate(SliderStyleSheets, container.Sliders);
+            DropdownStyleSheets = ApplyTemplate(DropdownStyleSheets, container.Dropdowns);
+            InputfieldStyleSheets = ApplyTemplate(InputfieldStyleSheets, container.InputFields);
+            ScrollbarStyleSheets = ApplyTemplate(ScrollbarStyleSheets, container.Scrollbars);
+            ScrollViewStyleSheets = ApplyTemplate(ScrollViewStyleSheets, container.ScrollViews);
+            ScrollListStyleSheets = ApplyTemplate(ScrollListStyleSheets, container.ScrollLists);
+            PopupStyleSheets = ApplyTemplate(PopupStyleSheets, container.Popups);
+        }
+        private List<T> ApplyTemplate<T>(List<T> list, List<StyleSheetPlaceholder> placeholders) where T : BaseStyleSheet, new()
+        {
+            T temp;
+            Dictionary<int, int> indexes = new();
+
+            List<T> newList = new();
+            for (int i = 0; i < placeholders.Count; i++)
+            {
+                temp = new();
+                temp.SetInfos(placeholders[i].UID, placeholders[i].Name);
+                newList.Add(temp);
+                indexes[placeholders[i].UID] = i;
+            }
+
+            foreach (var var in list)
+            {
+                if (indexes.ContainsKey(var.UID))
+                {
+                    newList[indexes[var.UID]] = var;
+                }
+            }
+
+            return newList;
         }
         #endregion
     }

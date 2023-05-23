@@ -13,23 +13,19 @@ namespace Dhs5.AdvancedUI
     {
         StyleSheet styleSheet;
         StyleSheetContainer container;
-        List<KeyValuePair<string, List<BaseStyleSheet>>> ssList;
 
-        bool[] showFoldouts;
-
-        KeyValuePair<string, List<BaseStyleSheet>> pair;
-        List<ReorderableList> reorderableLists;
+        List<ReorderableList> reorderableLists = new();
 
         ReorderableList list;
 
-        private void CreateReorderableList(string listPropertyName, KeyValuePair<string, List<BaseStyleSheet>> pair)
+        private void CreateReorderableList(string listPropertyName, List<StyleSheetPlaceholder> placeholderList, string displayName)
         {
             SerializedProperty textList = serializedObject.FindProperty(listPropertyName);
             list = new ReorderableList(serializedObject, textList, false, true, false, false)
             {
                 drawHeaderCallback = rect =>
                 {
-                    EditorGUI.LabelField(rect, pair.Key);
+                    EditorGUI.LabelField(rect, displayName);
                 },
 
                 drawElementCallback = (rect, index, active, focused) =>
@@ -37,7 +33,7 @@ namespace Dhs5.AdvancedUI
                     var element = textList.GetArrayElementAtIndex(index);
 
                     EditorGUI.indentLevel++;
-                    EditorGUI.PropertyField(rect, element, new GUIContent(pair.Value[index].Name), true);
+                    EditorGUI.PropertyField(rect, element, new GUIContent(placeholderList[index].Name), true);
                     EditorGUI.indentLevel--;
                 },
 
@@ -48,19 +44,31 @@ namespace Dhs5.AdvancedUI
                     return EditorGUI.GetPropertyHeight(element);
                 }
             };
+
+            reorderableLists.Add(list);
         }
 
         private void OnEnable()
         {
             styleSheet = (StyleSheet)serializedObject.targetObject;
             container = styleSheet.Container;
-            ssList = container.StyleSheetLists();
 
-            CreateReorderableList("TextStyleSheets", ssList[0]);
+            styleSheet.ApplyTemplate();
 
-            // CREATE THE ADEQUATE STYLE SHEET
-
-            showFoldouts = new bool[ssList.Count];
+            CreateReorderableList("TextStyleSheets", container.Texts, "Texts");
+            CreateReorderableList("BackgroundImageStyleSheets", container.Backgrounds, "Backgrounds");
+            CreateReorderableList("IconImageStyleSheets", container.Icons, "Icons");
+            CreateReorderableList("ButtonStyleSheets", container.Buttons, "Buttons");
+            CreateReorderableList("ToggleStyleSheets", container.Toggles, "Toggles");
+            CreateReorderableList("DropdownItemToggleStyleSheets", container.DropdownItems, "Dropdown Item Toggles");
+            CreateReorderableList("SwitchToggleStyleSheets", container.Switchs, "Switch Toggles");
+            CreateReorderableList("SliderStyleSheets", container.Sliders, "Sliders");
+            CreateReorderableList("DropdownStyleSheets", container.Dropdowns, "Dropdowns");
+            CreateReorderableList("InputfieldStyleSheets", container.InputFields, "Input Fields");
+            CreateReorderableList("ScrollbarStyleSheets", container.Scrollbars, "Scrollbars");
+            CreateReorderableList("ScrollViewStyleSheets", container.ScrollViews, "Scroll Views");
+            CreateReorderableList("ScrollListStyleSheets", container.ScrollLists, "Scroll Lists");
+            CreateReorderableList("PopupStyleSheets", container.Popups, "Popups");
         }
 
         public override void OnInspectorGUI()
@@ -74,21 +82,8 @@ namespace Dhs5.AdvancedUI
             EditorGUILayout.Space(15);
             EditorGUILayout.BeginVertical();
 
-            for (int i = 0; i < ssList.Count; i++)
-            {
-                pair = ssList[i];
-
-                showFoldouts[i] = EditorGUILayout.Foldout(showFoldouts[i], pair.Key, true);
-                if (showFoldouts[i])
-                {
-                    foreach (var var in pair.Value)
-                    {
-                        
-                    }
-                }
-            }
-            
-            list.DoLayoutList();
+            foreach (var list in reorderableLists)
+                list.DoLayoutList();
             
             EditorGUILayout.EndVertical();
 
