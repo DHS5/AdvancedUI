@@ -411,11 +411,11 @@ namespace Dhs5.AdvancedUI
 
                 if (lessButton)
                 {
-                    lessButton.Type = CurrentStyleSheet.leftButtonType;
+                    //lessButton.Type = CurrentStyleSheet.leftButtonType;
                 }
                 if (plusButton)
                 {
-                    plusButton.Type = CurrentStyleSheet.rightButtonType;
+                    //plusButton.Type = CurrentStyleSheet.rightButtonType;
                 }
             }
         }

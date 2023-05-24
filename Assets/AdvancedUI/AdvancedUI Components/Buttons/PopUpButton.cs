@@ -88,7 +88,7 @@ namespace Dhs5.AdvancedUI
         {
             if (button)
             {
-                button.Type = buttonType;
+                //button.Type = buttonType;
                 button.Content = buttonContent;
             }
             if (popup)

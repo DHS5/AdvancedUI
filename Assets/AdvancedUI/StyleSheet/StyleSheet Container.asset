@@ -20,6 +20,8 @@ MonoBehaviour:
     name: Basic White
   - UID: 9836
     name: Basic Button
+  - UID: 989
+    name: Centered Black
   backgroundSS:
   - UID: 443
     name: Button Background
@@ -29,6 +31,12 @@ MonoBehaviour:
     name: Slider Background
   - UID: 8551
     name: Slider Fill
+  - UID: 7082
+    name: ScrollList Frame
+  - UID: 4905
+    name: ScrollList Horizontal Mask
+  - UID: 1724
+    name: ScrollList Vertical Mask
   iconSS:
   - UID: 4763
     name: Toggle Checkmark
@@ -36,6 +44,10 @@ MonoBehaviour:
     name: Toggle Uncheckmark
   - UID: 6254
     name: Slider Handle
+  - UID: 7054
+    name: Back Icon
+  - UID: 5721
+    name: Quit Icon
   buttonSS:
   - UID: 6197
     name: Text & Back

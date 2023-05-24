@@ -149,19 +149,19 @@ namespace Dhs5.AdvancedUI
             if (confirmButton)
             {
                 confirmButton.gameObject.SetActive(CurrentStyleSheet.confirmButtonActive);
-                confirmButton.Type = CurrentStyleSheet.confirmButtonType;
+                //confirmButton.Type = CurrentStyleSheet.confirmButtonType;
                 confirmButton.Content = new ButtonContent(Content.ConfirmationText);
             }
             if (cancelButton)
             {
                 cancelButton.gameObject.SetActive(CurrentStyleSheet.cancelButtonActive);
-                cancelButton.Type = CurrentStyleSheet.cancelButtonType;
+                //cancelButton.Type = CurrentStyleSheet.cancelButtonType;
                 cancelButton.Content = new ButtonContent(Content.CancelText);
             }
             if (quitButton)
             {
                 quitButton.gameObject.SetActive(CurrentStyleSheet.quitButtonActive);
-                quitButton.Type = CurrentStyleSheet.quitButtonType;
+                //quitButton.Type = CurrentStyleSheet.quitButtonType;
             }
 
             if (popupImage)

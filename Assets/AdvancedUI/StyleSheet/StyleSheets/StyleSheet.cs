@@ -84,50 +84,24 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private List<PopupStyleSheet> PopupStyleSheets;
 
         
-        #region UID management
-        /*
+        #region SetUp Style Sheets
         private void OnValidate()
         {
-            SetUIDs(TextStyleSheets);
-            SetUIDs(BackgroundImageStyleSheets);
-            SetUIDs(IconImageStyleSheets);
-            SetUIDs(ButtonStyleSheets);
-            SetUIDs(ToggleStyleSheets);
-            SetUIDs(DropdownItemToggleStyleSheets);
-            SetUIDs(SwitchToggleStyleSheets);
-            SetUIDs(SliderStyleSheets);
-            SetUIDs(DropdownStyleSheets);
-            SetUIDs(InputfieldStyleSheets);
-            SetUIDs(ScrollbarStyleSheets);
-            SetUIDs(ScrollViewStyleSheets);
-            SetUIDs(ScrollListStyleSheets);
-            SetUIDs(PopupStyleSheets);
+            TextStyleSheets.SetUp(container);
+            BackgroundImageStyleSheets.SetUp(container);
+            IconImageStyleSheets.SetUp(container);
+            ButtonStyleSheets.SetUp(container);
+            ToggleStyleSheets.SetUp(container);
+            DropdownItemToggleStyleSheets.SetUp(container);
+            SwitchToggleStyleSheets.SetUp(container);
+            SliderStyleSheets.SetUp(container);
+            DropdownStyleSheets.SetUp(container);
+            InputfieldStyleSheets.SetUp(container);
+            ScrollbarStyleSheets.SetUp(container);
+            ScrollViewStyleSheets.SetUp(container);
+            ScrollListStyleSheets.SetUp(container);
+            PopupStyleSheets.SetUp(container);
         }
-
-        private void SetUIDs<T>(List<T> list) where T : BaseStyleSheet
-        {
-            if (list == null || list.Count < 1) return;
-
-            List<int> uids = new();
-            foreach (T t in list)
-            {
-                if (uids.Contains(t.UID) || t.UID == 0)
-                {
-                    t.SetUID(GenerateUID(uids));
-                }
-                uids.Add(t.UID);
-            }
-        }
-        private int GenerateUID(List<int> uids)
-        {
-            int uid;
-            do
-            {
-                uid = Random.Range(1, 10000);
-            } while(uids.Contains(uid));
-            return uid;
-        }
-        */
         #endregion
 
         #region Getters

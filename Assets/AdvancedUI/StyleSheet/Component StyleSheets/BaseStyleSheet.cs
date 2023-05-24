@@ -8,16 +8,23 @@ namespace Dhs5.AdvancedUI
     [System.Serializable]
     public class BaseStyleSheet
     {
-        private int uniqueID;
+        [SerializeField, HideInInspector] protected StyleSheetContainer container;
+
+        [SerializeField, HideInInspector] private int uniqueID;
         public int UID => uniqueID;
 
-        private string name;
+        [SerializeField, HideInInspector] private string name;
         public string Name => name;
 
         public void SetInfos(int uid, string name)
         {
             uniqueID = uid;
             this.name = name;
+        }
+
+        public virtual void SetUp(StyleSheetContainer _container) 
+        { 
+            container = _container;
         }
     }
 }

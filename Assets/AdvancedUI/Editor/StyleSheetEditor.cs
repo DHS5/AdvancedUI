@@ -75,7 +75,7 @@ namespace Dhs5.AdvancedUI
         {
             serializedObject.UpdateIfRequiredOrScript();
 
-            base.OnInspectorGUI();
+            //base.OnInspectorGUI();
 
             if (container == null) return;
             

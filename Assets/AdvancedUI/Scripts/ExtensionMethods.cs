@@ -9,6 +9,7 @@ namespace Dhs5.AdvancedUI
 {
     public static class ExtensionMethods
     {
+        #region Transition
         private enum SelectionState
         {
             Normal,
@@ -81,8 +82,9 @@ namespace Dhs5.AdvancedUI
             if (graphic is Image) (graphic as Image).TransitionImage(state, instant, styleSheet.imageStyleSheet);
             if (graphic is TextMeshProUGUI) (graphic as TextMeshProUGUI).TransitionText(state, instant, styleSheet.textStyleSheet);
         }
+        #endregion
 
-
+        #region SetUp Graphic
         public static void SetUpImage(this Image image, ImageStyleSheet styleSheet)
         {
             if (image == null) throw new NullReferenceException();
@@ -119,5 +121,18 @@ namespace Dhs5.AdvancedUI
             text.fontStyle = styleSheet.fontStyle;
             if (styleSheet.overrideAlignment) text.alignment = styleSheet.alignment;
         }
+        #endregion
+
+        #region SetUp BaseStyleSheets
+        public static void SetUp<T>(this List<T> list, StyleSheetContainer container) where T : BaseStyleSheet
+        {
+            if (list == null || list.Count < 1) return;
+
+            foreach (T item in list)
+            {
+                item.SetUp(container);
+            }
+        }
+        #endregion
     }
 }
