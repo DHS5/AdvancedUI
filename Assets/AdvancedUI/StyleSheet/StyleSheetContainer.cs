@@ -89,6 +89,41 @@ namespace Dhs5.AdvancedUI
             return uid;
         }
         #endregion
+
+        public List<StyleSheetPlaceholder> GetStyleSheetByType(StyleSheetType type)
+        {
+            return type switch
+            {
+                StyleSheetType.TEXT => Texts,
+                StyleSheetType.BACKGROUND_IMAGE => Backgrounds,
+                StyleSheetType.ICON_IMAGE => Icons,
+                StyleSheetType.BUTTON => Buttons,
+                StyleSheetType.TOGGLE => Toggles,
+                StyleSheetType.DROPDOWN_ITEM_TOGGLE => DropdownItems,
+                StyleSheetType.SWITCH_TOGGLE => Switchs,
+                StyleSheetType.SLIDER => Sliders,
+                StyleSheetType.DROPDOWN => Dropdowns,
+                StyleSheetType.INPUT_FIELD => InputFields,
+                StyleSheetType.SCROLLBAR => Scrollbars,
+                StyleSheetType.SCROLL_VIEW => ScrollViews,
+                StyleSheetType.SCROLL_LIST => ScrollLists,
+                StyleSheetType.POPUP => Popups,
+                _ => null
+            };
+        }
+
+        public List<string> StyleSheetStrings(List<StyleSheetPlaceholder> styleSheets)
+        {
+            List<string> list = new();
+            foreach (var var in styleSheets)
+            {
+                if (var.UID != 0)
+                    list.Add(var.Name);
+                else
+                    list.Add("No unique ID");
+            }
+            return list;
+        }
     }
 
     [System.Serializable]

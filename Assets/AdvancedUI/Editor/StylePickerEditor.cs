@@ -22,12 +22,12 @@ namespace Dhs5.AdvancedUI
 
         GUIContent empty = new GUIContent("");
 
-        public int GetIndexByUniqueID(List<BaseStyleSheet> styleSheets, int UID)
+        public int GetIndexByUniqueID(List<StyleSheetPlaceholder> styleSheets, int UID)
         {
             if (UID == 0) return -1;
             return styleSheets.FindIndex(v => v.UID == UID);
         }
-        public int GetUniqueIDByIndex(List<BaseStyleSheet> styleSheets, int index)
+        public int GetUniqueIDByIndex(List<StyleSheetPlaceholder> styleSheets, int index)
         {
             if (index < 0 || index >= styleSheets.Count) return 0;
             return styleSheets[index].UID;
@@ -70,7 +70,7 @@ namespace Dhs5.AdvancedUI
             type = (StyleSheetType)styleSheetTypeP.enumValueIndex;
 
             // Style Sheet List
-            List<BaseStyleSheet> styleSheetList = styleSheet.GetStyleSheetByType(type);
+            List<StyleSheetPlaceholder> styleSheetList = container.GetStyleSheetByType(type);
 
             // Get index
             int indexSave = GetIndexByUniqueID(styleSheetList, styleSheetUIDP.intValue);
@@ -78,7 +78,7 @@ namespace Dhs5.AdvancedUI
 
             // StyleSheet choice popup
             Rect popupPosition = new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight);
-            index = EditorGUI.Popup(popupPosition, property.FindPropertyRelative("name").stringValue, indexSave, styleSheet.StyleSheetStrings(styleSheetList).ToArray());
+            index = EditorGUI.Popup(popupPosition, property.FindPropertyRelative("name").stringValue, indexSave, container.StyleSheetStrings(styleSheetList).ToArray());
             if (GetUniqueIDByIndex(styleSheetList, index) == 0) index = indexSave;
             styleSheetUIDP.intValue = GetUniqueIDByIndex(styleSheetList, index);
             

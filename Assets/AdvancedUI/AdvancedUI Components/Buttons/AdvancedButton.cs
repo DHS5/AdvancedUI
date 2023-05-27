@@ -34,9 +34,8 @@ namespace Dhs5.AdvancedUI
     public class AdvancedButton : AdvancedComponent
     {
         [Header("Button Type")]
-        //[SerializeField] private AdvancedButtonType buttonType;
-        //public AdvancedButtonType Type { get { return buttonType; } set { buttonType = value; SetUpConfig(); } }
         [SerializeField] private StylePicker buttonStylePicker;
+        public StylePicker Style { get => buttonStylePicker; set => buttonStylePicker.ForceSet(value); }
 
         [Header("Content")]
         [SerializeField] private ButtonContent buttonContent;
@@ -129,6 +128,8 @@ namespace Dhs5.AdvancedUI
 
         protected override void SetUpConfig()
         {
+            if (styleSheetContainer == null) return;
+
             customStyleSheet.SetUp(styleSheetContainer);
             buttonStylePicker.SetUp(styleSheetContainer, StyleSheetType.BUTTON, "Button Style");
 

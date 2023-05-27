@@ -52,8 +52,8 @@ namespace Dhs5.AdvancedUI
         private bool IsInfinite => format == ListFormat.Infinite;
         private bool IsSimple => format == ListFormat.Simple;
         [Space]
-        [SerializeField] private ScrollListType scrollListType;
-        public ScrollListType Type { get { return scrollListType; } set { scrollListType = value; SetUpConfig(); } }
+        [SerializeField] private StylePicker scrollListStylePicker;
+        public StylePicker Style { get => scrollListStylePicker; set => scrollListStylePicker.ForceSet(value); }
 
         [Space]
         [SerializeField] private ScrollListContent scrollListContent;
@@ -66,11 +66,11 @@ namespace Dhs5.AdvancedUI
 
 
         [Header("Custom Style Sheet")]
+        [SerializeField] private bool custom;
         [SerializeField] private ScrollListStyleSheet customStyleSheet;
 
         private ScrollListStyleSheet CurrentStyleSheet
-        { get { return scrollListType == ScrollListType.CUSTOM ? customStyleSheet :
-                    styleSheetContainer ? styleSheetContainer.projectStyleSheet.scrollListStyleSheets.GetStyleSheet(scrollListType) : null; } }
+        { get { return custom ? customStyleSheet : styleSheetContainer ? scrollListStylePicker.StyleSheet as ScrollListStyleSheet : null; } }
 
         
 
@@ -386,7 +386,7 @@ namespace Dhs5.AdvancedUI
         private void SetMask()
         {
             if (CurrentStyleSheet == null) return;
-            mask.SetUpImage(IsHorizontal ? CurrentStyleSheet.horizontalMaskStyleSheet : CurrentStyleSheet.verticalMaskStyleSheet);
+            mask.SetUpImage(IsHorizontal ? CurrentStyleSheet.HorizontalMaskStyleSheet : CurrentStyleSheet.VerticalMaskStyleSheet);
         }
         private void SetDisplay()
         {
@@ -397,7 +397,7 @@ namespace Dhs5.AdvancedUI
 
                 if (CurrentStyleSheet == null) return;
 
-                displayText.SetUpText(GetTextStyleSheet(CurrentStyleSheet.textType));
+                displayText.SetUpText(CurrentStyleSheet.TextStyleSheet);
             }
         }
         private void SetButtons()
@@ -411,11 +411,11 @@ namespace Dhs5.AdvancedUI
 
                 if (lessButton)
                 {
-                    //lessButton.Type = CurrentStyleSheet.leftButtonType;
+                    lessButton.Style = CurrentStyleSheet.LeftButtonStyle;
                 }
                 if (plusButton)
                 {
-                    //plusButton.Type = CurrentStyleSheet.rightButtonType;
+                    plusButton.Style = CurrentStyleSheet.RightButtonStyle;
                 }
             }
         }
@@ -424,9 +424,9 @@ namespace Dhs5.AdvancedUI
         {
             if (CurrentStyleSheet == null) return;
 
-            if (frame) frame.SetUpImage(CurrentStyleSheet.frameStyleSheet);
-            if (frameMask) frameMask.SetUpImage(CurrentStyleSheet.frameMaskStyleSheet);
-            if (background) background.SetUpImage(CurrentStyleSheet.backgroundStyleSheet);
+            if (frame) frame.SetUpImage(CurrentStyleSheet.FrameStyleSheet);
+            if (frameMask) frameMask.SetUpImage(CurrentStyleSheet.FrameMaskStyleSheet);
+            if (background) background.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
         }
         
         protected override void SetUpConfig()
@@ -437,6 +437,13 @@ namespace Dhs5.AdvancedUI
             ResizeSockets();
 
             SetLayoutSpacing();
+
+            if (styleSheetContainer == null) return;
+
+            customStyleSheet.SetUp(styleSheetContainer);
+            scrollListStylePicker.SetUp(styleSheetContainer, StyleSheetType.SCROLL_LIST, "ScrollList Style");
+
+            if (CurrentStyleSheet == null) return;
 
             SetButtons();
             SetDisplay();

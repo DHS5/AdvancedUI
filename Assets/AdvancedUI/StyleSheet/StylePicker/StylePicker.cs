@@ -27,5 +27,13 @@ namespace Dhs5.AdvancedUI
             type = _type;
             name = _name;
         }
+
+        public void ForceSet(StylePicker picker)
+        {
+            if (picker == null || picker.container == null) return;
+
+            if (container == picker.container && type == picker.type)
+                styleSheetUID = picker.styleSheetUID;
+        }
     }
 }

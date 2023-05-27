@@ -31,7 +31,9 @@ MonoBehaviour:
     name: Slider Background
   - UID: 8551
     name: Slider Fill
-  - UID: 7082
+  - UID: 2974
+    name: ScrollList Background
+  - UID: 7138
     name: ScrollList Frame
   - UID: 4905
     name: ScrollList Horizontal Mask

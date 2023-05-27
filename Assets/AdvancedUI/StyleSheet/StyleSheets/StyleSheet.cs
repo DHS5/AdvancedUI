@@ -39,9 +39,6 @@ namespace Dhs5.AdvancedUI
         [Header("Texts")]
         public TextStyleSheetList textStyleSheets;
         [Space, Space]
-        [Header("Buttons")]
-        public ButtonStyleSheetList buttonStyleSheets;
-        [Space, Space]
         [Header("Toggle")]
         public ToggleStyleSheetList toggleStyleSheets;
         public DropdownItemToggleStyleSheetList dropdownItemToggleStyleSheets;
@@ -59,14 +56,8 @@ namespace Dhs5.AdvancedUI
         [Header("ScrollBar")]
         public ScrollbarStyleSheetList scrollbarStyleSheets;
         [Space, Space]
-        [Header("Popup")]
-        public PopupStyleSheetList popupStyleSheets;
-        [Space, Space]
         [Header("ScrollView")]
         public ScrollViewStyleSheetList scrollViewStyleSheets;
-        [Space, Space]
-        [Header("ScrollList")]
-        public ScrollListStyleSheetList scrollListStyleSheets;
 
         [SerializeField] private List<TextStyleSheet> TextStyleSheets;
         [SerializeField] private List<ImageStyleSheet> BackgroundImageStyleSheets;
@@ -127,40 +118,6 @@ namespace Dhs5.AdvancedUI
             };
         }
 
-        public List<BaseStyleSheet> GetStyleSheetByType(StyleSheetType type)
-        {
-            return type switch
-            {
-                StyleSheetType.TEXT => TextStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.BACKGROUND_IMAGE => BackgroundImageStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.ICON_IMAGE => IconImageStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.BUTTON => ButtonStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.TOGGLE => ToggleStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.DROPDOWN_ITEM_TOGGLE => DropdownItemToggleStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.SWITCH_TOGGLE => SwitchToggleStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.SLIDER => SliderStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.DROPDOWN => DropdownStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.INPUT_FIELD => InputfieldStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.SCROLLBAR => ScrollbarStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.SCROLL_VIEW => ScrollViewStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.SCROLL_LIST => ScrollListStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                StyleSheetType.POPUP => PopupStyleSheets.Cast<BaseStyleSheet>().ToList(),
-                _ => null
-            };
-        }
-
-        public List<string> StyleSheetStrings(List<BaseStyleSheet> styleSheets)
-        {
-            List<string> list = new();
-            foreach (var var in styleSheets)
-            {
-                if (var.UID != 0)
-                    list.Add(var.Name);
-                else
-                    list.Add("No unique ID");
-            }
-            return list;
-        }
         #endregion
 
         #region List template management
