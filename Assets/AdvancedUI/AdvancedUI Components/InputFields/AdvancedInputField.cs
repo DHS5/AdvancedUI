@@ -19,8 +19,8 @@ namespace Dhs5.AdvancedUI
     public class AdvancedInputField : AdvancedComponent
     {
         [Header("InputField Type")]
-        [SerializeField] private AdvancedInputfieldType sliderType;
-        public AdvancedInputfieldType Type { get { return sliderType; } set { sliderType = value; SetUpConfig(); } }
+        [SerializeField] private StylePicker inputFieldStylePicker;
+        public StylePicker Style { get => inputFieldStylePicker; set { inputFieldStylePicker.ForceSet(value); SetUpConfig(); } }
 
         [Header("InputField Content")]
         [SerializeField] private InputFieldContent inputfieldContent;
@@ -31,11 +31,11 @@ namespace Dhs5.AdvancedUI
 
 
         [Header("Custom Style Sheet")]
+        [SerializeField] private bool custom;
         [SerializeField] private InputfieldStyleSheet customStyleSheet;
 
         private InputfieldStyleSheet CurrentStyleSheet
-        { get { return Type == AdvancedInputfieldType.CUSTOM ? customStyleSheet :
-                    styleSheetContainer ? styleSheetContainer.projectStyleSheet.inputfieldStyleSheets.GetStyleSheet(Type) : null; } }
+        { get { return custom ? customStyleSheet : styleSheetContainer ? Style.StyleSheet as InputfieldStyleSheet : null; } }
 
 
         public event Action<string> OnValueChanged;
@@ -54,9 +54,9 @@ namespace Dhs5.AdvancedUI
 
         override protected void Awake()
         {
-            inputField.GetGraphics(backgroundImage, CurrentStyleSheet.backgroundStyleSheet,
-                hintText, GetTextStyleSheet(CurrentStyleSheet.hintTextType),
-                inputText, GetTextStyleSheet(CurrentStyleSheet.inputTextType));
+            inputField.GetGraphics(backgroundImage, CurrentStyleSheet.BackgroundStyleSheet,
+                hintText, CurrentStyleSheet.HintTextStyleSheet,
+                inputText, CurrentStyleSheet.InputTextStyleSheet);
 
             base.Awake();
         }
@@ -93,12 +93,17 @@ namespace Dhs5.AdvancedUI
 
         protected override void SetUpConfig()
         {
+            if (styleSheetContainer == null) return;
+
+            customStyleSheet.SetUp(styleSheetContainer);
+            inputFieldStylePicker.SetUp(styleSheetContainer, StyleSheetType.INPUT_FIELD, "InputField type");
+
             if (CurrentStyleSheet == null) return;
 
             // Input Text
             if (inputText)
             {
-                inputText.SetUpText(GetTextStyleSheet(CurrentStyleSheet.inputTextType));
+                inputText.SetUpText(CurrentStyleSheet.InputTextStyleSheet);
             }
 
             // Input Field
@@ -112,7 +117,7 @@ namespace Dhs5.AdvancedUI
             if (backgroundImage)
             {
                 backgroundImage.enabled = CurrentStyleSheet.backgroundActive;
-                backgroundImage.SetUpImage(CurrentStyleSheet.backgroundStyleSheet);
+                backgroundImage.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
             }
 
             // Hint Text
@@ -120,7 +125,7 @@ namespace Dhs5.AdvancedUI
             {
                 hintText.enabled = CurrentStyleSheet.hintTextActive;
                 hintText.text = Content.hintText;
-                hintText.SetUpText(GetTextStyleSheet(CurrentStyleSheet.hintTextType));
+                hintText.SetUpText(CurrentStyleSheet.HintTextStyleSheet);
             }
         }
 

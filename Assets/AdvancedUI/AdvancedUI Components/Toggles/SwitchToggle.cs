@@ -24,8 +24,8 @@ namespace Dhs5.AdvancedUI
     public class SwitchToggle : AdvancedComponent
     {
         [Header("Switch Toggle Type")]
-        [SerializeField] private SwitchToggleType switchType;
-        public SwitchToggleType Type { get { return switchType; } set { switchType = value; SetUpConfig(); } }
+        [SerializeField] private StylePicker switchStylePicker;
+        public StylePicker Style { get => switchStylePicker; set { switchStylePicker.ForceSet(value); SetUpConfig(); } }
 
         [Header("Dropdown Content")]
         [SerializeField] private SwitchToggleContent switchContent;
@@ -43,10 +43,11 @@ namespace Dhs5.AdvancedUI
 
 
         [Header("Custom Style Sheet")]
+        [SerializeField] private bool custom;
         [SerializeField] private SwitchToggleStyleSheet customStyleSheet;
 
-        private SwitchToggleStyleSheet CurrentStyleSheet { get { return switchType == SwitchToggleType.CUSTOM ? customStyleSheet : 
-                    styleSheetContainer ? styleSheetContainer.projectStyleSheet.switchToggleStyleSheets.GetStyleSheet(switchType) : null; } }
+        private SwitchToggleStyleSheet CurrentStyleSheet 
+        { get { return custom ? customStyleSheet : styleSheetContainer ? switchStylePicker.StyleSheet as SwitchToggleStyleSheet : null; } }
 
         [Header("UI Components")]
         [SerializeField] private OpenSlider slider;
@@ -62,11 +63,11 @@ namespace Dhs5.AdvancedUI
 
         protected override void Awake()
         {
-            slider.GetGraphics(background, CurrentStyleSheet.backgroundStyleSheet,
-                foreground, CurrentStyleSheet.foregroundStyleSheet,
-                handle, CurrentStyleSheet.handleStyleSheet,
-                leftText, GetTextStyleSheet(CurrentStyleSheet.leftTextType),
-                rightText, GetTextStyleSheet(CurrentStyleSheet.rightTextType));
+            slider.GetGraphics(background, CurrentStyleSheet.BackgroundStyleSheet,
+                foreground, CurrentStyleSheet.ForegroundStyleSheet,
+                handle, CurrentStyleSheet.HandleStyleSheet,
+                leftText, CurrentStyleSheet.LeftTextStyleSheet,
+                rightText, CurrentStyleSheet.RightTextStyleSheet);
 
             base.Awake();
         }
@@ -108,6 +109,11 @@ namespace Dhs5.AdvancedUI
         #region Configs
         protected override void SetUpConfig()
         {
+            if (styleSheetContainer == null) return;
+
+            customStyleSheet.SetUp(styleSheetContainer);
+            switchStylePicker.SetUp(styleSheetContainer, StyleSheetType.SWITCH_TOGGLE, "Switch Type");
+
             if (CurrentStyleSheet == null) return;
 
             // Slider
@@ -119,32 +125,32 @@ namespace Dhs5.AdvancedUI
             // Background
             if (background)
             {
-                background.SetUpImage(CurrentStyleSheet.backgroundStyleSheet);
+                background.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
             }
             // Foreground
             if (foreground)
             {
-                foreground.SetUpImage(CurrentStyleSheet.foregroundStyleSheet);
+                foreground.SetUpImage(CurrentStyleSheet.ForegroundStyleSheet);
             }
 
             // Handle
             if (handle)
             {
-                handle.SetUpImage(CurrentStyleSheet.handleStyleSheet);
+                handle.SetUpImage(CurrentStyleSheet.HandleStyleSheet);
             }
 
             // Left Text
             if (leftText)
             {
                 leftText.enabled = CurrentStyleSheet.leftTextActive;
-                leftText.SetUpText(GetTextStyleSheet(CurrentStyleSheet.leftTextType));
+                leftText.SetUpText(CurrentStyleSheet.LeftTextStyleSheet);
                 leftText.text = Content.leftText;
             }
             // Right Text
             if (rightText)
             {
                 rightText.enabled = CurrentStyleSheet.rightTextActive;
-                rightText.SetUpText(GetTextStyleSheet(CurrentStyleSheet.rightTextType));
+                rightText.SetUpText(CurrentStyleSheet.RightTextStyleSheet);
                 rightText.text = Content.rightText;
             }
         }

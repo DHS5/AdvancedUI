@@ -78,7 +78,7 @@ namespace Dhs5.AdvancedUI
 
             // StyleSheet choice popup
             Rect popupPosition = new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight);
-            index = EditorGUI.Popup(popupPosition, property.FindPropertyRelative("name").stringValue, indexSave, container.StyleSheetStrings(styleSheetList).ToArray());
+            index = EditorGUI.Popup(popupPosition, property.FindPropertyRelative("name").stringValue, indexSave, container.StyleSheetNames(styleSheetList).ToArray());
             if (GetUniqueIDByIndex(styleSheetList, index) == 0) index = indexSave;
             styleSheetUIDP.intValue = GetUniqueIDByIndex(styleSheetList, index);
             

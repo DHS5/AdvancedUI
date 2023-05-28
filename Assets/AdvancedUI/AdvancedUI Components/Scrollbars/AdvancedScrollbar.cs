@@ -8,18 +8,18 @@ namespace Dhs5.AdvancedUI
     public class AdvancedScrollbar : AdvancedComponent
     {
         [Header("Scrollbar Type")]
-        [SerializeField] private AdvancedScrollbarType scrollbarType;
-        public AdvancedScrollbarType Type { get { return scrollbarType; } set { scrollbarType = value; SetUpConfig(); } }
+        [SerializeField] private StylePicker scrollbarStylePicker;
+        public StylePicker Style { get => scrollbarStylePicker; set { scrollbarStylePicker.ForceSet(value); SetUpConfig(); } }
 
         public override bool Interactable { get => scrollbar.interactable; set => scrollbar.interactable = value; }
 
 
         [Header("Custom Style Sheet")]
+        [SerializeField] private bool custom;
         [SerializeField] private ScrollbarStyleSheet customStyleSheet;
 
         private ScrollbarStyleSheet CurrentStyleSheet
-        { get { return Type == AdvancedScrollbarType.CUSTOM ? customStyleSheet :
-                    styleSheetContainer ? styleSheetContainer.projectStyleSheet.scrollbarStyleSheets.GetStyleSheet(Type) : null; } }
+        { get { return custom ? customStyleSheet : styleSheetContainer ? Style.StyleSheet as ScrollbarStyleSheet : null; } }
 
 
         [Header("UI Components")]
@@ -30,8 +30,8 @@ namespace Dhs5.AdvancedUI
 
         protected override void Awake()
         {
-            scrollbar.GetGraphics(backgroundImage, CurrentStyleSheet.backgroundStyleSheet,
-                handle, CurrentStyleSheet.handleStyleSheet);
+            scrollbar.GetGraphics(backgroundImage, CurrentStyleSheet.BackgroundStyleSheet,
+                handle, CurrentStyleSheet.HandleStyleSheet);
 
             base.Awake();
         }
@@ -47,19 +47,24 @@ namespace Dhs5.AdvancedUI
 
         protected override void SetUpConfig()
         {
+            if (styleSheetContainer == null) return;
+
+            customStyleSheet.SetUp(styleSheetContainer);
+            scrollbarStylePicker.SetUp(styleSheetContainer, StyleSheetType.SCROLLBAR, "Scrollbar Type");
+
             if (CurrentStyleSheet == null) return;
 
             // Background
             if (backgroundImage)
             {
                 backgroundImage.enabled = CurrentStyleSheet.backgroundActive;
-                backgroundImage.SetUpImage(CurrentStyleSheet.backgroundStyleSheet);
+                backgroundImage.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
             }
 
             // Handle
             if (handle)
             {
-                handle.SetUpImage(CurrentStyleSheet.handleStyleSheet);
+                handle.SetUpImage(CurrentStyleSheet.HandleStyleSheet);
             }
         }
 

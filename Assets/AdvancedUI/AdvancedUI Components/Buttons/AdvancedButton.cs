@@ -13,19 +13,19 @@ namespace Dhs5.AdvancedUI
     [System.Serializable]
     public struct ButtonContent
     {
-        public ButtonContent(string _text = "", Sprite backround = null, Sprite icon = null, float scale = 1)
+        public ButtonContent(string _text = "")//, Sprite backround = null, Sprite icon = null, float scale = 1)
         {
             text = _text;
-            backgroundSprite = backround;
-            iconSprite = icon;
-            iconScale = scale;
+            //backgroundSprite = backround;
+            //iconSprite = icon;
+            //iconScale = scale;
         }
 
         // ### Properties ###
-        public Sprite backgroundSprite;
-        public Sprite iconSprite;
-        [SerializeField] private float iconScale; public float IconScale { get { return iconScale > 0 ? iconScale : 1; } set { iconScale = value; } }
-        [Space]
+        //public Sprite backgroundSprite;
+        //public Sprite iconSprite;
+        //[SerializeField] private float iconScale; public float IconScale { get { return iconScale > 0 ? iconScale : 1; } set { iconScale = value; } }
+        //[Space]
         public string text;
     }
 
@@ -35,7 +35,7 @@ namespace Dhs5.AdvancedUI
     {
         [Header("Button Type")]
         [SerializeField] private StylePicker buttonStylePicker;
-        public StylePicker Style { get => buttonStylePicker; set => buttonStylePicker.ForceSet(value); }
+        public StylePicker Style { get => buttonStylePicker; set { buttonStylePicker.ForceSet(value); SetUpConfig(); } }
 
         [Header("Content")]
         [SerializeField] private ButtonContent buttonContent;
@@ -61,6 +61,10 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private bool custom;
         [SerializeField] private ButtonStyleSheet customStyleSheet;
 
+        [Header("Overrides")]
+        [SerializeField] private bool overrideIcon;
+        [SerializeField] private ImageOverrideSheet iconOverrideSheet;
+
         private ButtonStyleSheet CurrentStyleSheet 
         { get { return custom ? customStyleSheet : styleSheetContainer ? buttonStylePicker.StyleSheet as ButtonStyleSheet : null; } }
 
@@ -68,12 +72,13 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private OpenButton button;
         [SerializeField] private Image buttonBackground;
         [SerializeField] private Image buttonIcon;
+        [SerializeField] private AspectRatioFitter iconRatioFitter;
         [SerializeField] private TextMeshProUGUI buttonText;
 
         protected override void Awake()
         {
             button.GetGraphics(buttonBackground, CurrentStyleSheet.BackgroundStyleSheet,
-                buttonIcon, CurrentStyleSheet.IconStyleSheet,
+                buttonIcon, CurrentStyleSheet.IconStyleSheet, overrideIcon ? iconOverrideSheet : null,
                 buttonText, CurrentStyleSheet.TextStyleSheet);
 
             base.Awake();
@@ -139,24 +144,22 @@ namespace Dhs5.AdvancedUI
             if (buttonBackground != null)
             {
                 buttonBackground.enabled = CurrentStyleSheet.backgroundActive;
-                buttonBackground.sprite = Content.backgroundSprite != null ? Content.backgroundSprite : CurrentStyleSheet.BackgroundStyleSheet.baseSprite;
-                buttonBackground.color = CurrentStyleSheet.BackgroundStyleSheet.baseColor;
-                buttonBackground.material = CurrentStyleSheet.BackgroundStyleSheet.baseMaterial;
-                buttonBackground.type = CurrentStyleSheet.BackgroundStyleSheet.imageType;
-                buttonBackground.pixelsPerUnitMultiplier = CurrentStyleSheet.BackgroundStyleSheet.pixelsPerUnit;
+                buttonBackground.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
             }
 
             // Icon
             if (buttonIcon != null)
             {
-                if (Content.iconSprite == null) buttonContent.IconScale = CurrentStyleSheet.iconScale;
                 buttonIcon.enabled = CurrentStyleSheet.iconActive;
-                buttonIcon.transform.localScale = new Vector2(Content.IconScale, Content.IconScale);
-                buttonIcon.sprite = Content.iconSprite != null ? Content.iconSprite : CurrentStyleSheet.IconStyleSheet.baseSprite;
-                buttonIcon.color = CurrentStyleSheet.IconStyleSheet.baseColor;
-                buttonIcon.material = CurrentStyleSheet.IconStyleSheet.baseMaterial;
-                buttonIcon.type = CurrentStyleSheet.IconStyleSheet.imageType;
-                buttonIcon.pixelsPerUnitMultiplier = CurrentStyleSheet.IconStyleSheet.pixelsPerUnit;
+                buttonIcon.transform.localScale = Vector2.one * CurrentStyleSheet.iconScale;
+                if (!overrideIcon)
+                {
+                    buttonIcon.SetUpImage(CurrentStyleSheet.IconStyleSheet, iconRatioFitter);
+                }
+                else
+                {
+                    buttonIcon.SetUpImage(CurrentStyleSheet.IconStyleSheet, iconOverrideSheet, iconRatioFitter);
+                }
             }
 
             // Text

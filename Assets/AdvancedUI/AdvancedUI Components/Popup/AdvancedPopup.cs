@@ -41,7 +41,7 @@ namespace Dhs5.AdvancedUI
     {
         [Header("Popup Type")]
         [SerializeField] private StylePicker popupStylePicker;
-        public StylePicker Style { get => popupStylePicker; set => popupStylePicker.ForceSet(value); }
+        public StylePicker Style { get => popupStylePicker; set { popupStylePicker.ForceSet(value); SetUpConfig(); } }
 
         [Header("Content")]
         [SerializeField] private PopupContent popupContent;

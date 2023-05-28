@@ -112,7 +112,7 @@ namespace Dhs5.AdvancedUI
             };
         }
 
-        public List<string> StyleSheetStrings(List<StyleSheetPlaceholder> styleSheets)
+        public List<string> StyleSheetNames(List<StyleSheetPlaceholder> styleSheets)
         {
             List<string> list = new();
             foreach (var var in styleSheets)

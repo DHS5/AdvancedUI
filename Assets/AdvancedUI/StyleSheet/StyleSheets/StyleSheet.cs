@@ -36,29 +36,6 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private StyleSheetContainer container;
         public StyleSheetContainer Container => container;
 
-        [Header("Texts")]
-        public TextStyleSheetList textStyleSheets;
-        [Space, Space]
-        [Header("Toggle")]
-        public ToggleStyleSheetList toggleStyleSheets;
-        public DropdownItemToggleStyleSheetList dropdownItemToggleStyleSheets;
-        public SwitchToggleStyleSheetList switchToggleStyleSheets;
-        [Space, Space]
-        [Header("Slider")]
-        public SliderStyleSheetList sliderStyleSheets;
-        [Space, Space]
-        [Header("Dropdown")]
-        public DropdownStyleSheetList dropdownStyleSheets;
-        [Space, Space]
-        [Header("InputField")]
-        public InputfieldStyleSheetList inputfieldStyleSheets;
-        [Space, Space]
-        [Header("ScrollBar")]
-        public ScrollbarStyleSheetList scrollbarStyleSheets;
-        [Space, Space]
-        [Header("ScrollView")]
-        public ScrollViewStyleSheetList scrollViewStyleSheets;
-
         [SerializeField] private List<TextStyleSheet> TextStyleSheets;
         [SerializeField] private List<ImageStyleSheet> BackgroundImageStyleSheets;
         [SerializeField] private List<ImageStyleSheet> IconImageStyleSheets;
@@ -77,6 +54,11 @@ namespace Dhs5.AdvancedUI
         
         #region SetUp Style Sheets
         private void OnValidate()
+        {
+            SetUp();
+        }
+
+        private void SetUp()
         {
             TextStyleSheets.SetUp(container);
             BackgroundImageStyleSheets.SetUp(container);
@@ -137,6 +119,8 @@ namespace Dhs5.AdvancedUI
             ScrollViewStyleSheets = ApplyTemplate(ScrollViewStyleSheets, container.ScrollViews);
             ScrollListStyleSheets = ApplyTemplate(ScrollListStyleSheets, container.ScrollLists);
             PopupStyleSheets = ApplyTemplate(PopupStyleSheets, container.Popups);
+
+            SetUp();
         }
         private List<T> ApplyTemplate<T>(List<T> list, List<StyleSheetPlaceholder> placeholders) where T : BaseStyleSheet, new()
         {
@@ -165,7 +149,7 @@ namespace Dhs5.AdvancedUI
         #endregion
     }
 
-    #region Composite Style Sheets
+    #region Base Style Sheets
 
     [System.Serializable]
     public class TransitionStyleSheet
@@ -192,9 +176,9 @@ namespace Dhs5.AdvancedUI
         [Space]
         public Image.Type imageType;
         [Range(0, 10)] public float pixelsPerUnit = 1;
+        public float ratio = 1;
         [Header("Transition")]
         public bool isStatic = true;
-        //[HideIf(nameof(isStatic))][AllowNesting]
         public TransitionStyleSheet transition;
     }
 
@@ -230,14 +214,54 @@ namespace Dhs5.AdvancedUI
         [ShowIf(EConditionOperator.And, nameof(isGradient), nameof(IsNotStatic))][AllowNesting]
         public GradientTransition gradientTransition;
     }
+    #endregion
 
+    #region Override Sheets
     [System.Serializable]
-    public class GraphicStyleSheet
+    public class ImageOverrideSheet
     {
-        public bool isImage;
-        public ImageStyleSheet imageStyleSheet;
-        public TextStyleSheet textStyleSheet;
+        public bool overrideSprite;
+        public Sprite sprite;
+
+        public bool overrideColor;
+        public Color color = Color.white;
+
+        public bool overrideMaterial;
+        public Material material;
+
+        public bool overrideImageType;
+        public Image.Type imageType;
+        [Range(0, 10)] public float pixelsPerUnit = 1;
+
+        public bool overrideScale;
+        public float scale = 1;
+        public bool overrideRatio;
+        public float ratio = 1;
+
+        public bool overrideTransition;
+        public bool isStatic = true;
+        public TransitionStyleSheet transition;
     }
 
+    [System.Serializable]
+    public class TextOverrideSheet
+    {
+        public bool overrideFont;
+        public TMP_FontAsset font;
+        public FontStyles fontStyle;
+
+        public bool overrideAlignment;
+        public TextAlignmentOptions alignment;
+
+        public bool overrideColor;
+        public bool isGradient = false;
+        public bool isStatic = true;
+
+        public Color color = Color.black;
+        public VertexGradient colorGradient;
+
+        public ColorBlock colorTransition;
+        public GradientTransition gradientTransition;
+    }
     #endregion
 }

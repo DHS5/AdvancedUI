@@ -13,7 +13,6 @@ namespace Dhs5.AdvancedUI
         [Space, Space]
         public bool iconActive = true;
         public float iconScale = 1;
-        public float iconRatio = 1;
         public StylePicker iconStylePicker;
         [Space, Space]
         public bool textActive = false;
@@ -27,9 +26,9 @@ namespace Dhs5.AdvancedUI
         {
             base.SetUp(_container);
 
-            backgroundStylePicker.SetUp(container, StyleSheetType.BACKGROUND_IMAGE, "Background");
-            iconStylePicker.SetUp(container, StyleSheetType.ICON_IMAGE, "Icon");
-            textStylePicker.SetUp(container, StyleSheetType.TEXT, "Text type");
+            backgroundStylePicker?.SetUp(container, StyleSheetType.BACKGROUND_IMAGE, "Background");
+            iconStylePicker?.SetUp(container, StyleSheetType.ICON_IMAGE, "Icon");
+            textStylePicker?.SetUp(container, StyleSheetType.TEXT, "Text type");
         }
     }
 }

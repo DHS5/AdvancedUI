@@ -53,7 +53,7 @@ namespace Dhs5.AdvancedUI
         private bool IsSimple => format == ListFormat.Simple;
         [Space]
         [SerializeField] private StylePicker scrollListStylePicker;
-        public StylePicker Style { get => scrollListStylePicker; set => scrollListStylePicker.ForceSet(value); }
+        public StylePicker Style { get => scrollListStylePicker; set { scrollListStylePicker.ForceSet(value); SetUpConfig(); } }
 
         [Space]
         [SerializeField] private ScrollListContent scrollListContent;

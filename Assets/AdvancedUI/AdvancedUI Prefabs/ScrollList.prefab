@@ -1382,7 +1382,7 @@ PrefabInstance:
     - target: {fileID: 335038289721429766, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3fa8fde5487f13c40a9b6c233c3dceac, type: 3}
+      objectReference: {fileID: 21300000, guid: 8753adc7a63d58f4786a5ab2bb2c7cdb, type: 3}
     - target: {fileID: 335038289721429766, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -1393,11 +1393,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 335038289721429767, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 335038289721429767, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 335038290051015124, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: m_Enabled
@@ -1437,7 +1437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 335038290554429770, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: buttonContent.iconScale
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 335038290554429770, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: buttonContent.iconSprite
@@ -1602,7 +1602,7 @@ PrefabInstance:
     - target: {fileID: 335038289721429766, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 063bc3f8782c7b4428997c0c3e5e84fd, type: 3}
+      objectReference: {fileID: 21300000, guid: 8753adc7a63d58f4786a5ab2bb2c7cdb, type: 3}
     - target: {fileID: 335038289721429766, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -1613,11 +1613,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 335038289721429767, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 335038289721429767, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 335038290051015124, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: m_Enabled
@@ -1657,7 +1657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 335038290554429770, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: buttonContent.iconScale
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 335038290554429770, guid: 1b4a5b831fb63fa43993daabe02d4614, type: 3}
       propertyPath: buttonContent.iconSprite

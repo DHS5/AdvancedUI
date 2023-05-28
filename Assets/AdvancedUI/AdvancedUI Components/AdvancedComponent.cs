@@ -38,10 +38,5 @@ namespace Dhs5.AdvancedUI
 
         [Header("Style Sheet Container")]
         [SerializeField] protected StyleSheetContainer styleSheetContainer;
-
-        protected TextStyleSheet GetTextStyleSheet(TextType type)
-        {
-            return styleSheetContainer.projectStyleSheet.textStyleSheets.GetStyleSheet(type);
-        }
     }
 }

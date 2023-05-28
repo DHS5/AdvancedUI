@@ -11,8 +11,8 @@ namespace Dhs5.AdvancedUI
     public class DropdownItemToggle : AdvancedComponent
     {
         [Header("Toggle Type")]
-        [SerializeField] private DropdownItemToggleType toggleType;
-        public DropdownItemToggleType Type { get { return toggleType; } set { toggleType = value; SetUpConfig(); } }
+        [SerializeField] private StylePicker toggleStylePicker;
+        public StylePicker Style { get => toggleStylePicker; set { toggleStylePicker.ForceSet(value); SetUpConfig(); } }
 
         [Header("Toggle Content")]
         [SerializeField] private bool isOn = true;
@@ -23,10 +23,11 @@ namespace Dhs5.AdvancedUI
 
 
         [Header("Custom Style Sheet")]
+        [SerializeField] private bool custom;
         [SerializeField] private DropdownItemToggleStyleSheet customStyleSheet;
 
-        private DropdownItemToggleStyleSheet CurrentStyleSheet { get { return toggleType == DropdownItemToggleType.CUSTOM ? customStyleSheet :
-                    styleSheetContainer ? styleSheetContainer.projectStyleSheet.dropdownItemToggleStyleSheets.GetStyleSheet(toggleType) : null; } }
+        private DropdownItemToggleStyleSheet CurrentStyleSheet 
+        { get { return custom ? customStyleSheet : styleSheetContainer ? toggleStylePicker.StyleSheet as DropdownItemToggleStyleSheet : null; } }
 
 
         [Header("UI Components")]
@@ -40,9 +41,9 @@ namespace Dhs5.AdvancedUI
 
         protected override void Awake()
         {
-            toggle.GetGraphics(toggleBackground, CurrentStyleSheet.backgroundStyleSheet,
-                checkmarkImage, CurrentStyleSheet.checkmarkStyleSheet,
-                toggleText, GetTextStyleSheet(CurrentStyleSheet.textType));
+            toggle.GetGraphics(toggleBackground, CurrentStyleSheet.BackgroundStyleSheet,
+                checkmarkImage, CurrentStyleSheet.CheckmarkStyleSheet,
+                toggleText, CurrentStyleSheet.TextStyleSheet);
 
             base.Awake();
         }
@@ -88,26 +89,31 @@ namespace Dhs5.AdvancedUI
         {
             State = isOn;
 
+            if (styleSheetContainer == null) return;
+
+            customStyleSheet.SetUp(styleSheetContainer);
+            toggleStylePicker.SetUp(styleSheetContainer, StyleSheetType.DROPDOWN_ITEM_TOGGLE, "Toggle Type");
+
             if (CurrentStyleSheet == null) return;
 
             // Background
             if (toggleBackground != null)
             {
                 toggleBackground.enabled = CurrentStyleSheet.backgroundActive;
-                toggleBackground.SetUpImage(CurrentStyleSheet.backgroundStyleSheet);
+                toggleBackground.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
             }
 
             // Checkmark Icon
             if (checkmarkImage != null)
             {
-                checkmarkImage.SetUpImage(CurrentStyleSheet.checkmarkStyleSheet);
+                checkmarkImage.SetUpImage(CurrentStyleSheet.CheckmarkStyleSheet);
             }
 
             // Text
             if (toggleText != null)
             {
                 toggleText.text = Text;
-                toggleText.SetUpText(GetTextStyleSheet(CurrentStyleSheet.textType));
+                toggleText.SetUpText(CurrentStyleSheet.TextStyleSheet);
             }
 
             ActuState();
