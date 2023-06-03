@@ -85,7 +85,6 @@ namespace Dhs5.AdvancedUI
         }
 
         #region Events
-        // ### Events ###
 
         protected override void LinkEvents()
         {

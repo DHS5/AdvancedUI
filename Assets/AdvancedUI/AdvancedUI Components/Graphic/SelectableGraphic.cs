@@ -11,6 +11,8 @@ namespace Dhs5.AdvancedUI
 {
     public class SelectableGraphic : Selectable
     {
+        public bool selectable = true;
+
         public ImageStyleSheet ImageStyleSheet { get; private set; }
         public TextStyleSheet TextStyleSheet { get; private set; }
 
@@ -57,5 +59,13 @@ namespace Dhs5.AdvancedUI
         }
 
         #endregion
+
+        public override void OnSelect(BaseEventData eventData)
+        {
+            if (selectable)
+            {
+                base.OnSelect(eventData);
+            }
+        }
     }
 }

@@ -86,9 +86,10 @@ namespace Dhs5.AdvancedUI
             if (CurrentStyleSheet == null) return;
 
             // Background
-            if (backgroundImage)
+            if (backgroundImage && backgroundImage.targetGraphic is Image image)
             {
-                backgroundImage.targetGraphic.enabled = CurrentStyleSheet.backgroundActive;
+                image.enabled = CurrentStyleSheet.backgroundActive;
+                image.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
             }
 
             // Content

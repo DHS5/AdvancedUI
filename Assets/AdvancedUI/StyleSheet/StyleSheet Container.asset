@@ -51,6 +51,12 @@ MonoBehaviour:
     name: Switch/Foreground
   - UID: 5026
     name: Dropdown Item/Background
+  - UID: 1999
+    name: Scroll View/Background
+  - UID: 5880
+    name: Frame/Red Hover
+  - UID: 5655
+    name: Frame/Black Hover
   iconSS:
   - UID: 4763
     name: Toggle/Checkmark

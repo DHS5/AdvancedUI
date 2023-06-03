@@ -8,14 +8,18 @@ namespace Dhs5.AdvancedUI
     public class AdvancedText : AdvancedComponent
     {
         [Header("Text Type")]
-        public StylePicker stylePicker;
+        public StylePicker textStylePicker;
+        public bool selectable;
 
         [Header("Custom Style Sheet")]
         [SerializeField] private bool custom;
         [SerializeField] private TextStyleSheet customStyleSheet;
 
+        private TextStyleSheet CurrentStyleSheet
+        { get { return custom ? customStyleSheet : styleSheetContainer ? textStylePicker.StyleSheet as TextStyleSheet : null; } }
+
         [Header("UI Components")]
-        [SerializeField] private TextMeshProUGUI text;
+        [SerializeField] private SelectableGraphic textGraphic;
 
         public override bool Interactable { get => true; set => SetUpConfig(); }
 
@@ -26,11 +30,16 @@ namespace Dhs5.AdvancedUI
         {
             if (styleSheetContainer == null) return;
 
-            stylePicker.SetUp(styleSheetContainer, StyleSheetType.TEXT);
-            TextStyleSheet textStyleSheet = custom ? customStyleSheet : stylePicker.StyleSheet as TextStyleSheet;
+            customStyleSheet.SetUp(styleSheetContainer);
+            textStylePicker.SetUp(styleSheetContainer, StyleSheetType.TEXT);
 
-            if (text && textStyleSheet != null)
-                text.SetUpText(textStyleSheet);
+            if (CurrentStyleSheet == null) return;
+
+            if (textGraphic && textGraphic.targetGraphic is TextMeshProUGUI text)
+            {
+                text.SetUpText(CurrentStyleSheet);
+                textGraphic.selectable = selectable;
+            }
         }
     }
 }
