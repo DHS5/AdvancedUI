@@ -23,9 +23,12 @@ namespace Dhs5.AdvancedUI
 
         public override bool Interactable { get => true; set => SetUpConfig(); }
 
+        #region Events
         protected override void LinkEvents() { }
         protected override void UnlinkEvents() { }
+        #endregion
 
+        #region Configs
         protected override void SetUpConfig()
         {
             if (styleSheetContainer == null) return;
@@ -41,5 +44,11 @@ namespace Dhs5.AdvancedUI
                 textGraphic.selectable = selectable;
             }
         }
+
+        protected override void SetUpGraphics()
+        {
+            textGraphic.SetStyleSheet(CurrentStyleSheet);
+        }
+        #endregion
     }
 }

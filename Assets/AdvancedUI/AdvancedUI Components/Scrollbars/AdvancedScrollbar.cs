@@ -28,13 +28,6 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private Image backgroundImage;
         [SerializeField] private Image handle;
 
-        protected override void Awake()
-        {
-            scrollbar.GetGraphics(backgroundImage, CurrentStyleSheet.BackgroundStyleSheet,
-                handle, CurrentStyleSheet.HandleStyleSheet);
-
-            base.Awake();
-        }
 
         #region Events
 
@@ -66,6 +59,12 @@ namespace Dhs5.AdvancedUI
             {
                 handle.SetUpImage(CurrentStyleSheet.HandleStyleSheet);
             }
+        }
+
+        protected override void SetUpGraphics()
+        {
+            scrollbar.GetGraphics(backgroundImage, CurrentStyleSheet.BackgroundStyleSheet,
+                handle, CurrentStyleSheet.HandleStyleSheet);
         }
 
         #endregion

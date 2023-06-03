@@ -129,6 +129,8 @@ namespace Dhs5.AdvancedUI
             }
         }
 
+        protected override void SetUpGraphics() { }
+
         #endregion
     }
 }

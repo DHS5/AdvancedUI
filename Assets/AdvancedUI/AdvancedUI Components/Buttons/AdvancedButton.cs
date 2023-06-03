@@ -75,14 +75,6 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private AspectRatioFitter iconRatioFitter;
         [SerializeField] private TextMeshProUGUI buttonText;
 
-        protected override void Awake()
-        {
-            button.GetGraphics(buttonBackground, CurrentStyleSheet.BackgroundStyleSheet,
-                buttonIcon, CurrentStyleSheet.IconStyleSheet, overrideIcon ? iconOverrideSheet : null,
-                buttonText, CurrentStyleSheet.TextStyleSheet);
-
-            base.Awake();
-        }
 
         #region Events
 
@@ -128,8 +120,6 @@ namespace Dhs5.AdvancedUI
         #endregion
 
         #region Configs
-        // ### Configs ###
-
         protected override void SetUpConfig()
         {
             if (styleSheetContainer == null) return;
@@ -168,6 +158,13 @@ namespace Dhs5.AdvancedUI
                 buttonText.text = Content.text;
                 buttonText.SetUpText(CurrentStyleSheet.TextStyleSheet);
             }
+        }
+
+        protected override void SetUpGraphics()
+        {
+            button.GetGraphics(buttonBackground, CurrentStyleSheet.BackgroundStyleSheet,
+                buttonIcon, CurrentStyleSheet.IconStyleSheet, overrideIcon ? iconOverrideSheet : null,
+                buttonText, CurrentStyleSheet.TextStyleSheet);
         }
         #endregion
     }

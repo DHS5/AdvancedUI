@@ -104,17 +104,6 @@ namespace Dhs5.AdvancedUI
         { get { return CurrentStyleSheet.uncheckmarkIsImage ? uncheckmarkImage : uncheckmarkText; } }
 
 
-        protected override void Awake()
-        {
-            toggle.GetGraphics(toggleBackground, CurrentStyleSheet.BackgroundStyleSheet,
-                CurrentStyleSheet.checkmarkIsImage ? checkmarkImage : null, CurrentStyleSheet.CheckmarkImageStyleSheet,
-                CurrentStyleSheet.checkmarkIsImage ? null : checkmarkText, CurrentStyleSheet.CheckmarkTextStyleSheet,
-                CurrentStyleSheet.uncheckmarkIsImage ? uncheckmarkImage : null, CurrentStyleSheet.UncheckmarkImageStyleSheet,
-                CurrentStyleSheet.uncheckmarkIsImage ? null : uncheckmarkText, CurrentStyleSheet.UncheckmarkTextStyleSheet,
-                toggleText, CurrentStyleSheet.TextStyleSheet);
-
-            base.Awake();
-        }
 
         #region Public Accessors & Methods
 
@@ -236,6 +225,16 @@ namespace Dhs5.AdvancedUI
             }
 
             ActuState();
+        }
+
+        protected override void SetUpGraphics()
+        {
+            toggle.GetGraphics(toggleBackground, CurrentStyleSheet.BackgroundStyleSheet,
+                CurrentStyleSheet.checkmarkIsImage ? checkmarkImage : null, CurrentStyleSheet.CheckmarkImageStyleSheet,
+                CurrentStyleSheet.checkmarkIsImage ? null : checkmarkText, CurrentStyleSheet.CheckmarkTextStyleSheet,
+                CurrentStyleSheet.uncheckmarkIsImage ? uncheckmarkImage : null, CurrentStyleSheet.UncheckmarkImageStyleSheet,
+                CurrentStyleSheet.uncheckmarkIsImage ? null : uncheckmarkText, CurrentStyleSheet.UncheckmarkTextStyleSheet,
+                toggleText, CurrentStyleSheet.TextStyleSheet);
         }
 
         #endregion

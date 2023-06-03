@@ -75,17 +75,6 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private DropdownItemToggle itemToggle;
 
 
-
-        protected override void Awake()
-        {
-            dropdown.GetGraphics(dropdownBackground, CurrentStyleSheet.BackgroundStyleSheet,
-                titleText, CurrentStyleSheet.TitleStyleSheet,
-                arrowImage, CurrentStyleSheet.ArrowStyleSheet,
-                dropdownText, CurrentStyleSheet.TextStyleSheet);
-
-            base.Awake();
-        }
-
         #region Events
         protected override void LinkEvents()
         {
@@ -173,6 +162,14 @@ namespace Dhs5.AdvancedUI
             {
                 itemToggle.Style = CurrentStyleSheet.ItemToggleStyle;
             }
+        }
+
+        protected override void SetUpGraphics()
+        {
+            dropdown.GetGraphics(dropdownBackground, CurrentStyleSheet.BackgroundStyleSheet,
+                titleText, CurrentStyleSheet.TitleStyleSheet,
+                arrowImage, CurrentStyleSheet.ArrowStyleSheet,
+                dropdownText, CurrentStyleSheet.TextStyleSheet);
         }
 
         #endregion

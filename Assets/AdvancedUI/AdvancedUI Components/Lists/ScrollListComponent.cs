@@ -452,6 +452,8 @@ namespace Dhs5.AdvancedUI
 
             SetUpStyle();
         }
+
+        protected override void SetUpGraphics() { }
         #endregion
     }
 }

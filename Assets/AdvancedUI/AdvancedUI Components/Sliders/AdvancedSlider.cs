@@ -68,16 +68,6 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private TextMeshProUGUI sliderText;
 
 
-        protected override void Awake()
-        {
-            slider.GetGraphics(backgroundImage, CurrentStyleSheet.BackgroundStyleSheet,
-                handle, CurrentStyleSheet.HandleStyleSheet,
-                fill, CurrentStyleSheet.FillStyleSheet,
-                sliderText, CurrentStyleSheet.TextStyleSheet);
-
-            base.Awake();
-        }
-
         #region Private Functions
         private void SetGradient()
         {
@@ -170,6 +160,14 @@ namespace Dhs5.AdvancedUI
             }
 
             SetGradient();
+        }
+
+        protected override void SetUpGraphics()
+        {
+            slider.GetGraphics(backgroundImage, CurrentStyleSheet.BackgroundStyleSheet,
+                handle, CurrentStyleSheet.HandleStyleSheet,
+                fill, CurrentStyleSheet.FillStyleSheet,
+                sliderText, CurrentStyleSheet.TextStyleSheet);
         }
 
         private void SetSliderInfo()

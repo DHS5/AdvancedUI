@@ -39,15 +39,6 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private TextMeshProUGUI toggleText;
 
 
-        protected override void Awake()
-        {
-            toggle.GetGraphics(toggleBackground, CurrentStyleSheet.BackgroundStyleSheet,
-                checkmarkImage, CurrentStyleSheet.CheckmarkStyleSheet,
-                toggleText, CurrentStyleSheet.TextStyleSheet);
-
-            base.Awake();
-        }
-
         #region Public Accessors & Methods
 
         public bool State { get { return toggle.isOn; } set { toggle.isOn = value; } }
@@ -117,6 +108,13 @@ namespace Dhs5.AdvancedUI
             }
 
             ActuState();
+        }
+
+        protected override void SetUpGraphics()
+        {
+            toggle.GetGraphics(toggleBackground, CurrentStyleSheet.BackgroundStyleSheet,
+                checkmarkImage, CurrentStyleSheet.CheckmarkStyleSheet,
+                toggleText, CurrentStyleSheet.TextStyleSheet);
         }
 
         private void OnTransformParentChanged()

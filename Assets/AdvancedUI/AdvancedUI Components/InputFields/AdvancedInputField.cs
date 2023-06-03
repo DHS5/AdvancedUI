@@ -52,14 +52,6 @@ namespace Dhs5.AdvancedUI
         [Space]
         [SerializeField] private AdvancedScrollbar scrollbar;
 
-        override protected void Awake()
-        {
-            inputField.GetGraphics(backgroundImage, CurrentStyleSheet.BackgroundStyleSheet,
-                hintText, CurrentStyleSheet.HintTextStyleSheet,
-                inputText, CurrentStyleSheet.InputTextStyleSheet);
-
-            base.Awake();
-        }
 
         #region Events
         protected override void LinkEvents() 
@@ -127,6 +119,13 @@ namespace Dhs5.AdvancedUI
                 hintText.text = Content.hintText;
                 hintText.SetUpText(CurrentStyleSheet.HintTextStyleSheet);
             }
+        }
+
+        protected override void SetUpGraphics()
+        {
+            inputField.GetGraphics(backgroundImage, CurrentStyleSheet.BackgroundStyleSheet,
+                hintText, CurrentStyleSheet.HintTextStyleSheet,
+                inputText, CurrentStyleSheet.InputTextStyleSheet);
         }
 
         #endregion

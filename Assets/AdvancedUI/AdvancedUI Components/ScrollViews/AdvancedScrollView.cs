@@ -62,12 +62,6 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private AdvancedScrollbar verticalScrollbar;
         [SerializeField] private AdvancedScrollbar horizontalScrollbar;
 
-        protected override void Awake()
-        {
-            backgroundImage.SetStyleSheet(CurrentStyleSheet.BackgroundStyleSheet);
-
-            base.Awake();
-        }
 
         #region Events
         protected override void LinkEvents() { }
@@ -138,6 +132,11 @@ namespace Dhs5.AdvancedUI
                 horizontalScrollbar.gameObject.SetActive(CurrentStyleSheet.horizontalScrollbarActive);
                 horizontalScrollbar.Style = CurrentStyleSheet.HorizontalScrollbarStyle;
             }
+        }
+
+        protected override void SetUpGraphics()
+        {
+            backgroundImage.SetStyleSheet(CurrentStyleSheet.BackgroundStyleSheet);
         }
 
         #endregion

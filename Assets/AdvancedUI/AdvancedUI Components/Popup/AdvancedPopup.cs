@@ -176,6 +176,8 @@ namespace Dhs5.AdvancedUI
                 LayoutRebuilder.ForceRebuildLayoutImmediate(popupImage.rectTransform);
             }
         }
+
+        protected override void SetUpGraphics() { }
         #endregion
     }
 }

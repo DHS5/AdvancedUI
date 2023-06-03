@@ -60,19 +60,6 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private TextMeshProUGUI leftText;
         [SerializeField] private TextMeshProUGUI rightText;
 
-
-        protected override void Awake()
-        {
-            slider.GetGraphics(background, CurrentStyleSheet.BackgroundStyleSheet,
-                foreground, CurrentStyleSheet.ForegroundStyleSheet,
-                handle, CurrentStyleSheet.HandleStyleSheet,
-                leftText, CurrentStyleSheet.LeftTextStyleSheet,
-                rightText, CurrentStyleSheet.RightTextStyleSheet);
-
-            base.Awake();
-        }
-
-
         #region Events
         protected override void LinkEvents()
         {
@@ -153,6 +140,15 @@ namespace Dhs5.AdvancedUI
                 rightText.SetUpText(CurrentStyleSheet.RightTextStyleSheet);
                 rightText.text = Content.rightText;
             }
+        }
+
+        protected override void SetUpGraphics()
+        {
+            slider.GetGraphics(background, CurrentStyleSheet.BackgroundStyleSheet,
+                foreground, CurrentStyleSheet.ForegroundStyleSheet,
+                handle, CurrentStyleSheet.HandleStyleSheet,
+                leftText, CurrentStyleSheet.LeftTextStyleSheet,
+                rightText, CurrentStyleSheet.RightTextStyleSheet);
         }
         #endregion
     }
