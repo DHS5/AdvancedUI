@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -64,8 +65,35 @@ namespace Dhs5.AdvancedUI
 
 
         #region Events
-        protected override void LinkEvents() { }
-        protected override void UnlinkEvents() { }
+        public event Action<Vector2> OnValueChanged;
+        public event Action OnMouseEnter;
+        public event Action OnMouseExit;
+
+        protected override void LinkEvents()
+        {
+            scrollView.onValueChanged.AddListener(ValueChanged);
+            backgroundImage.OnMouseEnter += MouseEnter;
+            backgroundImage.OnMouseExit += MouseExit;
+        }
+        protected override void UnlinkEvents()
+        {
+            scrollView.onValueChanged.RemoveListener(ValueChanged);
+            backgroundImage.OnMouseEnter -= MouseEnter;
+            backgroundImage.OnMouseExit -= MouseExit;
+        }
+
+        private void ValueChanged(Vector2 newValue)
+        {
+            OnValueChanged?.Invoke(newValue);
+        }
+        private void MouseEnter()
+        {
+            OnMouseEnter?.Invoke();
+        }
+        private void MouseExit()
+        {
+            OnMouseExit?.Invoke();
+        }
         #endregion
 
         #region Configs

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Dhs5.AdvancedUI
@@ -13,6 +15,15 @@ namespace Dhs5.AdvancedUI
 
         public override bool Interactable { get => scrollbar.interactable; set => scrollbar.interactable = value; }
 
+
+        [Header("Events")]
+        [SerializeField] private UnityEvent<float> onValueChanged;
+        [SerializeField] private UnityEvent onButtonDown;
+        [SerializeField] private UnityEvent onButtonUp;
+
+        public event Action<float> OnValueChanged;
+        public event Action OnButtonDown { add { scrollbar.OnScrollbarDown += value; } remove { scrollbar.OnScrollbarDown -= value; } }
+        public event Action OnButtonUp { add { scrollbar.OnScrollbarUp += value; } remove { scrollbar.OnScrollbarUp -= value; } }
 
         [Header("Custom Style Sheet")]
         [SerializeField] private bool custom;
@@ -31,8 +42,32 @@ namespace Dhs5.AdvancedUI
 
         #region Events
 
-        protected override void LinkEvents() { }
-        protected override void UnlinkEvents() { }
+        protected override void LinkEvents()
+        {
+            scrollbar.onValueChanged.AddListener(ValueChanged);
+            OnButtonDown += ButtonDown;
+            OnButtonUp += ButtonUp;
+        }
+        protected override void UnlinkEvents()
+        {
+            scrollbar.onValueChanged?.RemoveListener(ValueChanged);
+            OnButtonDown -= ButtonDown;
+            OnButtonUp -= ButtonUp;
+        }
+
+        private void ValueChanged(float value)
+        {
+            onValueChanged?.Invoke(value);
+            OnValueChanged?.Invoke(value);
+        }
+        private void ButtonDown()
+        {
+            onButtonDown?.Invoke();
+        }
+        private void ButtonUp()
+        {
+            onButtonUp?.Invoke();
+        }
 
         #endregion
 

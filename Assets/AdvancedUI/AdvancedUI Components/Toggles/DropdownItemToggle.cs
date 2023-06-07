@@ -22,6 +22,17 @@ namespace Dhs5.AdvancedUI
         public override bool Interactable { get => toggle.interactable; set => toggle.interactable = value; }
 
 
+        [Header("Events")]
+        [SerializeField] private UnityEvent<bool> onValueChanged;
+        [SerializeField] private UnityEvent onClick;
+        [SerializeField] private UnityEvent onMouseEnter;
+        [SerializeField] private UnityEvent onMouseExit;
+
+        public event Action<bool> OnValueChanged { add { toggle.OnValueChanged += value; } remove { toggle.OnValueChanged -= value; } }
+        public event Action OnClick { add { toggle.OnToggleClick += value; } remove { toggle.OnToggleClick -= value; } }
+        public event Action OnMouseEnter { add { toggle.OnToggleEnter += value; } remove { toggle.OnToggleEnter -= value; } }
+        public event Action OnMouseExit { add { toggle.OnToggleExit += value; } remove { toggle.OnToggleExit -= value; } }
+
         [Header("Custom Style Sheet")]
         [SerializeField] private bool custom;
         [SerializeField] private DropdownItemToggleStyleSheet customStyleSheet;
@@ -55,21 +66,38 @@ namespace Dhs5.AdvancedUI
 
         #region Events
 
-        public event Action<bool> OnValueChanged { add { toggle.OnValueChanged += value; } remove { toggle.OnValueChanged -= value; } }
-
         protected override void LinkEvents()
         {
             OnValueChanged += ValueChanged;
+            OnClick += Click;
+            OnMouseEnter += MouseEnter;
+            OnMouseExit += MouseExit;
         }
         protected override void UnlinkEvents()
         {
             OnValueChanged -= ValueChanged;
+            OnClick -= Click;
+            OnMouseEnter -= MouseEnter;
+            OnMouseExit -= MouseExit;
         }
 
         private void ValueChanged(bool state)
         {
             isOn = state;
             ActuState();
+            onValueChanged?.Invoke(state);
+        }
+        private void Click()
+        {
+            onClick?.Invoke();
+        }
+        private void MouseEnter()
+        {
+            onMouseEnter?.Invoke();
+        }
+        private void MouseExit()
+        {
+            onMouseExit?.Invoke();
         }
 
         #endregion
