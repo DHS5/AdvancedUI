@@ -53,6 +53,8 @@ MonoBehaviour:
     name: Dropdown Item/Background
   - UID: 1999
     name: Scroll View/Background
+  - UID: 3190
+    name: Scroll View/Viewport Mask
   - UID: 5880
     name: Frame/Red Hover
   - UID: 5655
