@@ -13,35 +13,26 @@ namespace Dhs5.AdvancedUI
     public struct ToggleContent
     {
         // ### Constructor ###
-        public ToggleContent(Sprite background, Sprite checkmark, float checkScale = 1, string checkText = "Active", 
-            Sprite uncheckmark = null, float uncheckScale = 1, string uncheckText = "Inactive", string text = "", int size = 25)
+        public ToggleContent(string checkText = "Active", string uncheckText = "Inactive", string text = "", int size = 25)
         {
-            toggleBackground = background;
-            checkmarkIcon = checkmark;
-            checkmarkScale = checkScale;
             checkmarkText = checkText;
-            uncheckmarkIcon = uncheckmark;
-            uncheckmarkScale = uncheckScale;
             uncheckmarkText = uncheckText;
+
             toggleText = text;
             fontSize = size;
         }
 
         // ### Properties ###
-        [Header("Background")]
-        public Sprite toggleBackground;
         [Header("Checkmark")]
-        public Sprite checkmarkIcon;
-        [SerializeField] private float checkmarkScale; public float CheckmarkScale
-        { get { return checkmarkScale >  0 ? checkmarkScale : 1; } set { checkmarkScale = value; } }
-        [SerializeField] private string checkmarkText; public string CheckmarkText 
+        [SerializeField] private string checkmarkText; 
+        public string CheckmarkText 
         { get { return !string.IsNullOrWhiteSpace(checkmarkText) ? checkmarkText : "Active"; } set { checkmarkText = value; } }
+
         [Header("Uncheckmark")]
-        public Sprite uncheckmarkIcon;
-        [SerializeField] private float uncheckmarkScale; public float UncheckmarkScale
-        { get { return uncheckmarkScale > 0 ? uncheckmarkScale : 1; } set { uncheckmarkScale = value; } }
-        [SerializeField] private string uncheckmarkText; public string UncheckmarkText
+        [SerializeField] private string uncheckmarkText; 
+        public string UncheckmarkText
         { get { return !string.IsNullOrWhiteSpace(uncheckmarkText) ? uncheckmarkText : "Inactive"; } set { uncheckmarkText = value; } }
+
         [Header("Text")]
         public string toggleText;
         [SerializeField] private int fontSize; public int FontSize 
@@ -74,6 +65,11 @@ namespace Dhs5.AdvancedUI
         public event Action OnMouseEnter { add { toggle.OnToggleEnter += value; } remove { toggle.OnToggleEnter -= value; } }
         public event Action OnMouseExit { add { toggle.OnToggleExit += value; } remove { toggle.OnToggleExit -= value; } }
 
+        [Header("Overrides")]
+        [SerializeField] private bool overrideCheckmark;
+        [SerializeField] private ImageOverrideSheet checkmarkOverrideSheet;
+        [SerializeField] private bool overrideUncheckmark;
+        [SerializeField] private ImageOverrideSheet uncheckmarkOverrideSheet;
 
         [Header("Custom Style Sheet")]
         [SerializeField] private bool custom;
@@ -175,19 +171,22 @@ namespace Dhs5.AdvancedUI
             {
                 toggleBackground.enabled = CurrentStyleSheet.backgroundActive;
                 toggleBackground.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
-                toggleBackground.sprite = Content.toggleBackground != null ? 
-                    Content.toggleBackground : CurrentStyleSheet.BackgroundStyleSheet.baseSprite;
             }
 
             // Checkmark Icon
             if (checkmarkImage != null)
             {
-                if (Content.checkmarkIcon == null) toggleContent.CheckmarkScale = CurrentStyleSheet.checkmarkScale;
                 checkmarkImage.enabled = CurrentStyleSheet.checkmarkActive && CurrentStyleSheet.checkmarkIsImage;
-                checkmarkImage.transform.localScale = new Vector2(Content.CheckmarkScale, Content.CheckmarkScale);
-                checkmarkImage.SetUpImage(CurrentStyleSheet.CheckmarkImageStyleSheet);
-                checkmarkImage.sprite = Content.checkmarkIcon != null ? 
-                    Content.checkmarkIcon : CurrentStyleSheet.CheckmarkImageStyleSheet.baseSprite;
+                checkmarkImage.transform.localScale = Vector2.one * CurrentStyleSheet.checkmarkScale;
+
+                if (!overrideCheckmark)
+                {
+                    checkmarkImage.SetUpImage(CurrentStyleSheet.CheckmarkImageStyleSheet, checkmarkRatioFitter);
+                }
+                else
+                {
+                    checkmarkImage.SetUpImage(CurrentStyleSheet.CheckmarkImageStyleSheet, checkmarkOverrideSheet, checkmarkRatioFitter);
+                }
             }
             // Checkmark Text
             if (checkmarkText != null)
@@ -200,12 +199,17 @@ namespace Dhs5.AdvancedUI
             // Uncheckmark Icon
             if (uncheckmarkImage != null)
             {
-                if (Content.uncheckmarkIcon == null) toggleContent.UncheckmarkScale = CurrentStyleSheet.uncheckmarkScale;
                 uncheckmarkImage.enabled = CurrentStyleSheet.uncheckmarkActive && CurrentStyleSheet.uncheckmarkIsImage;
-                uncheckmarkImage.transform.localScale = new Vector2(Content.UncheckmarkScale, Content.UncheckmarkScale);
-                uncheckmarkImage.SetUpImage(CurrentStyleSheet.UncheckmarkImageStyleSheet);
-                uncheckmarkImage.sprite = Content.uncheckmarkIcon != null ? 
-                    Content.uncheckmarkIcon : CurrentStyleSheet.UncheckmarkImageStyleSheet.baseSprite;
+                uncheckmarkImage.transform.localScale = Vector2.one * CurrentStyleSheet.uncheckmarkScale;
+
+                if (!overrideCheckmark)
+                {
+                    uncheckmarkImage.SetUpImage(CurrentStyleSheet.UncheckmarkImageStyleSheet, uncheckmarkRatioFitter);
+                }
+                else
+                {
+                    uncheckmarkImage.SetUpImage(CurrentStyleSheet.UncheckmarkImageStyleSheet, uncheckmarkOverrideSheet, uncheckmarkRatioFitter);
+                }
             }
             // Uncheckmark Text
             if (uncheckmarkText != null)
