@@ -56,11 +56,15 @@ namespace Dhs5.AdvancedUI
 
         [Header("Events")]
         [SerializeField] private UnityEvent<bool> onValueChanged;
+        [SerializeField] private UnityEvent onTrue;
+        [SerializeField] private UnityEvent onFalse;
         [SerializeField] private UnityEvent onClick;
         [SerializeField] private UnityEvent onMouseEnter;
         [SerializeField] private UnityEvent onMouseExit;
 
         public event Action<bool> OnValueChanged { add { toggle.OnValueChanged += value; } remove { toggle.OnValueChanged -= value; } }
+        public event Action OnTrue;
+        public event Action OnFalse;
         public event Action OnClick { add { toggle.OnToggleClick += value; } remove { toggle.OnToggleClick -= value; } }
         public event Action OnMouseEnter { add { toggle.OnToggleEnter += value; } remove { toggle.OnToggleEnter -= value; } }
         public event Action OnMouseExit { add { toggle.OnToggleExit += value; } remove { toggle.OnToggleExit -= value; } }
@@ -104,6 +108,7 @@ namespace Dhs5.AdvancedUI
         #region Public Accessors & Methods
 
         public bool State { get { return toggle.isOn; } set { toggle.isOn = value; } }
+        public ToggleGroup Group { get => toggle.group; set => toggle.group = value; }
 
         public void ActuState()
         {
@@ -136,7 +141,24 @@ namespace Dhs5.AdvancedUI
         {
             isOn = state;
             ActuState();
+            ActuBackground();
             onValueChanged?.Invoke(state);
+            True();
+            False();
+        }
+        private void True()
+        {
+            if (!State) return;
+
+            onTrue?.Invoke();
+            OnTrue?.Invoke();
+        }
+        private void False()
+        {
+            if (State) return;
+
+            onFalse?.Invoke();
+            OnFalse?.Invoke();
         }
         private void Click()
         {
@@ -170,7 +192,15 @@ namespace Dhs5.AdvancedUI
             if (toggleBackground != null)
             {
                 toggleBackground.enabled = CurrentStyleSheet.backgroundActive;
-                toggleBackground.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
+
+                if (!CurrentStyleSheet.trueBackground || !State)
+                {
+                    toggleBackground.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
+                }
+                else
+                {
+                    toggleBackground.SetUpImage(CurrentStyleSheet.TrueBackgroundStyleSheet);
+                }
             }
 
             // Checkmark Icon
@@ -233,12 +263,27 @@ namespace Dhs5.AdvancedUI
 
         protected override void SetUpGraphics()
         {
-            toggle.GetGraphics(toggleBackground, CurrentStyleSheet.BackgroundStyleSheet,
+            toggle.GetGraphics(toggleBackground, CurrentStyleSheet.BackgroundStyleSheet, 
+                CurrentStyleSheet.trueBackground ? CurrentStyleSheet.TrueBackgroundStyleSheet : null,
                 CurrentStyleSheet.checkmarkIsImage ? checkmarkImage : null, CurrentStyleSheet.CheckmarkImageStyleSheet,
                 CurrentStyleSheet.checkmarkIsImage ? null : checkmarkText, CurrentStyleSheet.CheckmarkTextStyleSheet,
                 CurrentStyleSheet.uncheckmarkIsImage ? uncheckmarkImage : null, CurrentStyleSheet.UncheckmarkImageStyleSheet,
                 CurrentStyleSheet.uncheckmarkIsImage ? null : uncheckmarkText, CurrentStyleSheet.UncheckmarkTextStyleSheet,
                 toggleText, CurrentStyleSheet.TextStyleSheet);
+        }
+
+        private void ActuBackground()
+        {
+            if (toggleBackground == null || !CurrentStyleSheet.trueBackground) return;
+
+            if (!State)
+            {
+                toggleBackground.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
+            }
+            else
+            {
+                toggleBackground.SetUpImage(CurrentStyleSheet.TrueBackgroundStyleSheet);
+            }
         }
 
         #endregion

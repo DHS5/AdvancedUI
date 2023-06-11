@@ -293,6 +293,12 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  onTrue:
+    m_PersistentCalls:
+      m_Calls: []
+  onFalse:
+    m_PersistentCalls:
+      m_Calls: []
   onClick:
     m_PersistentCalls:
       m_Calls: []
@@ -389,6 +395,12 @@ MonoBehaviour:
       type: 12
       styleSheetUID: 0
       name: Background
+    trueBackground: 0
+    trueBackgroundStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 12
+      styleSheetUID: 0
+      name: True Background
     checkmarkActive: 1
     checkmarkIsImage: 1
     checkmarkScale: 1

@@ -31,6 +31,8 @@ MonoBehaviour:
     name: Button/Shadow Background
   - UID: 3095
     name: Toggle/Background
+  - UID: 279
+    name: Toggle/True Background
   - UID: 9053
     name: Slider/Background
   - UID: 8551
