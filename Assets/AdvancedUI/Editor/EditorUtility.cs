@@ -36,26 +36,5 @@ namespace Dhs5.AdvancedUI
             if (container.projectStyleSheet != null)
                 Selection.activeObject = container.projectStyleSheet;
         }
-
-        [MenuItem("Window/Advanced UI/UI Sprite", priority = 0)]
-        private static void CreateUISprite()
-        {
-            Sprite original = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
-            if (original != null)
-            {
-                Debug.Log("not null");
-                Texture2D copy = original.texture;
-                Debug.Log(AssetDatabase.GetAssetPath(740));
-
-                SaveSystem.SaveTexture2D(copy, "UISprite");
-                Debug.Log(Application.persistentDataPath);
-                //Sprite copy = Sprite.Create(original.texture, original.rect, original.pivot);
-                //AssetDatabase.CreateAsset(copy, "Assets/AdvancedUI/UISpriteCopy.asset");
-            }
-            else
-            {
-                Debug.Log("null");
-            }
-        }
     }
 }

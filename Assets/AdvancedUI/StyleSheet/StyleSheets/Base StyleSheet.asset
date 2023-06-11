@@ -263,20 +263,51 @@ MonoBehaviour:
   - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
     uniqueID: 443
     name: Button Background
-    baseSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    baseSprite: {fileID: -2064515718, guid: 59ec75d9202c7d74889c2dc4694978f8, type: 3}
     baseColor: {r: 1, g: 1, b: 1, a: 1}
     baseMaterial: {fileID: 0}
     imageType: 1
-    pixelsPerUnit: 0.25
+    pixelsPerUnit: 0.15
     ratio: 0
-    isStatic: 1
+    isStatic: 0
     transition:
-      transitionType: 0
+      transitionType: 2
       spriteState:
-        m_HighlightedSprite: {fileID: 0}
-        m_PressedSprite: {fileID: 0}
-        m_SelectedSprite: {fileID: 0}
-        m_DisabledSprite: {fileID: 0}
+        m_HighlightedSprite: {fileID: -1593969953, guid: 00dd00de7a239b948b3e2b28d2e0b2e9, type: 3}
+        m_PressedSprite: {fileID: -1122246558, guid: 9417f4e098cdb2a4eb740476456018ed, type: 3}
+        m_SelectedSprite: {fileID: 17243867, guid: 1bab8ece300581d46bd6198de515bb69, type: 3}
+        m_DisabledSprite: {fileID: -2064515718, guid: 59ec75d9202c7d74889c2dc4694978f8, type: 3}
+      colorBlock:
+        m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+        m_HighlightedColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
+        m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+        m_ColorMultiplier: 0
+        m_FadeDuration: 0
+      animationTriggers:
+        m_NormalTrigger: Normal
+        m_HighlightedTrigger: Highlighted
+        m_PressedTrigger: Pressed
+        m_SelectedTrigger: Selected
+        m_DisabledTrigger: Disabled
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 4500
+    name: Button/Shadow Background
+    baseSprite: {fileID: 1727644470, guid: 12091dd1cf376de4fa47f0627cacd9ca, type: 3}
+    baseColor: {r: 1, g: 1, b: 1, a: 1}
+    baseMaterial: {fileID: 0}
+    imageType: 1
+    pixelsPerUnit: 0.15
+    ratio: 1
+    isStatic: 0
+    transition:
+      transitionType: 2
+      spriteState:
+        m_HighlightedSprite: {fileID: -499986543, guid: b95d4c475b70d9d4b8a36cddd9db0e33, type: 3}
+        m_PressedSprite: {fileID: 685741307, guid: 0d9701389c338cd4596fae6f29fb9dec, type: 3}
+        m_SelectedSprite: {fileID: -536132536, guid: 36168e0a11bbc9848b815794caaa0a1a, type: 3}
+        m_DisabledSprite: {fileID: 1727644470, guid: 12091dd1cf376de4fa47f0627cacd9ca, type: 3}
       colorBlock:
         m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
         m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
@@ -1181,6 +1212,50 @@ MonoBehaviour:
       container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
       type: 0
       styleSheetUID: 1107
+      name: Text type
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 1632
+    name: Shadow/Back Only
+    backgroundActive: 1
+    backgroundStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 12
+      styleSheetUID: 4500
+      name: Background
+    iconActive: 0
+    iconScale: 1
+    iconStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 13
+      styleSheetUID: 4763
+      name: Icon
+    textActive: 0
+    textStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 0
+      styleSheetUID: 1107
+      name: Text type
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 8746
+    name: Shadow/Back And Text
+    backgroundActive: 1
+    backgroundStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 12
+      styleSheetUID: 4500
+      name: Background
+    iconActive: 0
+    iconScale: 1
+    iconStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 13
+      styleSheetUID: 4763
+      name: Icon
+    textActive: 1
+    textStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 0
+      styleSheetUID: 9836
       name: Text type
   ToggleStyleSheets:
   - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}

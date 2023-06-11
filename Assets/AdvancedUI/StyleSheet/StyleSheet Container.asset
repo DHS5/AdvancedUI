@@ -27,6 +27,8 @@ MonoBehaviour:
   backgroundSS:
   - UID: 443
     name: Button/Background
+  - UID: 4500
+    name: Button/Shadow Background
   - UID: 3095
     name: Toggle/Background
   - UID: 9053
@@ -91,6 +93,10 @@ MonoBehaviour:
     name: Special/Quit
   - UID: 6606
     name: Special/Back
+  - UID: 1632
+    name: Shadow/Back Only
+  - UID: 8746
+    name: Shadow/Back And Text
   toggleSS:
   - UID: 2705
     name: Classic
