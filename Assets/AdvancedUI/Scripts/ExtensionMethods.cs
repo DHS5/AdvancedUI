@@ -215,6 +215,17 @@ namespace Dhs5.AdvancedUI
             if (overrideSheet.overrideAlignment) text.alignment = overrideSheet.alignment;
             else if (styleSheet.overrideAlignment) text.alignment = styleSheet.alignment;
         }
+
+        public static void SetUpMask(this Image image, ImageStyleSheet styleSheet)
+        {
+            if (image == null) throw new NullReferenceException();
+
+            image.sprite = styleSheet.baseSprite;
+            image.color = Color.white;
+            image.material = null;
+            image.type = styleSheet.imageType;
+            image.pixelsPerUnitMultiplier = styleSheet.pixelsPerUnit;
+        }
         #endregion
 
         #region SetUp BaseStyleSheets
