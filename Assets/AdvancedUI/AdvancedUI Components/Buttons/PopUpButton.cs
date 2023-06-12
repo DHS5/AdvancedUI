@@ -91,11 +91,13 @@ namespace Dhs5.AdvancedUI
 
             if (button)
             {
+                button.SetContainer(styleSheetContainer);
                 button.Style = buttonStylePicker;
                 button.Content = buttonContent;
             }
             if (popup)
             {
+                popup.SetContainer(styleSheetContainer);
                 popup.Style = popupStylePicker;
                 popup.Content = popupContent;
             }

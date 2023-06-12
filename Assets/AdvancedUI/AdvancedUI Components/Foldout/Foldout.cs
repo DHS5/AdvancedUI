@@ -7,8 +7,51 @@ using System;
 
 namespace Dhs5.AdvancedUI
 {
+    #region Foldout Content
+    [Serializable]
+    public struct FoldoutContent
+    {
+        public FoldoutContent(int bHeight)
+        {
+            buttonHeight = bHeight;
+
+            padding = new(5, 5, 5, 5);
+            spacing = 5;
+            gridSpacing = new Vector2(5,5);
+            cellSize = new Vector2(100,100);
+            childAlignment = TextAnchor.UpperCenter;
+            constraint = GridLayoutGroup.Constraint.Flexible;
+            constraintCount = 2;
+        }
+
+        // ### Properties ###
+        [Header("Button")]
+        public int buttonHeight;
+
+        [Header("Layout")]
+        public RectOffset padding;
+        public TextAnchor childAlignment;
+
+        [Header("Vertical/Horizontal")]
+        public float spacing;
+
+        [Header("Grid")]
+        public Vector2 cellSize;
+        public Vector2 gridSpacing;
+        public GridLayoutGroup.Constraint constraint;
+        public int constraintCount;
+    }
+    #endregion
+
     public class Foldout : AdvancedComponent
     {
+        [Header("Foldout")]
+        [SerializeField] private FoldoutContent foldoutContent;
+        public FoldoutContent Content { get =>  foldoutContent; set { foldoutContent = value; SetUpConfig(); } }
+
+        [SerializeField] private bool open;
+        public bool IsOpen { get => open; set { open = value; SetFoldoutState(value); } }
+
         [Header("Button")]
         [SerializeField] private StylePicker buttonStylePicker;
         [SerializeField] private ButtonContent buttonContent;
@@ -17,8 +60,6 @@ namespace Dhs5.AdvancedUI
         [Header("Background")]
         [SerializeField] private StylePicker backgroundStylePicker;
 
-        [SerializeField] private bool open;
-        public bool IsOpen { get => open; set { open = value; SetFoldoutState(value); } }
         public override bool Interactable { get => button.Interactable; set => button.Interactable = value; }
 
         [Header("Events")]
@@ -32,9 +73,12 @@ namespace Dhs5.AdvancedUI
 
         [Header("UI Components")]
         [SerializeField] private AdvancedButton button;
+        [SerializeField] private RectTransform buttonRect;
         [Space]
         [SerializeField] private AdvancedImage background;
-        [SerializeField] private Image backgroundMask;
+        [SerializeField] private UIMask mask;
+        [Space]
+        [SerializeField] private LayoutGroup contentLayout;
 
 
         #region Events
@@ -91,21 +135,47 @@ namespace Dhs5.AdvancedUI
 
             if (button)
             {
+                button.SetContainer(styleSheetContainer);
+                buttonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Content.buttonHeight);
                 button.Style = buttonStylePicker;
                 button.Content = buttonContent;
             }
             if (background)
             {
+                background.SetContainer(styleSheetContainer);
                 background.gameObject.SetActive(IsOpen);
                 background.Style = backgroundStylePicker;
             }
-            if (backgroundMask)
+            if (mask)
             {
-                backgroundMask.SetUpMask(backgroundStylePicker.StyleSheet as ImageStyleSheet);
+                mask.SetContainer(styleSheetContainer);
+                mask.Style = backgroundStylePicker;
             }
+            
+            SetUpLayout();
         }
 
         protected override void SetUpGraphics() { }
+
+        private void SetUpLayout()
+        {
+            if (!contentLayout) return;
+
+            contentLayout.padding = Content.padding;
+            contentLayout.childAlignment = Content.childAlignment;
+            
+            if (contentLayout is HorizontalOrVerticalLayoutGroup simple)
+            {
+                simple.spacing = Content.spacing;
+            }
+            else if (contentLayout is GridLayoutGroup grid)
+            {
+                grid.spacing = Content.gridSpacing;
+                grid.cellSize = Content.cellSize;
+                grid.constraint = Content.constraint;
+                grid.constraintCount = Content.constraintCount;
+            }
+        }
 
         #endregion
     }

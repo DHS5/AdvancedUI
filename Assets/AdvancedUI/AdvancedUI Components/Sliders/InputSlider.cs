@@ -120,11 +120,13 @@ namespace Dhs5.AdvancedUI
 
             if (slider)
             {
+                slider.SetContainer(styleSheetContainer);
                 slider.Style = SliderStyle;
                 slider.Content = SliderContent;
             }
             if (inputField)
             {
+                inputField.SetContainer(styleSheetContainer);
                 inputField.Style = InputStyle;
             }
         }

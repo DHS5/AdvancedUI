@@ -226,6 +226,16 @@ namespace Dhs5.AdvancedUI
             image.type = styleSheet.imageType;
             image.pixelsPerUnitMultiplier = styleSheet.pixelsPerUnit;
         }
+        public static void SetUpMask(this Image image, ImageStyleSheet styleSheet, ImageOverrideSheet overrideSheet)
+        {
+            if (image == null) throw new NullReferenceException();
+
+            image.sprite = overrideSheet.overrideSprite ? overrideSheet.sprite : styleSheet.baseSprite;
+            image.color = Color.white;
+            image.material = null;
+            image.type = overrideSheet.overrideImageType ? overrideSheet.imageType : styleSheet.imageType;
+            image.pixelsPerUnitMultiplier = overrideSheet.overrideImageType ? overrideSheet.pixelsPerUnit : styleSheet.pixelsPerUnit;
+        }
         #endregion
 
         #region SetUp BaseStyleSheets

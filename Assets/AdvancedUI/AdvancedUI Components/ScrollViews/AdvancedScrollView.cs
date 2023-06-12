@@ -160,11 +160,13 @@ namespace Dhs5.AdvancedUI
             // Scrollbars
             if (verticalScrollbar)
             {
+                verticalScrollbar.SetContainer(styleSheetContainer);
                 verticalScrollbar.gameObject.SetActive(CurrentStyleSheet.verticalScrollbarActive);
                 verticalScrollbar.Style = CurrentStyleSheet.VerticalScrollbarStyle;
             }
             if (horizontalScrollbar)
             {
+                horizontalScrollbar.SetContainer(styleSheetContainer);
                 horizontalScrollbar.gameObject.SetActive(CurrentStyleSheet.horizontalScrollbarActive);
                 horizontalScrollbar.Style = CurrentStyleSheet.HorizontalScrollbarStyle;
             }
