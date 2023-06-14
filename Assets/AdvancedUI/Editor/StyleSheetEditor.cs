@@ -53,6 +53,8 @@ namespace Dhs5.AdvancedUI
             styleSheet = (StyleSheet)serializedObject.targetObject;
             container = styleSheet.Container;
 
+            if (container == null) return;
+
             styleSheet.ApplyTemplate();
 
             CreateReorderableList("TextStyleSheets", container.Texts, "Texts");
@@ -76,14 +78,18 @@ namespace Dhs5.AdvancedUI
             serializedObject.UpdateIfRequiredOrScript();
 
             //base.OnInspectorGUI();
-
-            if (container == null) return;
             
-            EditorGUILayout.Space(15);
             EditorGUILayout.BeginVertical();
 
-            foreach (var list in reorderableLists)
-                list.DoLayoutList();
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("container"));
+
+            if (container != null)
+            {
+                EditorGUILayout.Space(15);
+
+                foreach (var list in reorderableLists)
+                    list.DoLayoutList();
+            }            
             
             EditorGUILayout.EndVertical();
 

@@ -7,44 +7,44 @@ using System;
 
 namespace Dhs5.AdvancedUI
 {
-    #region Foldout Content
-    [Serializable]
-    public struct FoldoutContent
-    {
-        public FoldoutContent(int bHeight)
-        {
-            buttonHeight = bHeight;
-
-            padding = new(5, 5, 5, 5);
-            spacing = 5;
-            gridSpacing = new Vector2(5,5);
-            cellSize = new Vector2(100,100);
-            childAlignment = TextAnchor.UpperCenter;
-            constraint = GridLayoutGroup.Constraint.Flexible;
-            constraintCount = 2;
-        }
-
-        // ### Properties ###
-        [Header("Button")]
-        public int buttonHeight;
-
-        [Header("Layout")]
-        public RectOffset padding;
-        public TextAnchor childAlignment;
-
-        [Header("Vertical/Horizontal")]
-        public float spacing;
-
-        [Header("Grid")]
-        public Vector2 cellSize;
-        public Vector2 gridSpacing;
-        public GridLayoutGroup.Constraint constraint;
-        public int constraintCount;
-    }
-    #endregion
-
     public class Foldout : AdvancedComponent
     {
+        #region Foldout Content
+        [Serializable]
+        public class FoldoutContent
+        {
+            public FoldoutContent(int bHeight)
+            {
+                buttonHeight = bHeight;
+
+                padding = new(5, 5, 5, 5);
+                spacing = 5;
+                gridSpacing = new Vector2(5, 5);
+                cellSize = new Vector2(100, 100);
+                childAlignment = TextAnchor.UpperCenter;
+                constraint = GridLayoutGroup.Constraint.Flexible;
+                constraintCount = 2;
+            }
+
+            // ### Properties ###
+            [Header("Button")]
+            public int buttonHeight;
+
+            [Header("Layout")]
+            public RectOffset padding;
+            public TextAnchor childAlignment;
+
+            [Header("Vertical/Horizontal")]
+            public float spacing;
+
+            [Header("Grid")]
+            public Vector2 cellSize;
+            public Vector2 gridSpacing;
+            public GridLayoutGroup.Constraint constraint;
+            public int constraintCount;
+        }
+        #endregion
+
         [Header("Foldout")]
         [SerializeField] private FoldoutContent foldoutContent;
         public FoldoutContent Content { get =>  foldoutContent; set { foldoutContent = value; SetUpConfig(); } }
@@ -54,8 +54,8 @@ namespace Dhs5.AdvancedUI
 
         [Header("Button")]
         [SerializeField] private StylePicker buttonStylePicker;
-        [SerializeField] private ButtonContent buttonContent;
-        public ButtonContent ButtonContent { get { return buttonContent; } set { buttonContent = value; } }
+        [SerializeField] private AdvancedButton.ButtonContent buttonContent;
+        public AdvancedButton.ButtonContent ButtonContent { get { return buttonContent; } set { buttonContent = value; } }
 
         [Header("Background")]
         [SerializeField] private StylePicker backgroundStylePicker;

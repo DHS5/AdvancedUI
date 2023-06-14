@@ -8,21 +8,21 @@ using TMPro;
 
 namespace Dhs5.AdvancedUI
 {
-    #region Switch Toggle Content
-    [Serializable]
-    public struct SwitchToggleContent
-    {
-
-        // ### Properties ###
-        public bool onClickMode;
-        [Space]
-        public string leftText;
-        public string rightText;
-    }
-    #endregion
-
     public class SwitchToggle : AdvancedComponent
     {
+        #region Switch Toggle Content
+        [Serializable]
+        public class SwitchToggleContent
+        {
+
+            // ### Properties ###
+            public bool onClickMode;
+            [Space]
+            public string leftText;
+            public string rightText;
+        }
+        #endregion
+
         [Header("Switch Toggle Type")]
         [SerializeField] private StylePicker switchStylePicker;
         public StylePicker Style { get => switchStylePicker; set { switchStylePicker.ForceSet(value); SetUpConfig(); } }

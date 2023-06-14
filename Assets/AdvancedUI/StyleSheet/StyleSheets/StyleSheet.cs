@@ -105,6 +105,7 @@ namespace Dhs5.AdvancedUI
         #region List template management
         public void ApplyTemplate()
         {
+            if (container == null) return;
             TextStyleSheets = ApplyTemplate(TextStyleSheets, container.Texts);
             BackgroundImageStyleSheets = ApplyTemplate(BackgroundImageStyleSheets, container.Backgrounds);
             IconImageStyleSheets = ApplyTemplate(IconImageStyleSheets, container.Icons);

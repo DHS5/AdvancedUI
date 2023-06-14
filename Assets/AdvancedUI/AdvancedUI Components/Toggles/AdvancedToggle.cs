@@ -8,40 +8,40 @@ using System;
 
 namespace Dhs5.AdvancedUI
 {
-    #region Toggle Content
-    [Serializable]
-    public struct ToggleContent
-    {
-        // ### Constructor ###
-        public ToggleContent(string checkText = "Active", string uncheckText = "Inactive", string text = "", int size = 25)
-        {
-            checkmarkText = checkText;
-            uncheckmarkText = uncheckText;
-
-            toggleText = text;
-            fontSize = size;
-        }
-
-        // ### Properties ###
-        [Header("Checkmark")]
-        [SerializeField] private string checkmarkText; 
-        public string CheckmarkText 
-        { get { return !string.IsNullOrWhiteSpace(checkmarkText) ? checkmarkText : "Active"; } set { checkmarkText = value; } }
-
-        [Header("Uncheckmark")]
-        [SerializeField] private string uncheckmarkText; 
-        public string UncheckmarkText
-        { get { return !string.IsNullOrWhiteSpace(uncheckmarkText) ? uncheckmarkText : "Inactive"; } set { uncheckmarkText = value; } }
-
-        [Header("Text")]
-        public string toggleText;
-        [SerializeField] private int fontSize; public int FontSize 
-        { get { return fontSize > 0 ? fontSize : 25; } set { fontSize = value; } }
-    }
-    #endregion
-
     public class AdvancedToggle : AdvancedComponent
     {
+        #region Toggle Content
+        [Serializable]
+        public class ToggleContent
+        {
+            // ### Constructor ###
+            public ToggleContent(string checkText = "Active", string uncheckText = "Inactive", string text = "", int size = 25)
+            {
+                checkmarkText = checkText;
+                uncheckmarkText = uncheckText;
+
+                toggleText = text;
+                fontSize = size;
+            }
+
+            // ### Properties ###
+            [Header("Checkmark")]
+            [SerializeField] private string checkmarkText;
+            public string CheckmarkText
+            { get { return !string.IsNullOrWhiteSpace(checkmarkText) ? checkmarkText : "Active"; } set { checkmarkText = value; } }
+
+            [Header("Uncheckmark")]
+            [SerializeField] private string uncheckmarkText;
+            public string UncheckmarkText
+            { get { return !string.IsNullOrWhiteSpace(uncheckmarkText) ? uncheckmarkText : "Inactive"; } set { uncheckmarkText = value; } }
+
+            [Header("Text")]
+            public string toggleText;
+            [SerializeField] private int fontSize; public int FontSize
+            { get { return fontSize > 0 ? fontSize : 25; } set { fontSize = value; } }
+        }
+        #endregion
+
         [Header("Toggle Type")]
         [SerializeField] private StylePicker toggleStylePicker;
         public StylePicker Style { get => toggleStylePicker; set { toggleStylePicker.ForceSet(value); SetUpConfig(); } }
