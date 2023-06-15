@@ -20,6 +20,7 @@ namespace Dhs5.AdvancedUI
         // Style Sheet
         [SerializeField] private StyleSheet ssImportIn;
         [SerializeField] private StyleSheet ssImportFrom;
+        [SerializeField] private bool updateDependencies;
 
         Vector2 scrollViewPos = Vector2.zero;
 
@@ -66,7 +67,8 @@ namespace Dhs5.AdvancedUI
 
                 EditorGUILayout.LabelField("Import IN : ");
                 EditorGUILayout.ObjectField(ssImportIn, typeof(StyleSheet), false);
-                EditorGUILayout.Space(10);
+                updateDependencies = EditorGUILayout.ToggleLeft("Update the dependencies too", updateDependencies);
+                EditorGUILayout.Space(5);
 
                 EditorGUILayout.LabelField("Import FROM : ");
                 ssImportFrom = EditorGUILayout.ObjectField(ssImportFrom, typeof(StyleSheet), false) as StyleSheet;
@@ -141,8 +143,14 @@ namespace Dhs5.AdvancedUI
                     if (GUI.Button(EditorGUILayout.GetControlRect(false), "Import"))
                     {
                         ssImportIn.SetStyleSheet(p.type, styleSheetFrom);
+
+                        if (updateDependencies)
+                        {
+                            UpdateDependencies(styleSheetFrom.GetDependencies());
+                        }
                     }
                     EditorGUI.EndDisabledGroup();
+
                     EditorGUILayout.EndHorizontal();
                 }
             }
@@ -175,6 +183,24 @@ namespace Dhs5.AdvancedUI
                         }
                     }
                 }
+            }
+        }
+
+        private void UpdateDependencies(List<StyleSheetPlaceholder> dependencies)
+        {
+            if (dependencies == null || dependencies.Count == 0) return;
+
+            BaseStyleSheet styleSheetFrom;
+            BaseStyleSheet styleSheetIn;
+
+            foreach (StyleSheetPlaceholder dependency in dependencies)
+            {
+                styleSheetFrom = ssImportFrom.GetStyleSheet(dependency.UID, dependency.type);
+                styleSheetIn = ssImportIn.GetStyleSheet(dependency.UID, dependency.type);
+
+                ssImportIn.SetStyleSheet(dependency.type, styleSheetFrom);
+
+                UpdateDependencies(styleSheetFrom.GetDependencies());
             }
         }
     }
