@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Dhs5.AdvancedUI
 {
     [System.Serializable]
-    public class BaseStyleSheet
+    public abstract class BaseStyleSheet
     {
         [SerializeField, HideInInspector] protected StyleSheetContainer container;
 
@@ -26,5 +26,7 @@ namespace Dhs5.AdvancedUI
         { 
             container = _container;
         }
+
+        public abstract List<StyleSheetPlaceholder> GetDependencies();
     }
 }

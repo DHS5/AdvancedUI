@@ -34,5 +34,16 @@ namespace Dhs5.AdvancedUI
             verticalScrollbarStylePicker?.SetUp(container, StyleSheetType.SCROLLBAR, "Vertical Scrollbar");
             horizontalScrollbarStylePicker?.SetUp(container, StyleSheetType.SCROLLBAR, "Horizontal Scrollbar");
         }
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return new List<StyleSheetPlaceholder>()
+            {
+                VerticalScrollbarStyle.Placeholder,
+                HorizontalScrollbarStyle.Placeholder,
+                backgroundStylePicker.Placeholder,
+                viewportMaskStylePicker.Placeholder
+            };
+        }
     }
 }

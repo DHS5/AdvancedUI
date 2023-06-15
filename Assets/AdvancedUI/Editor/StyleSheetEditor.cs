@@ -89,8 +89,16 @@ namespace Dhs5.AdvancedUI
 
                 foreach (var list in reorderableLists)
                     list.DoLayoutList();
-            }            
-            
+            }
+
+            EditorGUILayout.Space(10);
+
+            if (GUI.Button(EditorGUILayout.GetControlRect(false), "Import from other Style Sheet"))
+            {
+                StyleSheetImporter importer = EditorWindow.GetWindow(typeof(StyleSheetImporter)) as StyleSheetImporter;
+                importer.SetUp(styleSheet);
+            }
+
             EditorGUILayout.EndVertical();
 
             serializedObject.ApplyModifiedProperties();

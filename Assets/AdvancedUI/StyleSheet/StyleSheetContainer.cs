@@ -31,6 +31,76 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private List<StyleSheetPlaceholder> scrolllistSS;
         [SerializeField] private List<StyleSheetPlaceholder> popupSS;
         
+        public List<List<StyleSheetPlaceholder>> MainList
+        {
+            get
+            {
+                List<List<StyleSheetPlaceholder>> list = new();
+                list.Add(Texts);
+                list.Add(Backgrounds);
+                list.Add(Icons);
+                list.Add(Buttons);
+                list.Add(Toggles);
+                list.Add(DropdownItems);
+                list.Add(Switchs);
+                list.Add(Sliders);
+                list.Add(Dropdowns);
+                list.Add(InputFields);
+                list.Add(Scrollbars);
+                list.Add(ScrollViews);
+                list.Add(ScrollLists);
+                list.Add(Popups);
+
+                return list;
+            }
+        }
+        public List<StyleSheetPlaceholder> CompleteList
+        {
+            get
+            {
+                List<StyleSheetPlaceholder> list = new();
+                list.AddRange(Texts);
+                list.AddRange(Backgrounds);
+                list.AddRange(Icons);
+                list.AddRange(Buttons);
+                list.AddRange(Toggles);
+                list.AddRange(DropdownItems);
+                list.AddRange(Switchs);
+                list.AddRange(Sliders);
+                list.AddRange(Dropdowns);
+                list.AddRange(InputFields);
+                list.AddRange(Scrollbars);
+                list.AddRange(ScrollViews);
+                list.AddRange(ScrollLists);
+                list.AddRange(Popups);
+
+                return list;
+            }
+        }
+        public List<string> ListNames
+        {
+            get
+            {
+                List<string> list = new();
+                list.Add("Texts");
+                list.Add("Backgrounds");
+                list.Add("Icons");
+                list.Add("Buttons");
+                list.Add("Toggles");
+                list.Add("DropdownItems");
+                list.Add("Switchs");
+                list.Add("Sliders");
+                list.Add("Dropdowns");
+                list.Add("InputFields");
+                list.Add("Scrollbars");
+                list.Add("ScrollViews");
+                list.Add("ScrollLists");
+                list.Add("Popups");
+
+                return list;
+            }
+        }
+
         public List<StyleSheetPlaceholder> Texts => textSS;
         public List<StyleSheetPlaceholder> Backgrounds => backgroundSS;
         public List<StyleSheetPlaceholder> Icons => iconSS;
@@ -49,24 +119,43 @@ namespace Dhs5.AdvancedUI
         #region UID management
         private void OnValidate()
         {
-            SetUIDs(Texts);
-            SetUIDs(Backgrounds);
-            SetUIDs(Icons);
-            SetUIDs(Buttons);
-            SetUIDs(Toggles);
-            SetUIDs(DropdownItems);
-            SetUIDs(Switchs);
-            SetUIDs(Sliders);
-            SetUIDs(Dropdowns);
-            SetUIDs(InputFields);
-            SetUIDs(Scrollbars);
-            SetUIDs(ScrollViews);
-            SetUIDs(ScrollLists);
-            SetUIDs(Popups);
+            SetUIDs(Texts, StyleSheetType.TEXT);
+            SetUIDs(Backgrounds, StyleSheetType.BACKGROUND_IMAGE);
+            SetUIDs(Icons, StyleSheetType.ICON_IMAGE);
+            SetUIDs(Buttons, StyleSheetType.BUTTON);
+            SetUIDs(Toggles, StyleSheetType.TOGGLE);
+            SetUIDs(DropdownItems, StyleSheetType.DROPDOWN_ITEM_TOGGLE);
+            SetUIDs(Switchs, StyleSheetType.SWITCH_TOGGLE);
+            SetUIDs(Sliders, StyleSheetType.SLIDER);
+            SetUIDs(Dropdowns, StyleSheetType.DROPDOWN);
+            SetUIDs(InputFields, StyleSheetType.INPUT_FIELD);
+            SetUIDs(Scrollbars, StyleSheetType.SCROLLBAR);
+            SetUIDs(ScrollViews, StyleSheetType.SCROLL_VIEW);
+            SetUIDs(ScrollLists, StyleSheetType.SCROLL_LIST);
+            SetUIDs(Popups, StyleSheetType.POPUP);
         }
 
-        private void SetUIDs(List<StyleSheetPlaceholder> list)
+        private void SetUIDs(List<StyleSheetPlaceholder> list, StyleSheetType type)
         {
+            if (list == null || list.Count < 1) return;
+
+            List<int> uids = new();
+            foreach (var t in list)
+            {
+                t.type = type;
+                if (uids.Contains(t.UID) || t.UID == 0)
+                {
+                    t.UID = GenerateUID(uids);
+                }
+                uids.Add(t.UID);
+            }
+        }
+        /// <summary>
+        /// Deprecated
+        /// </summary>
+        private void SetUIDs()
+        {
+            List<StyleSheetPlaceholder> list = CompleteList;
             if (list == null || list.Count < 1) return;
 
             List<int> uids = new();
@@ -79,6 +168,7 @@ namespace Dhs5.AdvancedUI
                 uids.Add(t.UID);
             }
         }
+
         private int GenerateUID(List<int> uids)
         {
             int uid;
@@ -89,6 +179,8 @@ namespace Dhs5.AdvancedUI
             return uid;
         }
         #endregion
+
+        #region Getters
 
         public List<StyleSheetPlaceholder> GetStyleSheetByType(StyleSheetType type)
         {
@@ -124,6 +216,13 @@ namespace Dhs5.AdvancedUI
             }
             return list;
         }
+
+        public StyleSheetPlaceholder GetPlaceholder(StyleSheetType type, int UID)
+        {
+            return GetStyleSheetByType(type).Find(x => x.UID == UID);
+        }
+
+        #endregion
     }
 
     [System.Serializable]
@@ -133,5 +232,7 @@ namespace Dhs5.AdvancedUI
 
         [SerializeField] private string name;
         public string Name => name;
+
+        public StyleSheetType type;
     }
 }

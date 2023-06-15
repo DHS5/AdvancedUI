@@ -34,5 +34,17 @@ namespace Dhs5.AdvancedUI
             leftTextStylePicker?.SetUp(container, StyleSheetType.TEXT, "Left Text type");
             rightTextStylePicker?.SetUp(container, StyleSheetType.TEXT, "Right Text type");
         }
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return new List<StyleSheetPlaceholder>()
+            {
+                backgroundStylePicker.Placeholder,
+                foregroundStylePicker.Placeholder,
+                handleStylePicker.Placeholder,
+                leftTextStylePicker.Placeholder,
+                rightTextStylePicker.Placeholder
+            };
+        }
     }
 }

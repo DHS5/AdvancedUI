@@ -30,5 +30,15 @@ namespace Dhs5.AdvancedUI
             iconStylePicker?.SetUp(container, StyleSheetType.ICON_IMAGE, "Icon");
             textStylePicker?.SetUp(container, StyleSheetType.TEXT, "Text type");
         }
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return new List<StyleSheetPlaceholder>()
+            {
+                backgroundStylePicker.Placeholder,
+                iconStylePicker.Placeholder,
+                textStylePicker.Placeholder
+            };
+        }
     }
 }

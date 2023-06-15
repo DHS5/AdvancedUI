@@ -24,5 +24,14 @@ namespace Dhs5.AdvancedUI
             backgroundStylePicker?.SetUp(container, StyleSheetType.BACKGROUND_IMAGE, "Background");
             handleStylePicker?.SetUp(container, StyleSheetType.ICON_IMAGE, "Handle");
         }
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return new List<StyleSheetPlaceholder>()
+            {
+                backgroundStylePicker.Placeholder,
+                handleStylePicker.Placeholder
+            };
+        }
     }
 }

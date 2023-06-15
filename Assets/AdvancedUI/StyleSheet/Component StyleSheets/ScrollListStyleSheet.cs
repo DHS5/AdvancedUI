@@ -46,5 +46,20 @@ namespace Dhs5.AdvancedUI
             leftButtonStylePicker?.SetUp(container, StyleSheetType.BUTTON, "Left Button");
             rightButtonStylePicker?.SetUp(container, StyleSheetType.BUTTON, "Right Button");
         }
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return new List<StyleSheetPlaceholder>()
+            {
+                LeftButtonStyle.Placeholder,
+                RightButtonStyle.Placeholder,
+                frameStylePicker.Placeholder,
+                frameMaskStylePicker.Placeholder,
+                backgroundStylePicker.Placeholder,
+                horizontalMaskStylePicker.Placeholder,
+                verticalMaskStylePicker.Placeholder,
+                textStylePicker.Placeholder
+            };
+        }
     }
 }

@@ -41,5 +41,17 @@ namespace Dhs5.AdvancedUI
             cancelButtonStylePicker?.SetUp(container, StyleSheetType.BUTTON, "Cancel Button");
             quitButtonStylePicker?.SetUp(container, StyleSheetType.BUTTON, "Quit Button");
         }
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return new List<StyleSheetPlaceholder>()
+            {
+                ConfirmationButtonStyle.Placeholder,
+                CancelButtonStyle.Placeholder,
+                QuitButtonStyle.Placeholder,
+                popupStylePicker.Placeholder,
+                textStylePicker.Placeholder
+            };
+        }
     }
 }

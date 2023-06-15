@@ -27,5 +27,15 @@ namespace Dhs5.AdvancedUI
             checkmarkStylePicker?.SetUp(container, StyleSheetType.ICON_IMAGE, "Checkmark");
             textStylePicker?.SetUp(container, StyleSheetType.TEXT, "Text type");
         }
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return new List<StyleSheetPlaceholder>()
+            {
+                backgroundStylePicker.Placeholder,
+                checkmarkStylePicker.Placeholder,
+                textStylePicker.Placeholder
+            };
+        }
     }
 }

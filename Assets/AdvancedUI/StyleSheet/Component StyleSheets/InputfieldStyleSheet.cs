@@ -30,5 +30,15 @@ namespace Dhs5.AdvancedUI
             hintTextStylePicker?.SetUp(container, StyleSheetType.TEXT, "Hint Text type");
             inputTextStylePicker?.SetUp(container, StyleSheetType.TEXT, "Input Text type");
         }
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return new List<StyleSheetPlaceholder>()
+            {
+                backgroundStylePicker.Placeholder,
+                hintTextStylePicker.Placeholder,
+                inputTextStylePicker.Placeholder
+            };
+        }
     }
 }

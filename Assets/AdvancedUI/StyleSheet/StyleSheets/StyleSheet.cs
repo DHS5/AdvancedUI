@@ -99,7 +99,95 @@ namespace Dhs5.AdvancedUI
                 _ => null
             };
         }
+        /// <summary>
+        /// Deprecated
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        public BaseStyleSheet GetStyleSheet(int uid)
+        {
+            BaseStyleSheet result;
 
+            result = TextStyleSheets.Find(s => s.UID == uid);
+            result ??= BackgroundImageStyleSheets.Find(s => s.UID == uid);
+            result ??= IconImageStyleSheets.Find(s => s.UID == uid);
+            result ??= ButtonStyleSheets.Find(s => s.UID == uid);
+            result ??= ToggleStyleSheets.Find(s => s.UID == uid);
+            result ??= DropdownItemToggleStyleSheets.Find(s => s.UID == uid);
+            result ??= SwitchToggleStyleSheets.Find(s => s.UID == uid);
+            result ??= SliderStyleSheets.Find(s => s.UID == uid);
+            result ??= DropdownStyleSheets.Find(s => s.UID == uid);
+            result ??= InputfieldStyleSheets.Find(s => s.UID == uid);
+            result ??= ScrollbarStyleSheets.Find(s => s.UID == uid);
+            result ??= ScrollViewStyleSheets.Find(s => s.UID == uid);
+            result ??= ScrollListStyleSheets.Find(s => s.UID == uid);
+            result ??= PopupStyleSheets.Find(s => s.UID == uid);
+
+            return result;
+        }
+
+        #endregion
+
+        #region Setters
+        public void SetStyleSheet(StyleSheetType type, BaseStyleSheet newStyleSheet)
+        {
+            switch(type)
+            {
+                case StyleSheetType.TEXT:
+                    SetStyleSheet(TextStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.BACKGROUND_IMAGE:
+                    SetStyleSheet(BackgroundImageStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.ICON_IMAGE:
+                    SetStyleSheet(IconImageStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.BUTTON:
+                    SetStyleSheet(ButtonStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.TOGGLE:
+                    SetStyleSheet(ToggleStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.DROPDOWN_ITEM_TOGGLE:
+                    SetStyleSheet(DropdownItemToggleStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.SWITCH_TOGGLE:
+                    SetStyleSheet(SwitchToggleStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.SLIDER:
+                    SetStyleSheet(SliderStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.DROPDOWN:
+                    SetStyleSheet(DropdownStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.INPUT_FIELD:
+                    SetStyleSheet(InputfieldStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.SCROLLBAR:
+                    SetStyleSheet(ScrollbarStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.SCROLL_VIEW:
+                    SetStyleSheet(ScrollViewStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.SCROLL_LIST:
+                    SetStyleSheet(ScrollListStyleSheets, newStyleSheet);
+                    break;
+                case StyleSheetType.POPUP:
+                    SetStyleSheet(PopupStyleSheets, newStyleSheet);
+                    break;
+            };
+        }
+        private void SetStyleSheet<T>(List<T> list, BaseStyleSheet newStyleSheet) where T : BaseStyleSheet
+        {
+            int index = list.FindIndex(s => s.UID == newStyleSheet.UID);
+            if (index == -1)
+            {
+                Debug.LogError("Index = -1 " + (list.Count > 0 ? ("elem 0 " + list[0].UID + " " + list[0].Name) : "count : " + list.Count));
+                return;
+            }
+
+            list[index] = newStyleSheet as T;
+        }
         #endregion
 
         #region List template management
@@ -181,6 +269,11 @@ namespace Dhs5.AdvancedUI
         [Header("Transition")]
         public bool isStatic = true;
         public TransitionStyleSheet transition;
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return null;
+        }
     }
 
     [System.Serializable]
@@ -214,6 +307,11 @@ namespace Dhs5.AdvancedUI
         public ColorBlock colorTransition;
         [ShowIf(EConditionOperator.And, nameof(isGradient), nameof(IsNotStatic))][AllowNesting]
         public GradientTransition gradientTransition;
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return null;
+        }
     }
     #endregion
 

@@ -21,6 +21,8 @@ namespace Dhs5.AdvancedUI
             }
         }
 
+        public StyleSheetPlaceholder Placeholder => container.GetPlaceholder(type, styleSheetUID);
+
         public void SetUp(StyleSheetContainer _container, StyleSheetType _type, string _name = "Style")
         {
             container = _container;

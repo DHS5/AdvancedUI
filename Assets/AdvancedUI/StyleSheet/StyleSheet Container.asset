@@ -16,134 +16,194 @@ MonoBehaviour:
   textSS:
   - UID: 1107
     name: Basic Black
+    type: 0
   - UID: 7897
     name: Basic White
+    type: 0
   - UID: 9836
     name: Basic Button
+    type: 0
   - UID: 989
     name: Centered Black
+    type: 0
   - UID: 4667
     name: Hint
+    type: 0
   backgroundSS:
   - UID: 443
     name: Button/Background
+    type: 12
   - UID: 4500
     name: Button/Shadow Background
+    type: 12
   - UID: 3095
     name: Toggle/Background
+    type: 12
   - UID: 279
     name: Toggle/True Background
+    type: 12
   - UID: 9053
     name: Slider/Background
+    type: 12
   - UID: 8551
     name: Slider/Fill
+    type: 12
   - UID: 2974
     name: ScrollList/Background
+    type: 12
   - UID: 7138
     name: ScrollList/Frame
+    type: 12
   - UID: 4905
     name: ScrollList/Horizontal Mask
+    type: 12
   - UID: 1724
     name: ScrollList/Vertical Mask
+    type: 12
   - UID: 1903
     name: InputField/Background
+    type: 12
   - UID: 936
     name: Scrollbar/Background
+    type: 12
   - UID: 5248
     name: Switch/Background
+    type: 12
   - UID: 8647
     name: Switch/Foreground
+    type: 12
   - UID: 5026
     name: Dropdown Item/Background
+    type: 12
   - UID: 1999
     name: Scroll View/Background
+    type: 12
   - UID: 3190
     name: Scroll View/Viewport Mask
+    type: 12
   - UID: 5880
     name: Frame/Red Hover
+    type: 12
   - UID: 5655
     name: Frame/Black Hover
+    type: 12
   iconSS:
   - UID: 4763
     name: Toggle/Checkmark
+    type: 13
   - UID: 4386
     name: Toggle/Uncheckmark
+    type: 13
   - UID: 6254
     name: Slider/Handle
+    type: 13
   - UID: 5041
     name: Scrollbar/Handle
+    type: 13
   - UID: 4531
     name: Dropdown/Arrow
+    type: 13
   - UID: 7054
     name: Back Icon
+    type: 13
   - UID: 5721
     name: Quit Icon
+    type: 13
   buttonSS:
   - UID: 6197
     name: Basic/Text & Back
+    type: 1
   - UID: 4264
     name: Basic/Text Only
+    type: 1
   - UID: 8603
     name: Basic/Icon & Back
+    type: 1
   - UID: 4483
     name: Basic/Icon Only
+    type: 1
   - UID: 8759
     name: Basic/Back Only
+    type: 1
   - UID: 3525
     name: Special/Confirmation
+    type: 1
   - UID: 1777
     name: Special/Quit
+    type: 1
   - UID: 6606
     name: Special/Back
+    type: 1
   - UID: 1632
     name: Shadow/Back Only
+    type: 1
   - UID: 8746
     name: Shadow/Back And Text
+    type: 1
   toggleSS:
   - UID: 2705
     name: Classic
+    type: 2
   - UID: 1354
     name: Classic w/ Text / Black
+    type: 2
   - UID: 9021
     name: Classic w/ Text / White
+    type: 2
   - UID: 1635
     name: Classic w/ Image
+    type: 2
   dropdownItemToggleSS:
   - UID: 3971
     name: Classic
+    type: 3
   switchToggleSS:
   - UID: 8990
     name: Classic
+    type: 4
   sliderSS:
   - UID: 9961
     name: Classic
+    type: 5
   - UID: 7841
     name: Classic w/ Text / Black
+    type: 5
   - UID: 3039
     name: Classic w/ Text / White
+    type: 5
   - UID: 8262
     name: Gradient
+    type: 5
   dropdownSS:
   - UID: 6975
     name: Classic
+    type: 6
   inputfieldSS:
   - UID: 9734
     name: Classic
+    type: 7
   scrollbarSS:
   - UID: 8611
     name: Classic
+    type: 8
   scrollviewSS:
   - UID: 6688
     name: Classic
+    type: 10
   scrolllistSS:
   - UID: 2248
     name: Classic
+    type: 11
   popupSS:
   - UID: 6512
     name: Info
+    type: 9
   - UID: 7942
     name: Confirmation
+    type: 9
   - UID: 4337
     name: Question
+    type: 9
   - UID: 8782
     name: Warning
+    type: 9

@@ -8,20 +8,29 @@ namespace Dhs5.AdvancedUI
     [CustomEditor(typeof(StyleSheetContainer))]
     public class StyleSheetContainerEditor : Editor
     {
+        StyleSheetContainer container;
+
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.Space(20);
-
-            if (GUI.Button(EditorGUILayout.GetControlRect(), "Import"))
+            if (container.projectStyleSheet != null && container != container.projectStyleSheet.Container)
             {
-                StyleSheetImporter importer = EditorWindow.GetWindow(typeof(StyleSheetImporter)) as StyleSheetImporter;
-                importer.importIn = target as StyleSheetContainer;
+                container.projectStyleSheet = null;
             }
 
-            GUILayout.EndHorizontal();
+            EditorGUILayout.Space(20);
+
+            if (GUI.Button(EditorGUILayout.GetControlRect(false), "Import from other Template"))
+            {
+                StyleSheetImporter importer = EditorWindow.GetWindow(typeof(StyleSheetImporter)) as StyleSheetImporter;
+                importer.SetUp(target as StyleSheetContainer);
+            }
+        }
+
+        private void OnEnable()
+        {
+            container = (StyleSheetContainer)target;
         }
     }
 }

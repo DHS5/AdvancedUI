@@ -41,5 +41,18 @@ namespace Dhs5.AdvancedUI
             templateScrollviewStylePicker?.SetUp(container, StyleSheetType.SCROLL_VIEW, "Scrollview");
             itemToggleStylePicker?.SetUp(container, StyleSheetType.DROPDOWN_ITEM_TOGGLE, "Item Toggle");
         }
+
+        public override List<StyleSheetPlaceholder> GetDependencies()
+        {
+            return new List<StyleSheetPlaceholder>()
+            {
+                backgroundStylePicker.Placeholder,
+                titleTextStylePicker.Placeholder,
+                arrowStylePicker.Placeholder,
+                textStylePicker.Placeholder,
+                itemToggleStylePicker.Placeholder,
+                templateScrollviewStylePicker.Placeholder
+            };
+        }
     }
 }
