@@ -31,7 +31,7 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private SwitchToggleContent switchContent;
         public SwitchToggleContent Content { get { return switchContent; } set { switchContent = value; SetUpConfig(); } }
 
-
+        [SerializeField] private bool isOn;
         public bool Value { get { return slider.value != 0; } set { ForceValue(value); } }
 
         public override bool Interactable { get => slider.interactable; set => slider.interactable = value; }
@@ -78,13 +78,13 @@ namespace Dhs5.AdvancedUI
 
         private void ValueChanged(float value)
         {
-            bool boolValue = value != 0;
+            isOn = value != 0;
 
-            onValueChanged?.Invoke(boolValue);
-            OnValueChanged?.Invoke(boolValue);
+            onValueChanged?.Invoke(isOn);
+            OnValueChanged?.Invoke(isOn);
 
-            background.enabled = !boolValue;
-            foreground.enabled = boolValue;
+            background.enabled = !isOn;
+            foreground.enabled = isOn;
 
             True();
             False();
@@ -117,6 +117,8 @@ namespace Dhs5.AdvancedUI
         #region Configs
         protected override void SetUpConfig()
         {
+            Value = isOn;
+
             if (styleSheetContainer == null) return;
 
             customStyleSheet.SetUp(styleSheetContainer);
@@ -134,11 +136,13 @@ namespace Dhs5.AdvancedUI
             if (background)
             {
                 background.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
+                background.enabled = !isOn;
             }
             // Foreground
             if (foreground)
             {
                 foreground.SetUpImage(CurrentStyleSheet.ForegroundStyleSheet);
+                foreground.enabled = isOn;
             }
 
             // Handle

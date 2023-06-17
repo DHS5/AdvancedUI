@@ -228,6 +228,8 @@ namespace Dhs5.AdvancedUI
         public List<AdvancedComponent> AdvancedComponents { get; private set; }
         public void RegisterAdvancedComponent(AdvancedComponent component)
         {
+            if (AdvancedComponents == null) AdvancedComponents = new();
+
             if (!AdvancedComponents.Contains(component))
             {
                 AdvancedComponents.Add(component);
@@ -235,6 +237,12 @@ namespace Dhs5.AdvancedUI
         }
         public void UnregisterAdvancedComponent(AdvancedComponent component)
         {
+            if (AdvancedComponents == null)
+            {
+                AdvancedComponents = new();
+                return;
+            }
+
             AdvancedComponents.Remove(component);
         }
         public void ChangeStyleSheet(StyleSheet newProjectStyleSheet)
