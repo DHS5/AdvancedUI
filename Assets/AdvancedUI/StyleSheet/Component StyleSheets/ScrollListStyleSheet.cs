@@ -61,5 +61,22 @@ namespace Dhs5.AdvancedUI
                 textStylePicker.Placeholder
             };
         }
+
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is ScrollListStyleSheet l)
+            {
+                leftButtonStylePicker.ForceSet(l.leftButtonStylePicker);
+                rightButtonStylePicker.ForceSet(l.rightButtonStylePicker);
+                frameStylePicker.ForceSet(l.frameStylePicker);
+                frameMaskStylePicker.ForceSet(l.frameMaskStylePicker);
+                backgroundStylePicker.ForceSet(l.backgroundStylePicker);
+                horizontalMaskStylePicker.ForceSet(l.horizontalMaskStylePicker);
+                verticalMaskStylePicker.ForceSet(l.verticalMaskStylePicker);
+                textStylePicker.ForceSet(l.textStylePicker);
+
+                frameActive = l.frameActive;
+            }
+        }
     }
 }

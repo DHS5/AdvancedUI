@@ -28,5 +28,16 @@ namespace Dhs5.AdvancedUI
         }
 
         public abstract List<StyleSheetPlaceholder> GetDependencies();
+
+        public void Copy(BaseStyleSheet s)
+        {
+            if (s == null) return;
+
+            uniqueID = s.uniqueID;
+            name = s.name;
+
+            CopyStyleSheet(s);
+        }
+        protected abstract void CopyStyleSheet(BaseStyleSheet s);
     }
 }

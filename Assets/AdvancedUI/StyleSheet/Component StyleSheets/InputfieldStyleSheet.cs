@@ -40,5 +40,19 @@ namespace Dhs5.AdvancedUI
                 inputTextStylePicker.Placeholder
             };
         }
+
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is InputfieldStyleSheet i)
+            {
+                backgroundStylePicker.ForceSet(i.backgroundStylePicker);
+                hintTextStylePicker.ForceSet(i.hintTextStylePicker);
+                inputTextStylePicker.ForceSet(i.inputTextStylePicker);
+
+                backgroundActive = i.backgroundActive;
+                hintTextActive = i.hintTextActive;
+                selectionColor = i.selectionColor;
+            }
+        }
     }
 }

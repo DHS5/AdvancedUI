@@ -49,5 +49,23 @@ namespace Dhs5.AdvancedUI
                 handleStylePicker.Placeholder
             };
         }
+
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is SliderStyleSheet l)
+            {
+                backgroundStylePicker.ForceSet(l.backgroundStylePicker);
+                fillStylePicker.ForceSet(l.fillStylePicker);
+                textStylePicker.ForceSet(l.textStylePicker);
+                handleStylePicker.ForceSet(l.handleStylePicker);
+
+                backgroundActive = l.backgroundActive;
+                fillActive = l.fillActive;
+                handleActive = l.handleActive;
+                textActive = l.textActive;
+                isGradient = l.isGradient;
+                sliderGradient = l.sliderGradient;
+            }
+        }
     }
 }

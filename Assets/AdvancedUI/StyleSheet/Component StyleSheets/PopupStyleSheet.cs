@@ -53,5 +53,24 @@ namespace Dhs5.AdvancedUI
                 textStylePicker.Placeholder
             };
         }
+
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is PopupStyleSheet p)
+            {
+                confirmationButtonStylePicker.ForceSet(p.confirmationButtonStylePicker);
+                cancelButtonStylePicker.ForceSet(p.cancelButtonStylePicker);
+                quitButtonStylePicker.ForceSet(p.quitButtonStylePicker);
+                popupStylePicker.ForceSet(p.popupStylePicker);
+                textStylePicker.ForceSet(p.textStylePicker);
+
+                filterActive = p.filterActive;
+                filterColor = p.filterColor;
+                textActive = p.textActive;
+                confirmButtonActive = p.confirmButtonActive;
+                cancelButtonActive = p.cancelButtonActive;
+                quitButtonActive = p.quitButtonActive;
+            }
+        }
     }
 }

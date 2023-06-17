@@ -40,5 +40,21 @@ namespace Dhs5.AdvancedUI
                 textStylePicker.Placeholder
             };
         }
+
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is ButtonStyleSheet b)
+            {
+                backgroundStylePicker.ForceSet(b.backgroundStylePicker);
+                iconStylePicker.ForceSet(b.iconStylePicker);
+                textStylePicker.ForceSet(b.textStylePicker);
+
+                backgroundActive = b.backgroundActive;
+                iconActive = b.iconActive;
+                textActive = b.textActive;
+                iconScale = b.iconScale;
+
+            }
+        }
     }
 }

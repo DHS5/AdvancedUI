@@ -33,5 +33,16 @@ namespace Dhs5.AdvancedUI
                 handleStylePicker.Placeholder
             };
         }
+
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is ScrollbarStyleSheet b)
+            {
+                backgroundActive = b.backgroundActive;
+
+                backgroundStylePicker.ForceSet(b.backgroundStylePicker);
+                handleStylePicker.ForceSet(b.handleStylePicker);
+            }
+        }
     }
 }

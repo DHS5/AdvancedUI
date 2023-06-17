@@ -223,6 +223,32 @@ namespace Dhs5.AdvancedUI
         }
 
         #endregion
+
+        #region Project Style Sheet change
+        public List<AdvancedComponent> AdvancedComponents { get; private set; }
+        public void RegisterAdvancedComponent(AdvancedComponent component)
+        {
+            if (!AdvancedComponents.Contains(component))
+            {
+                AdvancedComponents.Add(component);
+            }
+        }
+        public void UnregisterAdvancedComponent(AdvancedComponent component)
+        {
+            AdvancedComponents.Remove(component);
+        }
+        public void ChangeStyleSheet(StyleSheet newProjectStyleSheet)
+        {
+            if (projectStyleSheet == newProjectStyleSheet || newProjectStyleSheet == null || newProjectStyleSheet.Container != this) return;
+
+            projectStyleSheet = newProjectStyleSheet;
+
+            foreach (var component in AdvancedComponents)
+            {
+                component.UpdateStyleSheet();
+            }
+        }
+        #endregion
     }
 
     [System.Serializable]

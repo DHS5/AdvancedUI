@@ -46,5 +46,20 @@ namespace Dhs5.AdvancedUI
                 rightTextStylePicker.Placeholder
             };
         }
+
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is SwitchToggleStyleSheet t)
+            {
+                backgroundStylePicker.ForceSet(t.backgroundStylePicker);
+                foregroundStylePicker.ForceSet(t.foregroundStylePicker);
+                handleStylePicker.ForceSet(t.handleStylePicker);
+                leftTextStylePicker.ForceSet(t.leftTextStylePicker);
+                rightTextStylePicker.ForceSet(t.rightTextStylePicker);
+
+                leftTextActive = t.leftTextActive;
+                rightTextActive = t.rightTextActive;
+            }
+        }
     }
 }

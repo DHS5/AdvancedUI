@@ -23,10 +23,13 @@ namespace Dhs5.AdvancedUI
         protected virtual void OnEnable()
         {
             LinkEvents();
+            if (styleSheetContainer != null) { styleSheetContainer.RegisterAdvancedComponent(this); }
+            SetUpConfig();
         }
         protected virtual void OnDisable()
         {
             UnlinkEvents();
+            if (styleSheetContainer != null) { styleSheetContainer.UnregisterAdvancedComponent(this); }
         }
 
         protected abstract void LinkEvents();
@@ -51,6 +54,10 @@ namespace Dhs5.AdvancedUI
         public void SetContainer(StyleSheetContainer _styleSheetContainer)
         {
             styleSheetContainer = _styleSheetContainer;
+        }
+        public void UpdateStyleSheet()
+        {
+            SetUpConfig();
         }
     }
 }

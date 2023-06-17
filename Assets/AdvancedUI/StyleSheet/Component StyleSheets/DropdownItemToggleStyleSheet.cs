@@ -37,5 +37,17 @@ namespace Dhs5.AdvancedUI
                 textStylePicker.Placeholder
             };
         }
+
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is DropdownItemToggleStyleSheet d)
+            {
+                backgroundStylePicker.ForceSet(d.backgroundStylePicker);
+                checkmarkStylePicker.ForceSet(d.checkmarkStylePicker);
+                textStylePicker.ForceSet(d.textStylePicker);
+
+                backgroundActive = d.backgroundActive;
+            }
+        }
     }
 }

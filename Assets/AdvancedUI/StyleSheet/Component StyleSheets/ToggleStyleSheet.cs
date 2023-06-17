@@ -62,5 +62,29 @@ namespace Dhs5.AdvancedUI
                 uncheckmarkTextStylePicker.Placeholder,
             };
         }
+
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is ToggleStyleSheet t)
+            {
+                backgroundStylePicker.ForceSet(t.backgroundStylePicker);
+                uncheckmarkImageStylePicker.ForceSet(t.uncheckmarkImageStylePicker);
+                textStylePicker.ForceSet(t.textStylePicker);
+                trueBackgroundStylePicker.ForceSet(t.trueBackgroundStylePicker);
+                checkmarkImageStylePicker.ForceSet(t.checkmarkImageStylePicker);
+                checkmarkTextStylePicker.ForceSet(t.checkmarkTextStylePicker);
+                uncheckmarkTextStylePicker.ForceSet(t.uncheckmarkTextStylePicker);
+
+                backgroundActive = t.backgroundActive;
+                textActive = t.textActive;
+                trueBackground = t.trueBackground;
+                checkmarkActive = t.checkmarkActive;
+                checkmarkIsImage = t.checkmarkIsImage;
+                checkmarkScale = t.checkmarkScale;
+                uncheckmarkActive = t.uncheckmarkActive;
+                uncheckmarkIsImage = t.uncheckmarkIsImage;
+                uncheckmarkScale = t.uncheckmarkScale;
+            }
+        }
     }
 }

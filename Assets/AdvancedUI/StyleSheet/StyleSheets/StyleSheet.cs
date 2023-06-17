@@ -186,7 +186,7 @@ namespace Dhs5.AdvancedUI
                 return;
             }
 
-            list[index] = newStyleSheet as T;
+            list[index].Copy(newStyleSheet);
         }
         #endregion
 
@@ -274,6 +274,20 @@ namespace Dhs5.AdvancedUI
         {
             return null;
         }
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            ImageStyleSheet i = (ImageStyleSheet)s;
+            if (i == null) return;
+
+            baseSprite = i.baseSprite;
+            baseColor = i.baseColor;
+            baseMaterial = i.baseMaterial;
+            imageType = i.imageType;
+            pixelsPerUnit = i.pixelsPerUnit;
+            ratio = i.ratio;
+            isStatic = i.isStatic;
+            transition = i.transition;
+        }
     }
 
     [System.Serializable]
@@ -311,6 +325,22 @@ namespace Dhs5.AdvancedUI
         public override List<StyleSheetPlaceholder> GetDependencies()
         {
             return null;
+        }
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            TextStyleSheet t = (TextStyleSheet)s;
+            if (t == null) return;
+
+            font = t.font;
+            fontStyle = t.fontStyle;
+            overrideAlignment = t.overrideAlignment;
+            alignment = t.alignment;
+            isGradient = t.isGradient;
+            isStatic = t.isStatic;
+            color = t.color;
+            colorGradient = t.colorGradient;
+            colorTransition = t.colorTransition;
+            gradientTransition = t.gradientTransition;
         }
     }
     #endregion

@@ -54,5 +54,22 @@ namespace Dhs5.AdvancedUI
                 templateScrollviewStylePicker.Placeholder
             };
         }
+
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is DropdownStyleSheet d)
+            {
+                backgroundStylePicker.ForceSet(d.backgroundStylePicker);
+                titleTextStylePicker.ForceSet(d.titleTextStylePicker);
+                arrowStylePicker.ForceSet(d.arrowStylePicker);
+                textStylePicker.ForceSet(d.textStylePicker);
+                itemToggleStylePicker.ForceSet(d.itemToggleStylePicker);
+                templateScrollviewStylePicker.ForceSet(d.templateScrollviewStylePicker);
+
+                backgroundActive = d.backgroundActive;
+                titleActive = d.titleActive;
+                arrowActive = d.arrowActive;
+            }
+        }
     }
 }

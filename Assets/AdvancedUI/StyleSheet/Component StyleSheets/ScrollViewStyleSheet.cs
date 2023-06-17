@@ -45,5 +45,19 @@ namespace Dhs5.AdvancedUI
                 viewportMaskStylePicker.Placeholder
             };
         }
+        protected override void CopyStyleSheet(BaseStyleSheet s)
+        {
+            if (s is ScrollViewStyleSheet v)
+            {
+                backgroundStylePicker.ForceSet(v.backgroundStylePicker);
+                viewportMaskStylePicker.ForceSet(v.viewportMaskStylePicker);
+                verticalScrollbarStylePicker.ForceSet(v.verticalScrollbarStylePicker);
+                horizontalScrollbarStylePicker.ForceSet(v.horizontalScrollbarStylePicker);
+
+                backgroundActive = v.backgroundActive;
+                verticalScrollbarActive = v.verticalScrollbarActive;
+                horizontalScrollbarActive = v.horizontalScrollbarActive;
+            }
+        }
     }
 }
