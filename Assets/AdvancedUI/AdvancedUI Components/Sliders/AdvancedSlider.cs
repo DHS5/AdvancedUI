@@ -61,8 +61,10 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private OpenSlider slider;
         [Space]
         [SerializeField] private Image backgroundImage;
+        [SerializeField] private Image fillMask;
         [Space]
         [SerializeField] private Image handle;
+        [SerializeField] private AspectRatioFitter handleRatioFitter;
         [SerializeField] private Image fill;
         [Space]
         [SerializeField] private TextMeshProUGUI sliderText;
@@ -136,6 +138,12 @@ namespace Dhs5.AdvancedUI
                 backgroundImage.enabled = CurrentStyleSheet.backgroundActive;
                 backgroundImage.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
             }
+            // Fill Mask
+            if (fillMask)
+            {
+                fillMask.SetUpImage(CurrentStyleSheet.BackgroundStyleSheet);
+                fillMask.color = new Color(1, 1, 1, 0.003f);
+            }
 
             // Fill
             if (fill)
@@ -148,7 +156,7 @@ namespace Dhs5.AdvancedUI
             if (handle)
             {
                 handle.enabled = CurrentStyleSheet.handleActive;
-                handle.SetUpImage(CurrentStyleSheet.HandleStyleSheet);
+                handle.SetUpImage(CurrentStyleSheet.HandleStyleSheet, handleRatioFitter);
             }
 
             // Text

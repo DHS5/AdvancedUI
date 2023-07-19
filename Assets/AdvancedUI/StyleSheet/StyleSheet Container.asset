@@ -45,8 +45,14 @@ MonoBehaviour:
   - UID: 9053
     name: Slider/Background
     type: 12
+  - UID: 5390
+    name: Slider/Time Background
+    type: 12
   - UID: 8551
     name: Slider/Fill
+    type: 12
+  - UID: 2568
+    name: Slider/Time Fill
     type: 12
   - UID: 2974
     name: ScrollList/Background
@@ -87,6 +93,9 @@ MonoBehaviour:
   - UID: 5655
     name: Frame/Black Hover
     type: 12
+  - UID: 2809
+    name: Filter/Black
+    type: 12
   iconSS:
   - UID: 4763
     name: Toggle/Checkmark
@@ -96,6 +105,9 @@ MonoBehaviour:
     type: 13
   - UID: 6254
     name: Slider/Handle
+    type: 13
+  - UID: 8283
+    name: Slider/Time Handle
     type: 13
   - UID: 5041
     name: Scrollbar/Handle
@@ -108,6 +120,12 @@ MonoBehaviour:
     type: 13
   - UID: 5721
     name: Quit Icon
+    type: 13
+  - UID: 7333
+    name: Play Icon
+    type: 13
+  - UID: 206
+    name: Pause Icon
     type: 13
   buttonSS:
   - UID: 6197
@@ -153,6 +171,9 @@ MonoBehaviour:
   - UID: 1635
     name: Classic w/ Image
     type: 2
+  - UID: 7672
+    name: Play Pause
+    type: 2
   dropdownItemToggleSS:
   - UID: 3971
     name: Classic
@@ -173,6 +194,9 @@ MonoBehaviour:
     type: 5
   - UID: 8262
     name: Gradient
+    type: 5
+  - UID: 6552
+    name: Time
     type: 5
   dropdownSS:
   - UID: 6975

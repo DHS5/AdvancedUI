@@ -416,6 +416,37 @@ MonoBehaviour:
         m_SelectedTrigger: Selected
         m_DisabledTrigger: Disabled
   - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 5390
+    name: Slider/Time Background
+    baseSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    baseColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+    baseMaterial: {fileID: 0}
+    imageType: 1
+    pixelsPerUnit: 0.75
+    ratio: 1
+    isStatic: 1
+    transition:
+      transitionType: 0
+      spriteState:
+        m_HighlightedSprite: {fileID: 0}
+        m_PressedSprite: {fileID: 0}
+        m_SelectedSprite: {fileID: 0}
+        m_DisabledSprite: {fileID: 0}
+      colorBlock:
+        m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+        m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+        m_ColorMultiplier: 0
+        m_FadeDuration: 0
+      animationTriggers:
+        m_NormalTrigger: Normal
+        m_HighlightedTrigger: Highlighted
+        m_PressedTrigger: Pressed
+        m_SelectedTrigger: Selected
+        m_DisabledTrigger: Disabled
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
     uniqueID: 8551
     name: Slider Fill
     baseSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
@@ -424,6 +455,37 @@ MonoBehaviour:
     imageType: 1
     pixelsPerUnit: 0.25
     ratio: 0
+    isStatic: 1
+    transition:
+      transitionType: 0
+      spriteState:
+        m_HighlightedSprite: {fileID: 0}
+        m_PressedSprite: {fileID: 0}
+        m_SelectedSprite: {fileID: 0}
+        m_DisabledSprite: {fileID: 0}
+      colorBlock:
+        m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+        m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+        m_ColorMultiplier: 0
+        m_FadeDuration: 0
+      animationTriggers:
+        m_NormalTrigger: Normal
+        m_HighlightedTrigger: Highlighted
+        m_PressedTrigger: Pressed
+        m_SelectedTrigger: Selected
+        m_DisabledTrigger: Disabled
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 2568
+    name: Slider/Time Fill
+    baseSprite: {fileID: 0}
+    baseColor: {r: 1, g: 0, b: 0, a: 1}
+    baseMaterial: {fileID: 0}
+    imageType: 0
+    pixelsPerUnit: 1
+    ratio: 1
     isStatic: 1
     transition:
       transitionType: 0
@@ -849,6 +911,37 @@ MonoBehaviour:
         m_PressedTrigger: Pressed
         m_SelectedTrigger: Selected
         m_DisabledTrigger: Disabled
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 2809
+    name: Filter/Black
+    baseSprite: {fileID: 0}
+    baseColor: {r: 0, g: 0, b: 0, a: 0.39215687}
+    baseMaterial: {fileID: 0}
+    imageType: 0
+    pixelsPerUnit: 1
+    ratio: 1
+    isStatic: 1
+    transition:
+      transitionType: 0
+      spriteState:
+        m_HighlightedSprite: {fileID: 0}
+        m_PressedSprite: {fileID: 0}
+        m_SelectedSprite: {fileID: 0}
+        m_DisabledSprite: {fileID: 0}
+      colorBlock:
+        m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+        m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+        m_ColorMultiplier: 0
+        m_FadeDuration: 0
+      animationTriggers:
+        m_NormalTrigger: Normal
+        m_HighlightedTrigger: Highlighted
+        m_PressedTrigger: Pressed
+        m_SelectedTrigger: Selected
+        m_DisabledTrigger: Disabled
   IconImageStyleSheets:
   - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
     uniqueID: 4763
@@ -915,6 +1008,37 @@ MonoBehaviour:
   - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
     uniqueID: 6254
     name: Slider Handle
+    baseSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    baseColor: {r: 1, g: 1, b: 1, a: 1}
+    baseMaterial: {fileID: 0}
+    imageType: 0
+    pixelsPerUnit: 1
+    ratio: 1
+    isStatic: 1
+    transition:
+      transitionType: 0
+      spriteState:
+        m_HighlightedSprite: {fileID: 0}
+        m_PressedSprite: {fileID: 0}
+        m_SelectedSprite: {fileID: 0}
+        m_DisabledSprite: {fileID: 0}
+      colorBlock:
+        m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+        m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+        m_ColorMultiplier: 0
+        m_FadeDuration: 0
+      animationTriggers:
+        m_NormalTrigger: Normal
+        m_HighlightedTrigger: Highlighted
+        m_PressedTrigger: Pressed
+        m_SelectedTrigger: Selected
+        m_DisabledTrigger: Disabled
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 8283
+    name: Slider/Time Handle
     baseSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     baseColor: {r: 1, g: 1, b: 1, a: 1}
     baseMaterial: {fileID: 0}
@@ -1041,6 +1165,68 @@ MonoBehaviour:
     name: Quit Icon
     baseSprite: {fileID: 21300000, guid: 8753adc7a63d58f4786a5ab2bb2c7cdb, type: 3}
     baseColor: {r: 0, g: 0, b: 0, a: 1}
+    baseMaterial: {fileID: 0}
+    imageType: 0
+    pixelsPerUnit: 1
+    ratio: 1
+    isStatic: 1
+    transition:
+      transitionType: 0
+      spriteState:
+        m_HighlightedSprite: {fileID: 0}
+        m_PressedSprite: {fileID: 0}
+        m_SelectedSprite: {fileID: 0}
+        m_DisabledSprite: {fileID: 0}
+      colorBlock:
+        m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+        m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+        m_ColorMultiplier: 0
+        m_FadeDuration: 0
+      animationTriggers:
+        m_NormalTrigger: Normal
+        m_HighlightedTrigger: Highlighted
+        m_PressedTrigger: Pressed
+        m_SelectedTrigger: Selected
+        m_DisabledTrigger: Disabled
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 7333
+    name: Play Icon
+    baseSprite: {fileID: 21300000, guid: 0873731eec2c8ed4180e9282e48e1d1e, type: 3}
+    baseColor: {r: 1, g: 1, b: 1, a: 1}
+    baseMaterial: {fileID: 0}
+    imageType: 0
+    pixelsPerUnit: 1
+    ratio: 1
+    isStatic: 1
+    transition:
+      transitionType: 0
+      spriteState:
+        m_HighlightedSprite: {fileID: 0}
+        m_PressedSprite: {fileID: 0}
+        m_SelectedSprite: {fileID: 0}
+        m_DisabledSprite: {fileID: 0}
+      colorBlock:
+        m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+        m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+        m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+        m_ColorMultiplier: 0
+        m_FadeDuration: 0
+      animationTriggers:
+        m_NormalTrigger: Normal
+        m_HighlightedTrigger: Highlighted
+        m_PressedTrigger: Pressed
+        m_SelectedTrigger: Selected
+        m_DisabledTrigger: Disabled
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 206
+    name: Pause Icon
+    baseSprite: {fileID: 21300000, guid: 7de85d6b4b276b04a870f927b61f4c2a, type: 3}
+    baseColor: {r: 1, g: 1, b: 1, a: 1}
     baseMaterial: {fileID: 0}
     imageType: 0
     pixelsPerUnit: 1
@@ -1477,6 +1663,53 @@ MonoBehaviour:
       type: 0
       styleSheetUID: 1107
       name: Text type
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 7672
+    name: Play Pause
+    backgroundActive: 0
+    backgroundStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 12
+      styleSheetUID: 443
+      name: Background
+    trueBackground: 0
+    trueBackgroundStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 12
+      styleSheetUID: 443
+      name: True Background
+    checkmarkActive: 1
+    checkmarkIsImage: 1
+    checkmarkScale: 1
+    checkmarkImageStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 13
+      styleSheetUID: 206
+      name: Checkmark Image
+    checkmarkTextStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 0
+      styleSheetUID: 1107
+      name: Checkmark Text type
+    uncheckmarkActive: 1
+    uncheckmarkIsImage: 1
+    uncheckmarkScale: 1
+    uncheckmarkImageStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 13
+      styleSheetUID: 7333
+      name: Uncheckmark Image
+    uncheckmarkTextStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 0
+      styleSheetUID: 1107
+      name: Uncheckmark Text type
+    textActive: 0
+    textStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 0
+      styleSheetUID: 1107
+      name: Text type
   DropdownItemToggleStyleSheets:
   - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
     uniqueID: 3971
@@ -1732,6 +1965,63 @@ MonoBehaviour:
       serializedVersion: 2
       key0: {r: 1, g: 0.8632076, b: 0.8632076, a: 1}
       key1: {r: 1, g: 0, b: 0, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+  - container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 6552
+    name: Time
+    backgroundActive: 1
+    backgroundStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 12
+      styleSheetUID: 5390
+      name: Background
+    fillActive: 1
+    fillStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 12
+      styleSheetUID: 2568
+      name: Fill
+    handleActive: 1
+    handleStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 13
+      styleSheetUID: 8283
+      name: Handle
+    textActive: 0
+    textStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 0
+      styleSheetUID: 1107
+      name: Text type
+    isGradient: 0
+    sliderGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

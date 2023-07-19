@@ -107,7 +107,7 @@ namespace Dhs5.AdvancedUI
 
         #region Public Accessors & Methods
 
-        public bool State { get { return toggle.isOn; } set { toggle.isOn = value; } }
+        public bool State { get { return toggle.isOn; } set { toggle.isOn = value; isOn = value; } }
         public ToggleGroup Group { get => toggle.group; set => toggle.group = value; }
 
         public void ActuState()

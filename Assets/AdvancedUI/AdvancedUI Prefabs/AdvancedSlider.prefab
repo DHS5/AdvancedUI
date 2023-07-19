@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.01}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.5
+  m_PixelsPerUnitMultiplier: 0.25
 --- !u!114 &2234166384642754111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.5
+  m_PixelsPerUnitMultiplier: 0.25
 --- !u!1 &8278582519435463469
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.5
+  m_PixelsPerUnitMultiplier: 0.25
 --- !u!114 &2405478823776654733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 8278582519734305531}
   - component: {fileID: 8278582519734305533}
   - component: {fileID: 8278582519734305532}
+  - component: {fileID: 971973976715726824}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -301,7 +302,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -326,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -343,6 +344,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &971973976715726824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278582519734305530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 2
+  m_AspectRatio: 1
 --- !u!1 &8278582520759688131
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +449,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1060e198f3e2042b825759a3c36f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderType: 0
+  styleSheetContainer: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+  sliderStylePicker:
+    container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    type: 5
+    styleSheetUID: 9961
+    name: Slider type
   sliderContent:
     minValue: 0
     maxValue: 1
@@ -449,104 +469,35 @@ MonoBehaviour:
   onButtonUp:
     m_PersistentCalls:
       m_Calls: []
+  custom: 0
   customStyleSheet:
+    container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+    uniqueID: 0
+    name: 
     backgroundActive: 1
-    backgroundStyleSheet:
-      baseSprite: {fileID: 0}
-      baseColor: {r: 0, g: 0, b: 0, a: 0}
-      baseMaterial: {fileID: 0}
-      imageType: 0
-      pixelsPerUnit: 1
-      transition:
-        transitionType: 0
-        spriteState:
-          m_HighlightedSprite: {fileID: 0}
-          m_PressedSprite: {fileID: 0}
-          m_SelectedSprite: {fileID: 0}
-          m_DisabledSprite: {fileID: 0}
-        colorBlock:
-          m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-          m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-          m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
-          m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-          m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
-          m_ColorMultiplier: 0
-          m_FadeDuration: 0
-        animationTriggers:
-          m_NormalTrigger: Normal
-          m_HighlightedTrigger: Highlighted
-          m_PressedTrigger: Pressed
-          m_SelectedTrigger: Selected
-          m_DisabledTrigger: Disabled
+    backgroundStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 12
+      styleSheetUID: 0
+      name: Background
     fillActive: 1
-    fillStyleSheet:
-      baseSprite: {fileID: 0}
-      baseColor: {r: 0, g: 0, b: 0, a: 0}
-      baseMaterial: {fileID: 0}
-      imageType: 0
-      pixelsPerUnit: 1
-      transition:
-        transitionType: 0
-        spriteState:
-          m_HighlightedSprite: {fileID: 0}
-          m_PressedSprite: {fileID: 0}
-          m_SelectedSprite: {fileID: 0}
-          m_DisabledSprite: {fileID: 0}
-        colorBlock:
-          m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-          m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-          m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
-          m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-          m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
-          m_ColorMultiplier: 0
-          m_FadeDuration: 0
-        animationTriggers:
-          m_NormalTrigger: Normal
-          m_HighlightedTrigger: Highlighted
-          m_PressedTrigger: Pressed
-          m_SelectedTrigger: Selected
-          m_DisabledTrigger: Disabled
+    fillStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 12
+      styleSheetUID: 0
+      name: Fill
     handleActive: 1
-    handleStyleSheet:
-      baseSprite: {fileID: 0}
-      baseColor: {r: 0, g: 0, b: 0, a: 0}
-      baseMaterial: {fileID: 0}
-      imageType: 0
-      pixelsPerUnit: 1
-      transition:
-        transitionType: 0
-        spriteState:
-          m_HighlightedSprite: {fileID: 0}
-          m_PressedSprite: {fileID: 0}
-          m_SelectedSprite: {fileID: 0}
-          m_DisabledSprite: {fileID: 0}
-        colorBlock:
-          m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-          m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-          m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
-          m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-          m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
-          m_ColorMultiplier: 0
-          m_FadeDuration: 0
-        animationTriggers:
-          m_NormalTrigger: Normal
-          m_HighlightedTrigger: Highlighted
-          m_PressedTrigger: Pressed
-          m_SelectedTrigger: Selected
-          m_DisabledTrigger: Disabled
+    handleStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 13
+      styleSheetUID: 0
+      name: Handle
     textActive: 1
-    textStyleSheet:
-      font: {fileID: 0}
-      fontStyle: 0
-      alignment: 0
-      transition:
-        m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-        m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-        m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
-        m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-        m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
-        m_ColorMultiplier: 0
-        m_FadeDuration: 0
+    textStylePicker:
+      container: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
+      type: 0
+      styleSheetUID: 0
+      name: Text type
     isGradient: 0
     sliderGradient:
       serializedVersion: 2
@@ -577,10 +528,11 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-  styleSheetContainer: {fileID: 11400000, guid: b47546c30472f5c4e8e233922de332c4, type: 2}
   slider: {fileID: 8278582521236354882}
   backgroundImage: {fileID: 8278582519384796558}
+  fillMask: {fileID: 3248574470491499163}
   handle: {fileID: 8278582519734305532}
+  handleRatioFitter: {fileID: 971973976715726824}
   fill: {fileID: 8278582519435463471}
   sliderText: {fileID: 8275361327847255213}
 --- !u!114 &8278582521236354882
@@ -748,7 +700,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
