@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using System;
 
 namespace Dhs5.AdvancedUI
 {
@@ -23,11 +24,11 @@ namespace Dhs5.AdvancedUI
         [SerializeField] private AdvancedToggle playPauseToggle;
         [SerializeField] private AdvancedSlider timeSlider;
 
+        public event Action onSetRatio;
+
         private bool isPlaying;
         private bool canStart;
         private bool canUnsuspend;
-
-        readonly float timePrecision = 0.01f;
 
         private void Awake()
         {
@@ -100,6 +101,7 @@ namespace Dhs5.AdvancedUI
         }
         private void End(VideoPlayer vp)
         {
+            isPlaying = false;
             videoPlayer.frame = 0;
             playPauseToggle.State = false;
         }
@@ -152,6 +154,11 @@ namespace Dhs5.AdvancedUI
         {
             ratioFitter.aspectRatio = (float)vp.width / vp.height;
             mainRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, rawImage.rectTransform.rect.height);
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainRect);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainRect);
+
+            onSetRatio?.Invoke();
         }
     }
 }

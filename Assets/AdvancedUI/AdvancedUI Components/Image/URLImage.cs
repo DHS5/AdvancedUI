@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using System;
 
 namespace Dhs5.AdvancedUI
 {
@@ -15,6 +16,8 @@ namespace Dhs5.AdvancedUI
         [Header("References")]
         [SerializeField] private RawImage image;
         [SerializeField] private AspectRatioFitter ratioFitter;
+
+        public event Action onSetRatio;
 
         private void Start()
         {
@@ -43,7 +46,8 @@ namespace Dhs5.AdvancedUI
         {
             ratioFitter.aspectRatio = (float)texture.width / texture.height;
             rawImage.texture = texture;
-            return;
+
+            onSetRatio?.Invoke();
         }
     }
 }
